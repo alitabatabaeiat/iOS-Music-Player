@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let ctrl = MainTabBarController()
+        
+        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.ir.alitabatabaei.Music-Player")
+        do {
+            if let container = container {
+                
+                let dir = container.appendingPathComponent("sharedSongs")
+                
+                if FileManager.default.fileExists(atPath: dir.path) {
+                    let items = try FileManager.default.contentsOfDirectory(atPath: dir.path)
+                    
+                    addAllSongs(from: dir, songs: items, to: ctrl)
+                } else {
+                    // file or directory does not exist
+                    try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: false, attributes: nil)
+                }
+            }
+        } catch let error as NSError {
+            print(error.description)
+        }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = ctrl
+        
         return true
     }
 
@@ -91,3 +117,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        let ctrl = MainTabBarController()
+        
+        do {
+            guard let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.ir.alitabatabaei.Music-Player") else { return false }
+            let dir = container.appendingPathComponent("sharedSongs")
+            let items = try FileManager.default.contentsOfDirectory(atPath: dir.path)
+            
+            addAllSongs(from: dir, songs: items, to: ctrl)
+        } catch let error {
+            print("filemanager: \(error)")
+        }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = ctrl
+        
+        return true
+    }
+    
+    private func addAllSongs(from dir: URL, songs: [String], to ctrl: MainTabBarController) {
+        ctrl.songsVC.songs.removeAll()
+        
+        for item in songs {
+            let url = dir.appendingPathComponent(item)
+            let playerItem = AVPlayerItem(url: url)
+            let song = Song(playerItem: playerItem)
+            setSongInfo(song)
+            
+            ctrl.songsVC.songs.append(song)
+        }
+    }
+    
+    private func setSongInfo(_ song: Song) {
+        for item in song.playerItem.asset.metadata {
+    
+            guard let key = item.commonKey?.rawValue, let value = item.value else {
+                continue
+            }
+    
+            switch key {
+                case "title" : song.title = value as? String
+                case "artist" : song.artist = value as? String
+                case "artwork" where value is Data : song.artwork = UIImage(data: value as! Data)
+                default: continue
+            }
+        }
+    }
+}

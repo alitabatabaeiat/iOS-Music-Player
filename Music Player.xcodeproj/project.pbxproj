@@ -7,27 +7,94 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		342B79F021B871DC00586DA3 /* MPHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342B79EF21B871DC00586DA3 /* MPHeaderView.swift */; };
+		3441A43821B806470073449E /* MPNowPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3441A43721B806470073449E /* MPNowPlayingView.swift */; };
+		3441A43B21B80BCC0073449E /* Raleway-v4020-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3441A43A21B80BCC0073449E /* Raleway-v4020-Regular.otf */; };
+		3441A43E21B85FA30073449E /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3441A43D21B85FA30073449E /* Song.swift */; };
+		3441A44021B8667C0073449E /* MPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3441A43F21B8667C0073449E /* MPButton.swift */; };
 		34F0BD4A21B31E14007436EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD4921B31E14007436EF /* AppDelegate.swift */; };
-		34F0BD4C21B31E14007436EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD4B21B31E14007436EF /* ViewController.swift */; };
-		34F0BD4F21B31E14007436EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F0BD4D21B31E14007436EF /* Main.storyboard */; };
+		34F0BD4C21B31E14007436EF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD4B21B31E14007436EF /* MainTabBarController.swift */; };
 		34F0BD5221B31E14007436EF /* Music_Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD5021B31E14007436EF /* Music_Player.xcdatamodeld */; };
 		34F0BD5421B31E17007436EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F0BD5321B31E17007436EF /* Assets.xcassets */; };
 		34F0BD5721B31E17007436EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F0BD5521B31E17007436EF /* LaunchScreen.storyboard */; };
+		34F0BD6221B31EF9007436EF /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD6121B31EF9007436EF /* SongsViewController.swift */; };
+		34F0BD6421B31F81007436EF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD6321B31F81007436EF /* SearchViewController.swift */; };
+		34F0BD6621B31F90007436EF /* PlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD6521B31F90007436EF /* PlaylistsViewController.swift */; };
+		34F0BD6921B321DA007436EF /* MPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD6821B321DA007436EF /* MPTableView.swift */; };
+		34F0BD6B21B32212007436EF /* MPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD6A21B32212007436EF /* MPTableViewCell.swift */; };
+		34F0BD7021B325B7007436EF /* MPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD6F21B325B7007436EF /* MPImageView.swift */; };
+		34F0BD7321B32630007436EF /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD7221B32630007436EF /* extension.swift */; };
+		34F0BD7521B32793007436EF /* MPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD7421B32793007436EF /* MPLabel.swift */; };
+		34F0BD7D21B32D39007436EF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD7C21B32D39007436EF /* ShareViewController.swift */; };
+		34F0BD8421B32D39007436EF /* Copy to Music Player.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 34F0BD7A21B32D39007436EF /* Copy to Music Player.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8899B2BCD3F95620CE4A21D1 /* Pods_Music_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2910B7BF9B6B2141A31EFF64 /* Pods_Music_Player.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		34F0BD8221B32D39007436EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34F0BD3E21B31E14007436EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34F0BD7921B32D39007436EF;
+			remoteInfo = "Copy to Music Player";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		34F0BD8821B32D39007436EF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				34F0BD8421B32D39007436EF /* Copy to Music Player.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0111CF2463941D01380DD69F /* Pods-Music Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Music Player/Pods-Music Player.debug.xcconfig"; sourceTree = "<group>"; };
+		2910B7BF9B6B2141A31EFF64 /* Pods_Music_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		342B79EF21B871DC00586DA3 /* MPHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPHeaderView.swift; sourceTree = "<group>"; };
+		3441A43721B806470073449E /* MPNowPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPNowPlayingView.swift; sourceTree = "<group>"; };
+		3441A43A21B80BCC0073449E /* Raleway-v4020-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-v4020-Regular.otf"; path = "../../../Todo list/Todo list/fonts/Raleway-v4020-Regular.otf"; sourceTree = "<group>"; };
+		3441A43D21B85FA30073449E /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		3441A43F21B8667C0073449E /* MPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPButton.swift; sourceTree = "<group>"; };
 		34F0BD4621B31E14007436EF /* Music Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F0BD4921B31E14007436EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		34F0BD4B21B31E14007436EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		34F0BD4E21B31E14007436EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		34F0BD4B21B31E14007436EF /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		34F0BD5121B31E14007436EF /* Music_Player.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Music_Player.xcdatamodel; sourceTree = "<group>"; };
 		34F0BD5321B31E17007436EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34F0BD5621B31E17007436EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34F0BD5821B31E17007436EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34F0BD6121B31EF9007436EF /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
+		34F0BD6321B31F81007436EF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		34F0BD6521B31F90007436EF /* PlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsViewController.swift; sourceTree = "<group>"; };
+		34F0BD6821B321DA007436EF /* MPTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTableView.swift; sourceTree = "<group>"; };
+		34F0BD6A21B32212007436EF /* MPTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTableViewCell.swift; sourceTree = "<group>"; };
+		34F0BD6F21B325B7007436EF /* MPImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPImageView.swift; sourceTree = "<group>"; };
+		34F0BD7221B32630007436EF /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		34F0BD7421B32793007436EF /* MPLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPLabel.swift; sourceTree = "<group>"; };
+		34F0BD7A21B32D39007436EF /* Copy to Music Player.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Copy to Music Player.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34F0BD7C21B32D39007436EF /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		34F0BD8121B32D39007436EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34F0BD8921B32D6D007436EF /* Copy to Music Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Copy to Music Player.entitlements"; sourceTree = "<group>"; };
+		34F0BD8A21B33C2B007436EF /* Music Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Music Player.entitlements"; sourceTree = "<group>"; };
+		364C4D3C5725178CA35A0719 /* Pods-Music Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Music Player/Pods-Music Player.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		34F0BD4321B31E14007436EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8899B2BCD3F95620CE4A21D1 /* Pods_Music_Player.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34F0BD7721B32D39007436EF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,11 +104,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BA54F436B8125573A57E264 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2910B7BF9B6B2141A31EFF64 /* Pods_Music_Player.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3441A43921B80BB00073449E /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3441A43A21B80BCC0073449E /* Raleway-v4020-Regular.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		3441A43C21B85F8C0073449E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3441A43D21B85FA30073449E /* Song.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		34F0BD3D21B31E14007436EF = {
 			isa = PBXGroup;
 			children = (
 				34F0BD4821B31E14007436EF /* Music Player */,
+				34F0BD7B21B32D39007436EF /* Copy To Music Player */,
 				34F0BD4721B31E14007436EF /* Products */,
+				D0688E91DA786ABC1F6A229B /* Pods */,
+				0BA54F436B8125573A57E264 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				34F0BD4621B31E14007436EF /* Music Player.app */,
+				34F0BD7A21B32D39007436EF /* Copy to Music Player.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,14 +152,70 @@
 			isa = PBXGroup;
 			children = (
 				34F0BD4921B31E14007436EF /* AppDelegate.swift */,
-				34F0BD4B21B31E14007436EF /* ViewController.swift */,
-				34F0BD4D21B31E14007436EF /* Main.storyboard */,
+				34F0BD8A21B33C2B007436EF /* Music Player.entitlements */,
+				3441A43C21B85F8C0073449E /* Models */,
+				3441A43921B80BB00073449E /* fonts */,
+				34F0BD7121B32622007436EF /* Extensions */,
+				34F0BD6721B3219F007436EF /* Views */,
+				34F0BD6021B31E5D007436EF /* Controllers */,
 				34F0BD5321B31E17007436EF /* Assets.xcassets */,
 				34F0BD5521B31E17007436EF /* LaunchScreen.storyboard */,
 				34F0BD5821B31E17007436EF /* Info.plist */,
 				34F0BD5021B31E14007436EF /* Music_Player.xcdatamodeld */,
 			);
 			path = "Music Player";
+			sourceTree = "<group>";
+		};
+		34F0BD6021B31E5D007436EF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				34F0BD4B21B31E14007436EF /* MainTabBarController.swift */,
+				34F0BD6121B31EF9007436EF /* SongsViewController.swift */,
+				34F0BD6321B31F81007436EF /* SearchViewController.swift */,
+				34F0BD6521B31F90007436EF /* PlaylistsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		34F0BD6721B3219F007436EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34F0BD6821B321DA007436EF /* MPTableView.swift */,
+				34F0BD6A21B32212007436EF /* MPTableViewCell.swift */,
+				34F0BD6F21B325B7007436EF /* MPImageView.swift */,
+				34F0BD7421B32793007436EF /* MPLabel.swift */,
+				3441A43721B806470073449E /* MPNowPlayingView.swift */,
+				3441A43F21B8667C0073449E /* MPButton.swift */,
+				342B79EF21B871DC00586DA3 /* MPHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		34F0BD7121B32622007436EF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				34F0BD7221B32630007436EF /* extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		34F0BD7B21B32D39007436EF /* Copy To Music Player */ = {
+			isa = PBXGroup;
+			children = (
+				34F0BD8921B32D6D007436EF /* Copy to Music Player.entitlements */,
+				34F0BD7C21B32D39007436EF /* ShareViewController.swift */,
+				34F0BD8121B32D39007436EF /* Info.plist */,
+			);
+			path = "Copy To Music Player";
+			sourceTree = "<group>";
+		};
+		D0688E91DA786ABC1F6A229B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0111CF2463941D01380DD69F /* Pods-Music Player.debug.xcconfig */,
+				364C4D3C5725178CA35A0719 /* Pods-Music Player.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,18 +225,39 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34F0BD5B21B31E17007436EF /* Build configuration list for PBXNativeTarget "Music Player" */;
 			buildPhases = (
+				07C028456EDDA09A64DC5205 /* [CP] Check Pods Manifest.lock */,
 				34F0BD4221B31E14007436EF /* Sources */,
 				34F0BD4321B31E14007436EF /* Frameworks */,
 				34F0BD4421B31E14007436EF /* Resources */,
+				474C2DEE896725624903FCE3 /* [CP] Embed Pods Frameworks */,
+				34F0BD8821B32D39007436EF /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				34F0BD8321B32D39007436EF /* PBXTargetDependency */,
 			);
 			name = "Music Player";
 			productName = "Music Player";
 			productReference = 34F0BD4621B31E14007436EF /* Music Player.app */;
 			productType = "com.apple.product-type.application";
+		};
+		34F0BD7921B32D39007436EF /* Copy to Music Player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34F0BD8721B32D39007436EF /* Build configuration list for PBXNativeTarget "Copy to Music Player" */;
+			buildPhases = (
+				34F0BD7621B32D39007436EF /* Sources */,
+				34F0BD7721B32D39007436EF /* Frameworks */,
+				34F0BD7821B32D39007436EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Copy to Music Player";
+			productName = "Copy to Music Player";
+			productReference = 34F0BD7A21B32D39007436EF /* Copy to Music Player.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -99,6 +271,22 @@
 				TargetAttributes = {
 					34F0BD4521B31E14007436EF = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					34F0BD7921B32D39007436EF = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -116,6 +304,7 @@
 			projectRoot = "";
 			targets = (
 				34F0BD4521B31E14007436EF /* Music Player */,
+				34F0BD7921B32D39007436EF /* Copy to Music Player */,
 			);
 		};
 /* End PBXProject section */
@@ -125,36 +314,110 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3441A43B21B80BCC0073449E /* Raleway-v4020-Regular.otf in Resources */,
 				34F0BD5721B31E17007436EF /* LaunchScreen.storyboard in Resources */,
 				34F0BD5421B31E17007436EF /* Assets.xcassets in Resources */,
-				34F0BD4F21B31E14007436EF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34F0BD7821B32D39007436EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07C028456EDDA09A64DC5205 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Music Player-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		474C2DEE896725624903FCE3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Music Player/Pods-Music Player-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Music Player/Pods-Music Player-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		34F0BD4221B31E14007436EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F0BD6B21B32212007436EF /* MPTableViewCell.swift in Sources */,
+				34F0BD6421B31F81007436EF /* SearchViewController.swift in Sources */,
 				34F0BD5221B31E14007436EF /* Music_Player.xcdatamodeld in Sources */,
-				34F0BD4C21B31E14007436EF /* ViewController.swift in Sources */,
+				34F0BD7321B32630007436EF /* extension.swift in Sources */,
+				3441A44021B8667C0073449E /* MPButton.swift in Sources */,
+				34F0BD6221B31EF9007436EF /* SongsViewController.swift in Sources */,
+				3441A43821B806470073449E /* MPNowPlayingView.swift in Sources */,
+				34F0BD6921B321DA007436EF /* MPTableView.swift in Sources */,
+				34F0BD7021B325B7007436EF /* MPImageView.swift in Sources */,
+				34F0BD7521B32793007436EF /* MPLabel.swift in Sources */,
+				34F0BD4C21B31E14007436EF /* MainTabBarController.swift in Sources */,
+				342B79F021B871DC00586DA3 /* MPHeaderView.swift in Sources */,
+				34F0BD6621B31F90007436EF /* PlaylistsViewController.swift in Sources */,
+				3441A43E21B85FA30073449E /* Song.swift in Sources */,
 				34F0BD4A21B31E14007436EF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34F0BD7621B32D39007436EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34F0BD7D21B32D39007436EF /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		34F0BD4D21B31E14007436EF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34F0BD4E21B31E14007436EF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		34F0BD8321B32D39007436EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34F0BD7921B32D39007436EF /* Copy to Music Player */;
+			targetProxy = 34F0BD8221B32D39007436EF /* PBXContainerItemProxy */;
 		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		34F0BD5521B31E17007436EF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,8 +547,11 @@
 		};
 		34F0BD5C21B31E17007436EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0111CF2463941D01380DD69F /* Pods-Music Player.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Music Player/Music Player.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 733D2MNBWC;
 				INFOPLIST_FILE = "Music Player/Info.plist";
@@ -302,8 +568,11 @@
 		};
 		34F0BD5D21B31E17007436EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 364C4D3C5725178CA35A0719 /* Pods-Music Player.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Music Player/Music Player.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 733D2MNBWC;
 				INFOPLIST_FILE = "Music Player/Info.plist";
@@ -313,6 +582,46 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ir.alitabatabaei.Music-Player";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		34F0BD8521B32D39007436EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Copy to Music Player/Copy to Music Player.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 733D2MNBWC;
+				INFOPLIST_FILE = "Copy to Music Player/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ir.alitabatabaei.Music-Player.Copy-to-Music-Player";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		34F0BD8621B32D39007436EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Copy to Music Player/Copy to Music Player.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 733D2MNBWC;
+				INFOPLIST_FILE = "Copy to Music Player/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ir.alitabatabaei.Music-Player.Copy-to-Music-Player";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,6 +644,15 @@
 			buildConfigurations = (
 				34F0BD5C21B31E17007436EF /* Debug */,
 				34F0BD5D21B31E17007436EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34F0BD8721B32D39007436EF /* Build configuration list for PBXNativeTarget "Copy to Music Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34F0BD8521B32D39007436EF /* Debug */,
+				34F0BD8621B32D39007436EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
