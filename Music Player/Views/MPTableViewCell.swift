@@ -11,15 +11,11 @@ import AVFoundation
 
 class MPTableViewCell: UITableViewCell {
     
-    let container: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return  view
-    }()
-    let artwork = MPImageView()
+    let container = MPView()
+    let artwork = MPImageView(cornerRadius: 4)
     let titleLabel = MPLabel()
     let artistLabel = MPLabel()
+    let horizontalLine = MPView()
     
     var song: Song? {
         didSet {
@@ -38,22 +34,25 @@ class MPTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         
         self.addSubview(self.container)
-        [self.artwork, self.titleLabel, self.artistLabel].forEach { self.container.addSubview($0) }
+        [self.artwork, self.titleLabel, self.artistLabel, self.horizontalLine].forEach { self.container.addSubview($0) }
         
         self.setAnchors()
     }
     
     func setAnchors() {
-        self.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
-        self.container.anchor(top: self.topAnchor, right: self.rightAnchor, bottom: self.bottomAnchor, left: self.leftAnchor, padding: UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0))
+        self.container.anchor(top: self.topAnchor, right: self.rightAnchor, bottom: self.bottomAnchor, left: self.leftAnchor, padding: UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15))
         
-        self.artwork.anchor(top: self.container.topAnchor, right: nil, bottom: self.container.bottomAnchor, left: self.leftAnchor, padding: UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 0))
+        self.artwork.anchor(top: self.container.topAnchor, right: nil, bottom: self.container.bottomAnchor, left: self.container.leftAnchor)
         self.artwork.widthAnchor.constraint(equalTo: self.artwork.heightAnchor).isActive = true
         
-        self.titleLabel.anchor(top: self.artwork.topAnchor, right: self.container.rightAnchor, bottom: nil, left: self.artwork.rightAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
+        self.titleLabel.anchor(top: nil, right: self.container.rightAnchor, bottom: self.centerYAnchor, left: self.artwork.rightAnchor, padding: UIEdgeInsets(top: 0, left: 15, bottom: 2, right: 5))
         
-        self.artistLabel.anchor(top: self.titleLabel.bottomAnchor, right: self.titleLabel.rightAnchor, bottom: nil, left: self.titleLabel.leftAnchor, padding: UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0))
+        self.artistLabel.anchor(top: self.centerYAnchor, right: self.titleLabel.rightAnchor, bottom: nil, left: self.titleLabel.leftAnchor, padding: UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0))
+        
+        self.horizontalLine.anchor(top: nil, right: self.rightAnchor, bottom: self.bottomAnchor, left: self.titleLabel.leftAnchor, size: CGSize(width: 0, height: 0.2))
+        self.horizontalLine.backgroundColor = .gray
     }
     
     required init?(coder aDecoder: NSCoder) {

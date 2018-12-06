@@ -151,6 +151,7 @@ extension AppDelegate {
             
             ctrl.songsVC.songs.append(song)
         }
+        ctrl.songsVC.songs.sort { $0.title < $1.title }
     }
     
     private func setSongInfo(_ song: Song) {
@@ -161,8 +162,8 @@ extension AppDelegate {
             }
     
             switch key {
-                case "title" : song.title = value as? String
-                case "artist" : song.artist = value as? String
+                case "title" : song.title = value as? String ?? ""
+                case "artist" : song.artist = value as? String ?? ""
                 case "artwork" where value is Data : song.artwork = UIImage(data: value as! Data)
                 default: continue
             }

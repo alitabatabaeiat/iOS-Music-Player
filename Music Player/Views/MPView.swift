@@ -1,21 +1,18 @@
 //
-//  MPImageView.swift
+//  MPView.swift
 //  Music Player
 //
-//  Created by Ali Tabatabaei on 12/1/18.
+//  Created by Ali Tabatabaei on 12/6/18.
 //  Copyright © 2018 Ali Tabatabaei. All rights reserved.
 //
 
 import UIKit
 
-class MPImageView: UIImageView {
+class MPView: UIView {
 
-    init(cornerRadius: CGFloat = 0) {
+    init() {
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.layer.cornerRadius = cornerRadius
-        self.clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {

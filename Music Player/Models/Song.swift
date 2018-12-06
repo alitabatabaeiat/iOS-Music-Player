@@ -11,14 +11,14 @@ import AVFoundation
 
 class Song {
     var playerItem: AVPlayerItem!
-    var title: String?
-    var artist: String?
+    var title: String
+    var artist: String
     var artwork: UIImage?
     
     init(playerItem: AVPlayerItem) {
         self.playerItem = playerItem
-        self.title = nil
-        self.artist = nil
+        self.title = ""
+        self.artist = ""
         self.artwork = nil
     }
     

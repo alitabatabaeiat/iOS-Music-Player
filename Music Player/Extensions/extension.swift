@@ -105,3 +105,36 @@ extension UIView {
         return borders
     }
 }
+
+extension UIColor {
+    
+    static let blue0 = UIColor(rgb: 0x64E4FF)
+    static let blue1 = UIColor(rgb: 0x3A7BD5)
+    static let grey0 = UIColor(rgb: 0x9B9B9B)
+    static let grey1 = UIColor(rgb: 0x424242)
+    static let grey2 = UIColor(rgb: 0xf4f6ff)
+    
+    
+    convenience init(red: Int, green: Int, blue: Int) {
+        self.init(
+            red: CGFloat(red) / 255.0,
+            green: CGFloat(green) / 255.0,
+            blue: CGFloat(blue) / 255.0,
+            alpha: 1
+        )
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
+}
+
+extension UIFont {
+    
+    static let raleway = UIFont(name: "Raleway-v4020-Regular", size: 16)
+    static let raleWayBold = UIFont(name: "Raleway-v4020-Bold", size: 16)
+}
