@@ -27,15 +27,10 @@ class ShareViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
-        view.addSubview(button)
-        button.leftAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.topAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        button.addTarget(self, action: #selector(self.redirectToHostApp), for: .touchUpInside)
-        
         self.copySongs()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // delay
+            self.redirectToHostApp()
+        }
     }
     
     func copySongs() {
@@ -78,13 +73,11 @@ class ShareViewController: UIViewController {
     }
     
     @objc func redirectToHostApp() {
-        print("here")
         let url = URL(string: "MusicPlayer://")
         var responder = self as UIResponder?
         let selectorOpenURL = sel_registerName("openURL:")
         
         while (responder != nil) {
-            print("test")
             if (responder?.responds(to: selectorOpenURL))! {
                 let _ = responder?.perform(selectorOpenURL, with: url)
             }
