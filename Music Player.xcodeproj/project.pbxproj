@@ -15,9 +15,11 @@
 		3443024E21B939A30034679A /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443024D21B939A30034679A /* protocol.swift */; };
 		3443025221B964260034679A /* MPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443025121B964260034679A /* MPView.swift */; };
 		3443025421B9731B0034679A /* Raleway-v4020-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3443025321B9731B0034679A /* Raleway-v4020-Bold.otf */; };
+		3443025621B97EBD0034679A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443025521B97EBD0034679A /* Player.swift */; };
+		3443025921B9B7720034679A /* Music_Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3443025721B9B7720034679A /* Music_Player.xcdatamodeld */; };
+		3443025B21BA81380034679A /* OptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443025A21BA81380034679A /* OptionSet.swift */; };
 		34F0BD4A21B31E14007436EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD4921B31E14007436EF /* AppDelegate.swift */; };
 		34F0BD4C21B31E14007436EF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD4B21B31E14007436EF /* MainTabBarController.swift */; };
-		34F0BD5221B31E14007436EF /* Music_Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD5021B31E14007436EF /* Music_Player.xcdatamodeld */; };
 		34F0BD5421B31E17007436EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F0BD5321B31E17007436EF /* Assets.xcassets */; };
 		34F0BD5721B31E17007436EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F0BD5521B31E17007436EF /* LaunchScreen.storyboard */; };
 		34F0BD6221B31EF9007436EF /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD6121B31EF9007436EF /* SongsViewController.swift */; };
@@ -68,10 +70,12 @@
 		3443024D21B939A30034679A /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
 		3443025121B964260034679A /* MPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPView.swift; sourceTree = "<group>"; };
 		3443025321B9731B0034679A /* Raleway-v4020-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-v4020-Bold.otf"; sourceTree = "<group>"; };
+		3443025521B97EBD0034679A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		3443025821B9B7720034679A /* Music_Player.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Music_Player.xcdatamodel; sourceTree = "<group>"; };
+		3443025A21BA81380034679A /* OptionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSet.swift; sourceTree = "<group>"; };
 		34F0BD4621B31E14007436EF /* Music Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F0BD4921B31E14007436EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F0BD4B21B31E14007436EF /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		34F0BD5121B31E14007436EF /* Music_Player.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Music_Player.xcdatamodel; sourceTree = "<group>"; };
 		34F0BD5321B31E17007436EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34F0BD5621B31E17007436EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34F0BD5821B31E17007436EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				3441A43D21B85FA30073449E /* Song.swift */,
+				3443025521B97EBD0034679A /* Player.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,7 +173,7 @@
 				34F0BD5321B31E17007436EF /* Assets.xcassets */,
 				34F0BD5521B31E17007436EF /* LaunchScreen.storyboard */,
 				34F0BD5821B31E17007436EF /* Info.plist */,
-				34F0BD5021B31E14007436EF /* Music_Player.xcdatamodeld */,
+				3443025721B9B7720034679A /* Music_Player.xcdatamodeld */,
 			);
 			path = "Music Player";
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 			children = (
 				34F0BD7221B32630007436EF /* extension.swift */,
 				3443024D21B939A30034679A /* protocol.swift */,
+				3443025A21BA81380034679A /* OptionSet.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,12 +398,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F0BD6B21B32212007436EF /* MPTableViewCell.swift in Sources */,
+				3443025B21BA81380034679A /* OptionSet.swift in Sources */,
 				34F0BD6421B31F81007436EF /* SearchViewController.swift in Sources */,
-				34F0BD5221B31E14007436EF /* Music_Player.xcdatamodeld in Sources */,
 				34F0BD7321B32630007436EF /* extension.swift in Sources */,
 				3441A44021B8667C0073449E /* MPButton.swift in Sources */,
 				3443025221B964260034679A /* MPView.swift in Sources */,
 				34F0BD6221B31EF9007436EF /* SongsViewController.swift in Sources */,
+				3443025921B9B7720034679A /* Music_Player.xcdatamodeld in Sources */,
 				3441A43821B806470073449E /* MPNowPlayingView.swift in Sources */,
 				34F0BD6921B321DA007436EF /* MPTableView.swift in Sources */,
 				34F0BD7021B325B7007436EF /* MPImageView.swift in Sources */,
@@ -407,6 +414,7 @@
 				342B79F021B871DC00586DA3 /* MPHeaderView.swift in Sources */,
 				34F0BD6621B31F90007436EF /* PlaylistsViewController.swift in Sources */,
 				3441A43E21B85FA30073449E /* Song.swift in Sources */,
+				3443025621B97EBD0034679A /* Player.swift in Sources */,
 				34F0BD4A21B31E14007436EF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,12 +680,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		34F0BD5021B31E14007436EF /* Music_Player.xcdatamodeld */ = {
+		3443025721B9B7720034679A /* Music_Player.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				34F0BD5121B31E14007436EF /* Music_Player.xcdatamodel */,
+				3443025821B9B7720034679A /* Music_Player.xcdatamodel */,
 			);
-			currentVersion = 34F0BD5121B31E14007436EF /* Music_Player.xcdatamodel */;
+			currentVersion = 3443025821B9B7720034679A /* Music_Player.xcdatamodel */;
 			path = Music_Player.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

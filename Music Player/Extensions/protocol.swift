@@ -7,9 +7,17 @@
 //
 
 import Foundation
+import AVFoundation
 
 protocol MPNowPlayingViewDelegate {
-    func play()
-    func pause()
-    func next()
+    func play(in nowPlayingView: MPNowPlayingView)
+    func pause(in nowPlayingView: MPNowPlayingView)
+    func next(in nowPlayingView: MPNowPlayingView)
+    func previous(in nowPlayingView: MPNowPlayingView)
+}
+
+protocol PlayerDelegate {
+    func player(_ player: Player, didPlay song: Song?)
+    func player(_ player: Player, didPause song: Song?)
+    func player(_ player: Player, didAdvanceToNext song: Song?)
 }

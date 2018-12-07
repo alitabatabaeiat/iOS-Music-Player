@@ -29,7 +29,7 @@ class MPNowPlayingView: UIView {
     let artistLabel = MPLabel(text: "", fontSize: 12)
     let previousButton: MPButton = {
         let button = MPButton()
-        button.setImage(UIImage(from: .ionicon, code: "ios-play", textColor: .darkGray, backgroundColor: .clear, size: MPNowPlayingView.buttonSize), for: .normal)
+        button.setImage(UIImage(from: .ionicon, code: "ios-rewind", textColor: .darkGray, backgroundColor: .clear, size: MPNowPlayingView.buttonSize), for: .normal)
         
         
         return button
@@ -43,7 +43,7 @@ class MPNowPlayingView: UIView {
     }()
     let nextButton: MPButton = {
         let button = MPButton()
-        button.setImage(UIImage(from: .ionicon, code: "ios-skip-forward", textColor: .darkGray, backgroundColor: .clear, size: MPNowPlayingView.buttonSize), for: .normal)
+        button.setImage(UIImage(from: .ionicon, code: "ios-fastforward", textColor: .darkGray, backgroundColor: .clear, size: MPNowPlayingView.buttonSize), for: .normal)
         
         
         return button
@@ -56,7 +56,7 @@ class MPNowPlayingView: UIView {
         self.backgroundColor = .white
         self.addBorders(edges: [.top], color: .gray, thickness: 0.2)
         
-        [self.artwork, self.titleLabel, self.artistLabel, self.playButton, self.nextButton].forEach { self.addSubview($0) }
+        [self.artwork, self.titleLabel, self.artistLabel, self.playButton, self.nextButton, self.previousButton].forEach { self.addSubview($0) }
         
         self.setAnchors()
         self.setTargets()
@@ -77,6 +77,7 @@ extension MPNowPlayingView {
         
         self.playButton.anchor(top: self.nextButton.topAnchor, right: self.nextButton.leftAnchor, bottom: nil, left: nil, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10), size: MPNowPlayingView.buttonSize)
         
+        self.previousButton.anchor(top: self.nextButton.topAnchor, right: self.playButton.leftAnchor, bottom: nil, left: nil, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10), size: MPNowPlayingView.buttonSize)
         
         self.titleLabel.anchor(top: self.artwork.topAnchor, right: self.playButton.leftAnchor, bottom: nil, left: self.artwork.rightAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
         
@@ -87,6 +88,7 @@ extension MPNowPlayingView {
     private func setTargets() {
         self.playButton.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
         self.nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
+        self.previousButton.addTarget(self, action: #selector(previousButtonPressed), for: .touchUpInside)
     }
     
     func configure(with song: Song) {
@@ -109,10 +111,10 @@ extension MPNowPlayingView {
     @objc func playButtonPressed() {
         if let delegate = self.delegate {
             if !self.isPlaying {
-                delegate.play()
+                delegate.play(in: self)
                 self.play()
             } else {
-                delegate.pause()
+                delegate.pause(in: self)
                 self.pause()
             }
         }
@@ -120,7 +122,13 @@ extension MPNowPlayingView {
     
     @objc func nextButtonPressed() {
         if let delegate = self.delegate {
-            delegate.next()
+            delegate.next(in: self)
+        }
+    }
+    
+    @objc func previousButtonPressed() {
+        if let delegate = self.delegate {
+            delegate.previous(in: self)
         }
     }
 }

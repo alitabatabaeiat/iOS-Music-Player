@@ -12,9 +12,12 @@ import MediaPlayer
 
 class SongsViewController: UIViewController {
     
-    var songs = [Song]()
-    var player: AVQueuePlayer!
-    var currentSong: Song?
+    var songs = [Song]() {
+        didSet {
+            self.player.songs = self.songs
+        }
+    }
+    var player: Player!
     
     let CELL_ID = "cell_id"
     let tableView = MPTableView()
@@ -29,7 +32,7 @@ class SongsViewController: UIViewController {
         button.clipsToBounds = true
         button.backgroundColor = .grey2
         button.setTitleColor(.blue1, for: .normal)
-        button.titleLabel?.font = UIFont.raleWayBold
+        button.titleLabel?.font = UIFont.ralewayBold
         button.titleLabel?.font.withSize(20)
         
         return button
@@ -42,7 +45,7 @@ class SongsViewController: UIViewController {
         button.clipsToBounds = true
         button.backgroundColor = .grey2
         button.setTitleColor(.blue1, for: .normal)
-        button.titleLabel?.font = UIFont.raleWayBold
+        button.titleLabel?.font = UIFont.ralewayBold
         button.titleLabel?.font.withSize(20)
         
         return button
@@ -57,9 +60,10 @@ class SongsViewController: UIViewController {
         
         self.setAnchors()
         self.setTargets()
-        self.setDelegates()
         self.setPlayer()
+        self.setDelegates()
         self.tableView.register(MPTableViewCell.self, forCellReuseIdentifier: self.CELL_ID)
+        print("songsCtrl")
     }
     
     func setAnchors () {
@@ -83,7 +87,13 @@ class SongsViewController: UIViewController {
         self.shuffleButton.addTarget(self, action: #selector(self.shuffleButtonPressed), for: .touchUpInside)
     }
     
+    private func setPlayer() {
+        self.player = Player(songs: self.songs)
+        self.player.setRemoteTransportControls()
+    }
+    
     private func setDelegates() {
+        self.player.delegate = self
         self.nowPlayingView.delegate = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -109,204 +119,63 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? MPTableViewCell, let song = cell.song {
-            if self.currentSong !== song  {
-                if let currentSong = self.currentSong {
-                    currentSong.playerItem.seek(to: .zero, completionHandler: nil)
-                }
-                self.currentSong = song
-                self.setNewQueue(with: song)
-                self.pauseSong()
+            if !self.player.isPlaying(song: song)  {
+                self.player.setNewQueue(with: .all, startingFrom: song)
+                self.player.play()
+            } else {
+                
             }
-            
-            if !self.playSong() {
-                self.pauseSong()
-            }
-            
-            setAudioSession()
         }
     }
 }
 
-extension SongsViewController: MPNowPlayingViewDelegate {
-    func play() {
-        self.playSong()
+extension SongsViewController: MPNowPlayingViewDelegate, PlayerDelegate {
+    
+    func play(in nowPlayingView: MPNowPlayingView) {
+        self.player.play()
     }
     
-    func pause() {
-        self.pauseSong()
+    func pause(in nowPlayingView: MPNowPlayingView) {
+        self.player.pause()
     }
     
-    func next() {
-        self.nextSong()
+    func next(in nowPlayingView: MPNowPlayingView) {
+        self.player.next()
+    }
+    
+    func previous(in nowPlayingView: MPNowPlayingView) {
+        self.player.previous()
+    }
+    
+    
+    func player(_ player: Player, didPlay song: Song?) {
+        if let playingSong = song {
+            self.nowPlayingView.configure(with: playingSong)
+        }
+    }
+    
+    func player(_ player: Player, didPause song: Song?) {
+        self.nowPlayingView.pause()
+    }
+    
+    func player(_ player: Player, didAdvanceToNext song: Song?) {
+        if let playingSong = song {
+            self.nowPlayingView.configure(with: playingSong)
+        }
     }
 }
 
 extension SongsViewController {
     
-    private func setPlayer() {
-        self.player = AVQueuePlayer(playerItem: nil)
-        self.setRemoteTransportControls()
-    }
-    
     @objc private func playButtonPressed() {
         if let song = self.songs.first {
-            self.setNewQueue(with: song)
+            self.player.setNewQueue(with: .all, startingFrom: song)
+            self.player.play()
         }
     }
     
     @objc private func shuffleButtonPressed() {
-        let shuffledSongs = self.songs.shuffled()
-        player.removeAllItems()
-        
-        if let song = shuffledSongs.first, self.player.canInsert(song.playerItem, after: nil) {
-            self.player.insert(song.playerItem, after: nil)
-        }
-        
-        for i in 1 ..< shuffledSongs.count {
-            let song = shuffledSongs[i]
-            if self.player.canInsert(song.playerItem, after: self.player.items().last) {
-                self.player.insert(song.playerItem, after: self.player.items().last)
-            }
-        }
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let keyPath = keyPath {
-            if keyPath == #keyPath(AVQueuePlayer.currentItem) {
-                if let oldItem = change?[NSKeyValueChangeKey.oldKey] as? AVPlayerItem {
-                    oldItem.seek(to: .zero, completionHandler: nil)
-                }
-                if let newItem = change?[NSKeyValueChangeKey.newKey] as? AVPlayerItem {
-                    self.changeCurrentSong(with: newItem)
-                    self.pauseSong()
-                    self.playSong()
-                }
-            }
-        }
-    }
-    
-    private func setNewQueue(with song: Song) {
-        self.player.removeAllItems()
-        
-        self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
-        if self.player.canInsert(song.playerItem, after: nil) {
-            self.player.insert(song.playerItem, after: nil)
-            
-            let songIndex = self.songs.firstIndex { $0 === song }
-            
-            if let songIndex = songIndex {
-                for i in 1 ..< self.songs.count {
-                    let current = (i + songIndex) % self.songs.count
-                    
-                    if self.player.canInsert(self.songs[current].playerItem, after: self.player.items().last) {
-                        self.player.insert(self.songs[current].playerItem, after: self.player.items().last)
-                    }
-                }
-            }
-        }
-    }
-    
-    @discardableResult
-    private func playSong() -> Bool {
-        if self.player.rate == 0, let song = self.currentSong {
-            self.player.play()
-            self.setNowPlayingInfo()
-            self.nowPlayingView.configure(with: song)
-            
-            return true
-        }
-        return false
-    }
-    
-    @discardableResult
-    private func pauseSong() -> Bool {
-        if self.player.rate == 1 {
-            self.player.pause()
-            self.nowPlayingView.pause()
-            
-            return true
-        }
-        return false
-    }
-    
-    @discardableResult
-    private func nextSong() -> Bool {
-        if self.currentSong != nil {
-            self.player.currentItem?.seek(to: .zero, completionHandler: nil)
-            self.player.advanceToNextItem()
-            self.changeCurrentSong(with: self.player.currentItem)
-            self.setNowPlayingInfo()
-            if let currentSong = self.currentSong {
-                self.nowPlayingView.configure(with: currentSong)
-            }
-            return true
-        }
-        return false
-    }
-    
-    private func changeCurrentSong(with newPlayerItem: AVPlayerItem?) {
-        self.currentSong = self.songs.first { $0.playerItem === newPlayerItem }
-    }
-    
-    private func setRemoteTransportControls() {
-        // Get the shared MPRemoteCommandCenter
-        let commandCenter = MPRemoteCommandCenter.shared()
-        
-        // Add handler for Play Command
-        commandCenter.playCommand.isEnabled = true
-        commandCenter.playCommand.addTarget { [unowned self] event in
-            if self.playSong() {
-                return .success
-            }
-            return .commandFailed
-        }
-        
-        // Add handler for Pause Command
-        commandCenter.pauseCommand.isEnabled = true
-        commandCenter.pauseCommand.addTarget { [unowned self] event in
-            if self.pauseSong() {
-                return .success
-            }
-            return .commandFailed
-        }
-        
-        // Add handler for Next Track Command
-        commandCenter.nextTrackCommand.isEnabled = true
-        commandCenter.nextTrackCommand.addTarget { [unowned self] event in
-            if self.nextSong() {
-                return .success
-            }
-            return .commandFailed
-        }
-    }
-    
-    private func setNowPlayingInfo() {
-        
-        guard let song = self.currentSong, let playerItem = song.playerItem else { return }
-        // Define Now Playing Info
-        var nowPlayingInfo = [String : Any]()
-        
-        nowPlayingInfo[MPMediaItemPropertyTitle] = song.title
-        nowPlayingInfo[MPMediaItemPropertyArtist] = song.artist
-        if let image = song.artwork {
-            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
-                    return image
-            }
-        }
-        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = playerItem.currentTime().seconds
-        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = playerItem.asset.duration.seconds
-        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = self.player.rate
-        
-        // Set the metadata
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
-    }
-    
-    private func setAudioSession() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: .allowAirPlay)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch let ex {
-            print(ex.localizedDescription)
-        }
+        self.player.setNewQueue(with: .shuffled, startingFrom: nil)
+        self.player.play()
     }
 }

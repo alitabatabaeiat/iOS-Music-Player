@@ -40,9 +40,9 @@ class MPTableViewCell: UITableViewCell {
     }
     
     func setAnchors() {
-        self.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-        self.container.anchor(top: self.topAnchor, right: self.rightAnchor, bottom: self.bottomAnchor, left: self.leftAnchor, padding: UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15))
+        self.container.anchor(top: self.topAnchor, right: self.rightAnchor, bottom: self.bottomAnchor, left: self.leftAnchor, padding: UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15))
         
         self.artwork.anchor(top: self.container.topAnchor, right: nil, bottom: self.container.bottomAnchor, left: self.container.leftAnchor)
         self.artwork.widthAnchor.constraint(equalTo: self.artwork.heightAnchor).isActive = true

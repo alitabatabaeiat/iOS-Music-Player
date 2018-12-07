@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let ctrl = MainTabBarController()
+        var songs = [Song]()
         
         let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.ir.alitabatabaei.Music-Player")
         do {
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if FileManager.default.fileExists(atPath: dir.path) {
                     let items = try FileManager.default.contentsOfDirectory(atPath: dir.path)
                     
-                    addAllSongs(from: dir, songs: items, to: ctrl)
+                    songs = getAllSongs(from: dir, songs: items)
                 } else {
                     // file or directory does not exist
                     try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: false, attributes: nil)
@@ -39,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(error.description)
         }
         
+        let ctrl = MainTabBarController()
+        ctrl.songsVC.songs = songs
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = ctrl
@@ -121,18 +123,20 @@ extension AppDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        let ctrl = MainTabBarController()
+        var songs = [Song]()
         
         do {
             guard let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.ir.alitabatabaei.Music-Player") else { return false }
             let dir = container.appendingPathComponent("sharedSongs")
             let items = try FileManager.default.contentsOfDirectory(atPath: dir.path)
             
-            addAllSongs(from: dir, songs: items, to: ctrl)
+            songs = getAllSongs(from: dir, songs: items)
         } catch let error {
             print("filemanager: \(error)")
         }
         
+        let ctrl = MainTabBarController()
+        ctrl.songsVC.songs = songs
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = ctrl
@@ -140,18 +144,18 @@ extension AppDelegate {
         return true
     }
     
-    private func addAllSongs(from dir: URL, songs: [String], to ctrl: MainTabBarController) {
-        ctrl.songsVC.songs.removeAll()
-        
+    private func getAllSongs(from dir: URL, songs: [String]) -> [Song] {
+        var allSongs = [Song]()
         for item in songs {
             let url = dir.appendingPathComponent(item)
             let playerItem = AVPlayerItem(url: url)
             let song = Song(playerItem: playerItem)
             setSongInfo(song)
             
-            ctrl.songsVC.songs.append(song)
+            allSongs.append(song)
         }
-        ctrl.songsVC.songs.sort { $0.title < $1.title }
+        allSongs.sort { $0.title < $1.title }
+        return allSongs
     }
     
     private func setSongInfo(_ song: Song) {

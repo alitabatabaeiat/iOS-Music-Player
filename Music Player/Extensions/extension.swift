@@ -136,5 +136,5 @@ extension UIColor {
 extension UIFont {
     
     static let raleway = UIFont(name: "Raleway-v4020-Regular", size: 16)
-    static let raleWayBold = UIFont(name: "Raleway-v4020-Bold", size: 16)
+    static let ralewayBold = UIFont(name: "Raleway-v4020-Bold", size: 16)
 }
