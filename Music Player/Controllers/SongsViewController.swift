@@ -67,35 +67,15 @@ class SongsViewController: UIViewController {
     }
     
     func setAnchors () {
-        if #available(iOS 11.0, *) {
-            self.headerView.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, right: self.view.safeAreaLayoutGuide.rightAnchor, bottom: nil, left: self.view.safeAreaLayoutGuide.leftAnchor, size: CGSize(width: 0, height: 50))
-        } else {
-            self.headerView.anchor(top: self.view.topAnchor, right: self.view.rightAnchor, bottom: nil, left: self.view.leftAnchor, size: CGSize(width: 0, height: 50))
-        }
-
-        if #available(iOS 11.0, *) {
-            self.buttonContainer.anchor(top: self.headerView.bottomAnchor, right: self.view.safeAreaLayoutGuide.rightAnchor, bottom: nil, left: self.view.safeAreaLayoutGuide.leftAnchor, size: CGSize(width: 0, height: 60))
-        } else {
-            self.buttonContainer.anchor(top: self.headerView.bottomAnchor, right: self.view.rightAnchor, bottom: nil, left: self.view.leftAnchor, size: CGSize(width: 0, height: 60))
-        }
+        self.headerView.anchor(top: self.view.safeAreaTopAnchor(), right: self.view.safeAreaRightAnchor(), bottom: nil, left: self.view.safeAreaLeftAnchor(), size: CGSize(width: 0, height: 50))
         
-        if #available(iOS 11.0, *) {
-            self.tableView.anchor(top: self.buttonContainer.bottomAnchor, right: self.view.safeAreaLayoutGuide.rightAnchor, bottom: self.nowPlayingView.topAnchor, left: self.view.safeAreaLayoutGuide.leftAnchor)
-        } else {
-            self.tableView.anchor(top: self.buttonContainer.bottomAnchor, right: self.view.rightAnchor, bottom: self.nowPlayingView.topAnchor, left: self.view.leftAnchor)
-        }
+        self.buttonContainer.anchor(top: self.headerView.bottomAnchor, right: self.view.safeAreaRightAnchor(), bottom: nil, left: self.view.safeAreaLeftAnchor(), size: CGSize(width: 0, height: 60))
         
-        if #available(iOS 11.0, *) {
-            self.nowPlayingView.anchor(top: nil, right: self.view.safeAreaLayoutGuide.rightAnchor, bottom: self.view.safeAreaLayoutGuide.bottomAnchor, left: self.view.safeAreaLayoutGuide.leftAnchor, size: CGSize(width: 0, height: 60))
-        } else {
-            self.nowPlayingView.anchor(top: nil, right: self.view.rightAnchor, bottom: self.view.bottomAnchor, left: self.view.leftAnchor, size: CGSize(width: 0, height: 60))
-        }
+        self.tableView.anchor(top: self.buttonContainer.bottomAnchor, right: self.view.safeAreaRightAnchor(), bottom: self.nowPlayingView.topAnchor, left: self.view.safeAreaLeftAnchor())
         
-        if #available(iOS 11.0, *) {
-            self.nowPlayingView.anchor(top: nil, right: self.view.safeAreaLayoutGuide.rightAnchor, bottom: self.view.safeAreaLayoutGuide.bottomAnchor, left: self.view.safeAreaLayoutGuide.leftAnchor, size: CGSize(width: 0, height: 60))
-        } else {
-            self.nowPlayingView.anchor(top: nil, right: self.view.rightAnchor, bottom: self.view.bottomAnchor, left: self.view.leftAnchor, size: CGSize(width: 0, height: 60))
-        }
+        self.nowPlayingView.anchor(top: nil, right: self.view.safeAreaRightAnchor(), bottom: self.view.safeAreaBottomAnchor(), left: self.view.safeAreaLeftAnchor(), size: CGSize(width: 0, height: 60))
+        
+        self.nowPlayingView.anchor(top: nil, right: self.view.safeAreaRightAnchor(), bottom: self.view.safeAreaBottomAnchor(), left: self.view.safeAreaLeftAnchor(), size: CGSize(width: 0, height: 60))
         
         self.playButton.centerYAnchor.constraint(equalTo: self.buttonContainer.centerYAnchor).isActive = true
         self.playButton.anchor(top: nil, right: self.buttonContainer.centerXAnchor, bottom: nil, left: self.buttonContainer.leftAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10), size: CGSize(width: 0, height: 40))

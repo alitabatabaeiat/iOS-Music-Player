@@ -10,6 +10,38 @@ import UIKit
 
 extension UIView {
     
+    func safeAreaTopAnchor() -> NSLayoutYAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.topAnchor
+        } else {
+            return self.topAnchor
+        }
+    }
+    
+    func safeAreaBottomAnchor() -> NSLayoutYAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.bottomAnchor
+        } else {
+            return self.bottomAnchor
+        }
+    }
+    
+    func safeAreaLeftAnchor() -> NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.leftAnchor
+        } else {
+            return self.leftAnchor
+        }
+    }
+    
+    func safeAreaRightAnchor() -> NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.rightAnchor
+        } else {
+            return self.rightAnchor
+        }
+    }
+    
     @discardableResult
     func fillSuperview() -> [String:NSLayoutConstraint] {
         return anchor(top: superview?.topAnchor, right: superview?.rightAnchor, bottom: superview?.bottomAnchor, left: superview?.leftAnchor)
