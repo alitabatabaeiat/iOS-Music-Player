@@ -191,33 +191,33 @@ class Player: NSObject {
         
         // Add handler for Play Command
         commandCenter.playCommand.isEnabled = true
-        commandCenter.playCommand.addTarget { [unowned self] event in
+        commandCenter.playCommand.addTarget { event in
             self.play()
             return .success
         }
         
         // Add handler for Pause Command
         commandCenter.pauseCommand.isEnabled = true
-        commandCenter.pauseCommand.addTarget { [unowned self] event in
+        commandCenter.pauseCommand.addTarget { event in
             self.pause()
             return .success
         }
         
         // Add handler for Next Track Command
         commandCenter.nextTrackCommand.isEnabled = true
-        commandCenter.nextTrackCommand.addTarget { [unowned self] event in
+        commandCenter.nextTrackCommand.addTarget { event in
             self.next()
             return .success
         }
         
         commandCenter.previousTrackCommand.isEnabled = true
-        commandCenter.previousTrackCommand.addTarget { [unowned self] event in
+        commandCenter.previousTrackCommand.addTarget { event in
             self.previous()
             return .success
         }
         
         commandCenter.changePlaybackPositionCommand.isEnabled = true
-        commandCenter.changePlaybackPositionCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+        commandCenter.changePlaybackPositionCommand.addTarget { event in
             let event = event as! MPChangePlaybackPositionCommandEvent
             let time = CMTime(seconds: event.positionTime, preferredTimescale: 1)
             self.seek(to: time)
