@@ -96,6 +96,7 @@ class SongsViewController: UIViewController {
     
     private func setDelegates() {
         self.player.delegate = self
+        self.headerView.delegate = self
         self.nowPlayingView.delegate = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -122,7 +123,7 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? MPTableViewCell, let song = cell.song {
             if !self.player.isPlaying(song: song)  {
-                self.player.setNewQueue(with: .all, startingFrom: song)
+                self.player.setNewQueue(with: .default, startingFrom: song)
                 self.player.play()
             } else {
                 
@@ -131,7 +132,35 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension SongsViewController: MPNowPlayingViewDelegate, PlayerDelegate {
+extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate, PlayerDelegate {
+    
+    func headerView(_ headerView: MPHeaderView, didSortButtonPressed button: MPButton) {
+        let alert = UIAlertController(title: "Sort By", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("cancel")
+        })
+        
+        alert.addAction(UIAlertAction(title: "Artist", style: .default) { _ in
+            self.player.sortSongs(by: .ByArtist)
+            self.songs = self.player.songs
+            self.tableView.reloadData()
+        })
+        
+        alert.addAction(UIAlertAction(title: "Title", style: .default) { _ in
+            self.player.sortSongs(by: .ByTitle)
+            self.songs = self.player.songs
+            self.tableView.reloadData()
+        })
+        
+        alert.addAction(UIAlertAction(title: "Recently Added", style: .default) { _ in
+            self.player.sortSongs(by: .ByRecentlyAdded)
+            self.songs = self.player.songs
+            self.tableView.reloadData()
+        })
+        
+        present(alert, animated: true)
+    }
     
     func play(in nowPlayingView: MPNowPlayingView) {
         self.player.play()
@@ -171,13 +200,13 @@ extension SongsViewController {
     
     @objc private func playButtonPressed() {
         if let song = self.songs.first {
-            self.player.setNewQueue(with: .all, startingFrom: song)
+            self.player.setNewQueue(with: .default, startingFrom: song)
             self.player.play()
         }
     }
     
     @objc private func shuffleButtonPressed() {
-        self.player.setNewQueue(with: .shuffled, startingFrom: nil)
+        self.player.setNewQueue(with: .shuffle, startingFrom: nil)
         self.player.play()
     }
 }

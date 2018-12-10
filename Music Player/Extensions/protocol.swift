@@ -9,6 +9,10 @@
 import Foundation
 import AVFoundation
 
+protocol MPHeaderViewDelegate {
+    func headerView(_ headerView: MPHeaderView, didSortButtonPressed button: MPButton)
+}
+
 protocol MPNowPlayingViewDelegate {
     func play(in nowPlayingView: MPNowPlayingView)
     func pause(in nowPlayingView: MPNowPlayingView)

@@ -38,7 +38,21 @@ class Player: NSObject {
         
     }
     
-    func setNewQueue(with songListOption: songListOption, startingFrom song: Song?) {
+    func sortSongs(by sort: Sort) {
+        switch sort {
+            case .ByTitle:
+                self.songs.sort { $0.title < $1.title }
+                break
+            case .ByArtist:
+                self.songs.sort { $0.artist < $1.artist }
+                break
+            case .ByRecentlyAdded:
+                // Not Implemented yet
+                break
+        }
+    }
+    
+    func setNewQueue(with queueOption: Queue, startingFrom song: Song?) {
         self.seek(to: .zero)
         self.player.removeAllItems()
         
@@ -46,18 +60,18 @@ class Player: NSObject {
         
         var startingSong: Song
         var songs = [Song]()
-        if songListOption.contains(.all) {
-            songs = self.songs
-            if let song = song {
-                startingSong = song
-            } else {
+        
+        switch queueOption {
+            case .default:
+                songs = self.songs
+                if let song = song {
+                    startingSong = song
+                } else {
+                    startingSong = songs[0]
+                }
+            case .shuffle:
+                songs = self.songs.shuffled()
                 startingSong = songs[0]
-            }
-        } else if songListOption.contains(.shuffled) {
-            songs = self.songs.shuffled()
-            startingSong = songs[0]
-        } else {
-            return
         }
         self.insertMany(from: songs, startingFrom: startingSong)
     }
