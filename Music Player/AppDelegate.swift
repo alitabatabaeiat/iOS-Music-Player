@@ -15,10 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var songs = [Song]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        var songs = [Song]()
         
         let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.ir.alitabatabaei.Music-Player")
         do {
@@ -40,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let ctrl = MainTabBarController()
-        ctrl.songsVC.songs = songs
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = ctrl
@@ -123,8 +121,6 @@ extension AppDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        var songs = [Song]()
-        
         do {
             guard let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.ir.alitabatabaei.Music-Player") else { return false }
             let dir = container.appendingPathComponent("sharedSongs")
@@ -136,7 +132,6 @@ extension AppDelegate {
         }
         
         let ctrl = MainTabBarController()
-        ctrl.songsVC.songs = songs
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = ctrl

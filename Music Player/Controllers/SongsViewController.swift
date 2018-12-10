@@ -12,11 +12,6 @@ import MediaPlayer
 
 class SongsViewController: UIViewController {
     
-    var songs = [Song]() {
-        didSet {
-            self.player.songs = self.songs
-        }
-    }
     var player: Player!
     
     let CELL_ID = "cell_id"
@@ -90,7 +85,11 @@ class SongsViewController: UIViewController {
     }
     
     private func setPlayer() {
-        self.player = Player(songs: self.songs)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            self.player = Player(songs: appDelegate.songs)
+        } else {
+            self.player = Player()
+        }
         self.player.setRemoteTransportControls()
     }
     
@@ -110,12 +109,12 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.songs.count
+        return self.player.songs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! MPTableViewCell
-        cell.song = self.songs[indexPath.row]
+        cell.song = self.player.songs[indexPath.row]
         
         return cell
     }
@@ -143,19 +142,16 @@ extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate, P
         
         alert.addAction(UIAlertAction(title: "Artist", style: .default) { _ in
             self.player.sortSongs(by: .ByArtist)
-            self.songs = self.player.songs
             self.tableView.reloadData()
         })
         
         alert.addAction(UIAlertAction(title: "Title", style: .default) { _ in
             self.player.sortSongs(by: .ByTitle)
-            self.songs = self.player.songs
             self.tableView.reloadData()
         })
         
         alert.addAction(UIAlertAction(title: "Recently Added", style: .default) { _ in
             self.player.sortSongs(by: .ByRecentlyAdded)
-            self.songs = self.player.songs
             self.tableView.reloadData()
         })
         
@@ -199,7 +195,7 @@ extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate, P
 extension SongsViewController {
     
     @objc private func playButtonPressed() {
-        if let song = self.songs.first {
+        if let song = self.player.songs.first {
             self.player.setNewQueue(with: .default, startingFrom: song)
             self.player.play()
         }
