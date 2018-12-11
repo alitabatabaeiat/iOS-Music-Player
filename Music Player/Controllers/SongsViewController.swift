@@ -12,7 +12,7 @@ import MediaPlayer
 
 class SongsViewController: UIViewController {
     
-    var player: Player!
+    var player = Player.shared
     
     let CELL_ID = "cell_id"
     let tableView = MPTableView()
@@ -86,9 +86,7 @@ class SongsViewController: UIViewController {
     
     private func setPlayer() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            self.player = Player(songs: appDelegate.songs)
-        } else {
-            self.player = Player()
+            self.player.songs = appDelegate.songs
         }
         self.player.setRemoteTransportControls()
     }

@@ -11,6 +11,8 @@ import AVFoundation
 import MediaPlayer
 
 class Player: NSObject {
+    static let shared = Player()
+    
     var delegate: PlayerDelegate?
     var player: AVQueuePlayer
     var songs: [Song]
@@ -26,7 +28,6 @@ class Player: NSObject {
         
         super.init()
         self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
-        
     }
     
     init(songs: [Song]) {
@@ -35,7 +36,6 @@ class Player: NSObject {
         
         super.init()
         self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
-        
     }
     
     func sortSongs(by sort: Sort) {
