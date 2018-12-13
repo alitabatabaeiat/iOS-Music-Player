@@ -14,15 +14,6 @@ import MobileCoreServices
 
 class ShareViewController: UIViewController {
     
-    let button: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("press me", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        
-        return button
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
