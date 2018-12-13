@@ -28,14 +28,7 @@ class Player: NSObject {
         
         super.init()
         self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
-    }
-    
-    init(songs: [Song]) {
-        self.player = AVQueuePlayer()
-        self.songs = songs
-        
-        super.init()
-        self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.audioSessionInterruptionHandler), name: AVAudioSession.interruptionNotification, object: nil)
     }
     
     func sortSongs(by sort: Sort) {
@@ -47,7 +40,7 @@ class Player: NSObject {
                 self.songs.sort { $0.artist < $1.artist }
                 break
             case .ByRecentlyAdded:
-                // Not Implemented yet
+                // TODO: implement after core data modeled
                 break
         }
     }
@@ -264,10 +257,33 @@ class Player: NSObject {
     
     private func setAudioSession() {
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: .allowAirPlay)
-            try AVAudioSession.sharedInstance().setActive(true)
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playback, mode: .default, options: .allowAirPlay)
+            try audioSession.setActive(true)
         } catch let ex {
             print(ex.localizedDescription)
+        }
+    }
+    
+    @objc private func audioSessionInterruptionHandler(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+            let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+            let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+                return
+        }
+        
+        if type == .began {
+           self.pause()
+        }
+        else if type == .ended {
+            guard let optionsValue =
+                userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else {
+                    return
+            }
+            let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
+            if options.contains(.shouldResume) {
+                self.play()
+            }
         }
     }
 }
