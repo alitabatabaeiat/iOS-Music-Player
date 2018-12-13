@@ -139,30 +139,35 @@ extension AppDelegate {
     
     private func getAllSongs(from dir: URL, songsPath: [String]) -> [Song] {
         var songs = [Song]()
-        for item in songsPath {
-            let url = dir.appendingPathComponent(item)
+        for path in songsPath {
+            let url = dir.appendingPathComponent(path)
             let playerItem = AVPlayerItem(url: url)
             let song = Song(playerItem: playerItem)
-            setSongInfo(song)
+            self.setSongInfo(song, fileName: String(path.split(separator: ".")[0]))
             
             songs.append(song)
         }
         return songs
     }
     
-    private func setSongInfo(_ song: Song) {
+    private func setSongInfo(_ song: Song, fileName: String) {
         for item in song.playerItem.asset.metadata {
     
             guard let key = item.commonKey?.rawValue, let value = item.value else {
                 continue
             }
     
+            print(key)
             switch key {
                 case "title" : song.title = value as? String ?? ""
                 case "artist" : song.artist = value as? String ?? ""
                 case "artwork" where value is Data : song.artwork = UIImage(data: value as! Data)
                 default: continue
             }
+        }
+        
+        if song.title == "" {
+            song.title = fileName
         }
     }
 }

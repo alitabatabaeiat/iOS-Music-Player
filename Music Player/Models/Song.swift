@@ -19,7 +19,7 @@ class Song {
         self.playerItem = playerItem
         self.title = ""
         self.artist = ""
-        self.artwork = nil
+        self.artwork = UIImage(named: "music")
     }
     
     init(playerItem: AVPlayerItem, title: String, artist: String, artwork: UIImage?) {
