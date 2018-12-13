@@ -15,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var songs = [Song]()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.ir.alitabatabaei.Music-Player")
@@ -28,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if FileManager.default.fileExists(atPath: dir.path) {
                     let items = try FileManager.default.contentsOfDirectory(atPath: dir.path)
                     
-                    songs = getAllSongs(from: dir, songs: items)
+                    Player.shared.songs = getAllSongs(from: dir, songsPath: items)
                 } else {
                     // file or directory does not exist
                     try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: false, attributes: nil)
@@ -126,7 +124,7 @@ extension AppDelegate {
             let dir = container.appendingPathComponent("sharedSongs")
             let items = try FileManager.default.contentsOfDirectory(atPath: dir.path)
             
-            songs = getAllSongs(from: dir, songs: items)
+            Player.shared.songs = getAllSongs(from: dir, songsPath: items)
         } catch let error {
             print("filemanager: \(error)")
         }
@@ -139,18 +137,17 @@ extension AppDelegate {
         return true
     }
     
-    private func getAllSongs(from dir: URL, songs: [String]) -> [Song] {
-        var allSongs = [Song]()
-        for item in songs {
+    private func getAllSongs(from dir: URL, songsPath: [String]) -> [Song] {
+        var songs = [Song]()
+        for item in songsPath {
             let url = dir.appendingPathComponent(item)
             let playerItem = AVPlayerItem(url: url)
             let song = Song(playerItem: playerItem)
             setSongInfo(song)
             
-            allSongs.append(song)
+            songs.append(song)
         }
-        allSongs.sort { $0.title < $1.title }
-        return allSongs
+        return songs
     }
     
     private func setSongInfo(_ song: Song) {

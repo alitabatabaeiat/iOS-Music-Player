@@ -27,22 +27,17 @@ class ShareViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        self.copySongs()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // delay
-            self.redirectToHostApp()
-        }
+        self.copySongsAndRedirectToHostApp()
     }
     
-    func copySongs() {
+    func copySongsAndRedirectToHostApp() {
         let content = extensionContext!.inputItems[0] as! NSExtensionItem
         let contentType = kUTTypeAudio as String
         guard let attachments = content.attachments else { return }
         
         for (_, attachment) in attachments.enumerated() {
-            NSLog("attachment: \(attachment.registeredTypeIdentifiers)")
             if attachment.hasItemConformingToTypeIdentifier(contentType) {
                 attachment.loadItem(forTypeIdentifier: contentType, options: nil) { [weak self] data, error in
-                    
                     if error == nil, let url = data as? URL {
                         do {
                             let rawData = try Data(contentsOf: url)
@@ -67,12 +62,14 @@ class ShareViewController: UIViewController {
                         alert.addAction(action)
                         self?.present(alert, animated: true, completion: nil)
                     }
+                    self?.redirectToHostApp()
                 }
             }
         }
     }
     
     @objc func redirectToHostApp() {
+        print("here")
         let url = URL(string: "MusicPlayer://")
         var responder = self as UIResponder?
         let selectorOpenURL = sel_registerName("openURL:")

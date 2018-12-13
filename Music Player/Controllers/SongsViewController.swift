@@ -55,7 +55,6 @@ class SongsViewController: UIViewController {
         
         self.setAnchors()
         self.setTargets()
-        self.setPlayer()
         self.setDelegates()
         self.tableView.register(MPTableViewCell.self, forCellReuseIdentifier: self.CELL_ID)
         print("songsCtrl")
@@ -82,13 +81,6 @@ class SongsViewController: UIViewController {
     private func setTargets() {
         self.playButton.addTarget(self, action: #selector(self.playButtonPressed), for: .touchUpInside)
         self.shuffleButton.addTarget(self, action: #selector(self.shuffleButtonPressed), for: .touchUpInside)
-    }
-    
-    private func setPlayer() {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            self.player.songs = appDelegate.songs
-        }
-        self.player.setRemoteTransportControls()
     }
     
     private func setDelegates() {

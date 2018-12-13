@@ -25,6 +25,8 @@ class MainTabBarController: UITabBarController {
         playlistsVC.tabBarItem = UITabBarItem(title: "Playlists", image: UIImage(from: .ionicon, code: "ios-list", textColor: .blue, backgroundColor: .clear, size: CGSize(width: 90, height: 30)), tag: 0)
         
         viewControllers = [songsVC, searchVC, playlistsVC]
+        
+        Player.shared.setRemoteTransportControls()
     }
     
     
