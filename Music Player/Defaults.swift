@@ -20,33 +20,38 @@ struct Defaults {
         return Sort(rawValue: rawValue ?? "")
     }
     
-    static func add(playlist name: String, songTitle: String) {
-        var data: Data
-        if var playlists = getPlaylists() {
-            if var playlist = playlists[name] {
-                playlist.insert(songTitle)
-                playlists[name] = playlist
-            } else {
-                var playlist = Set<String>()
-                playlist.insert(songTitle)
-                playlists[name] = playlist
+    static func add(playlist title: String, songTitle: String? = nil) {
+        var playlists = getPlaylists()
+        
+        if let playlist = playlists.first(where: { $0.title == title })  {
+            if let songTitle = songTitle {
+                playlist.add(song: songTitle)
             }
-            data = NSKeyedArchiver.archivedData(withRootObject: playlists)
         } else {
-            var playlists = [String : Set<String>]()
-            var playlist = Set<String>()
-            playlist.insert(songTitle)
-            playlists[name] = playlist
-            data = NSKeyedArchiver.archivedData(withRootObject: playlists)
+            let playlist = Playlist(title: title)
+            if let songTitle = songTitle {
+                playlist.add(song: songTitle)
+            }
+            playlists.append(playlist)
         }
-        UserDefaults.standard.set(data, forKey: playlistsKey)
+        
+        do {
+            let data = try JSONEncoder().encode(playlists)
+            UserDefaults.standard.set(data, forKey: playlistsKey)
+        } catch let ex {
+            print(ex)
+        }
     }
     
-    static func getPlaylists() -> [String : Set<String>]? {
-        var playlists: [String : Set<String>]?
-        if let data =  UserDefaults.standard.object(forKey: playlistsKey) as? Data {
-            playlists = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : Set<String>]
+    static func getPlaylists() -> [Playlist] {
+        if let data = UserDefaults.standard.data(forKey: playlistsKey) {
+            do {
+                let playlists = try JSONDecoder().decode([Playlist].self, from: data)
+                return playlists
+            } catch let ex {
+                print(ex)
+            }
         }
-        return playlists
+        return [Playlist]()
     }
 }

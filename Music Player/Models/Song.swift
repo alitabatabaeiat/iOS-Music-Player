@@ -23,12 +23,4 @@ class Song {
         self.artist = ""
         self.artwork = UIImage(named: "music")
     }
-    
-    init(path: String, playerItem: AVPlayerItem, title: String, artist: String, artwork: UIImage?) {
-        self.path = path
-        self.playerItem = playerItem
-        self.title = title
-        self.artist = artist
-        self.artwork = artwork
-    }
 }

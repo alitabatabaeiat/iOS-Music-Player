@@ -27,14 +27,9 @@ class Player: NSObject {
     override init() {
         self.player = AVQueuePlayer()
         self.songs = [Song]()
-        self.playlists = [Playlist]()
+        self.playlists = Defaults.getPlaylists()
+        print(self.playlists.count)
         super.init()
-        
-        if let playlists = Defaults.getPlaylists() {
-            playlists.forEach {
-                self.playlists.append(Playlist(title: $0.key, list: $0.value))
-            }
-        }
         
         self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.audioSessionInterruptionHandler), name: AVAudioSession.interruptionNotification, object: nil)

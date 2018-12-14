@@ -152,7 +152,6 @@ extension AppDelegate {
     
     private func setSongInfo(_ song: Song, fileName: String) {
         for item in song.playerItem.asset.metadata {
-    
             guard let key = item.commonKey?.rawValue, let value = item.value else {
                 continue
             }
@@ -164,7 +163,6 @@ extension AppDelegate {
                 default: continue
             }
         }
-        
         
         if song.title == "" {
             song.title = fileName
