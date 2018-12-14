@@ -1,5 +1,5 @@
 //
-//  MPTableViewCell.swift
+//  MPSongTableViewCell.swift
 //  Music Player
 //
 //  Created by Ali Tabatabaei on 12/1/18.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class MPTableViewCell: UITableViewCell {
+class MPSongTableViewCell: UITableViewCell {
     
     let container = MPView()
     let artwork = MPImageView(cornerRadius: 4)

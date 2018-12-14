@@ -57,7 +57,7 @@ class SongsViewController: UIViewController {
         self.setTargets()
         self.setDelegates()
         self.setAlertController()
-        self.tableView.register(MPTableViewCell.self, forCellReuseIdentifier: self.CELL_ID)
+        self.tableView.register(MPSongTableViewCell.self, forCellReuseIdentifier: self.CELL_ID)
     }
     
     func setAnchors () {
@@ -134,14 +134,14 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! MPTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! MPSongTableViewCell
         cell.song = self.player.getSong(at: indexPath.row)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? MPTableViewCell, let song = cell.song {
+        if let cell = tableView.cellForRow(at: indexPath) as? MPSongTableViewCell, let song = cell.song {
             if !self.player.isPlaying(song: song)  {
                 self.player.setNewQueue(with: .default, startingFrom: song)
                 self.player.play()

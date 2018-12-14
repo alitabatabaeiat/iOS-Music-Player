@@ -10,9 +10,12 @@ import UIKit
 
 class MPView: UIView {
 
-    init() {
+    init(cornerRadius: CGFloat = 0) {
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.layer.cornerRadius = cornerRadius
+        self.clipsToBounds = cornerRadius != 0
     }
     
     required init?(coder aDecoder: NSCoder) {

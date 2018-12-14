@@ -53,9 +53,9 @@ extension UIView {
         constraintList["width"] = widthAnchor.constraint(equalTo: view.widthAnchor)
         constraintList["width"]!.isActive = true
         constraintList["height"] = heightAnchor.constraint(equalTo: view.heightAnchor)
-        constraintList["width"]!.isActive = true
+        constraintList["height"]!.isActive = true
         
-        return  constraintList
+        return constraintList
     }
     
     @discardableResult

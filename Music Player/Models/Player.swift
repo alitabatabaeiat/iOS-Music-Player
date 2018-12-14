@@ -22,11 +22,20 @@ class Player: NSObject {
         }
     }
     
+    private var playlists: [Playlist]
+    
     override init() {
         self.player = AVQueuePlayer()
         self.songs = [Song]()
-        
+        self.playlists = [Playlist]()
         super.init()
+        
+        if let playlists = Defaults.getPlaylists() {
+            playlists.forEach {
+                self.playlists.append(Playlist(title: $0.key, list: $0.value))
+            }
+        }
+        
         self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.audioSessionInterruptionHandler), name: AVAudioSession.interruptionNotification, object: nil)
     }
@@ -45,6 +54,19 @@ class Player: NSObject {
     func getSong(at index: Int) -> Song {
         return self.songs[index]
     }
+
+    func getSong(withTitle title: String) -> Song? {
+        return self.songs.first { $0.title == title }
+    }
+    
+    func getPlaylists() -> [Playlist] {
+        return self.playlists
+    }
+    
+    func getPlaylist(at index: Int) -> Playlist {
+        return self.playlists[index]
+    }
+
     
     func sortSongs(by sort: Sort) {
         switch sort {

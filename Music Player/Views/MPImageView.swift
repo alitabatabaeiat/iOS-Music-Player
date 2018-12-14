@@ -10,8 +10,8 @@ import UIKit
 
 class MPImageView: UIImageView {
 
-    init(cornerRadius: CGFloat = 0) {
-        super.init(frame: .zero)
+    init(image: UIImage? = nil, cornerRadius: CGFloat = 0) {
+        super.init(image: image)
         self.translatesAutoresizingMaskIntoConstraints = false
         
         self.layer.cornerRadius = cornerRadius
