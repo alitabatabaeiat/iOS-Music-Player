@@ -42,6 +42,7 @@ class MPHeaderView: UIView {
     }
     
     @objc func sortButtonPressed() {
+        self.sortButton.animate(completion: nil)
         if let delegate = self.delegate {
             delegate.headerView(self, didSortButtonPressed: self.sortButton)
         }

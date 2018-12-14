@@ -14,11 +14,7 @@ class MPTableViewCell: UITableViewCell {
     let container = MPView()
     let artwork = MPImageView(cornerRadius: 4)
     let titleLabel = MPLabel(fontSize: 16)
-    let artistLabel: MPLabel = {
-        let label = MPLabel()
-        label.font = UIFont.latoLight?.withSize(12)
-        return label
-    }()
+    let artistLabel = MPLabel(font: UIFont.latoLight, fontSize: 12)
     let horizontalLine = MPView()
     
     var song: Song? {

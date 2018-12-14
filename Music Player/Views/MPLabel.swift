@@ -10,13 +10,13 @@ import UIKit
 
 class MPLabel: UILabel {
 
-    init(text: String = "TDLabel", textColor: UIColor = .black, fontSize: CGFloat = 16, textAlignment:NSTextAlignment = .left) {
+    init(text: String = "TDLabel", textColor: UIColor = .black, font: UIFont? = UIFont.lato, fontSize: CGFloat = 16, textAlignment:NSTextAlignment = .left) {
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
         
         self.text = text
         self.textColor = textColor
-        self.font = UIFont.lato?.withSize(fontSize)
+        self.font = font?.withSize(fontSize)
         self.textAlignment = textAlignment
     }
 

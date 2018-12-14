@@ -44,6 +44,8 @@ class SongsViewController: UIViewController {
         return button
     }()
     
+    var sortAlertController: UIAlertController! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,6 +56,7 @@ class SongsViewController: UIViewController {
         self.setAnchors()
         self.setTargets()
         self.setDelegates()
+        self.setAlertController()
         self.tableView.register(MPTableViewCell.self, forCellReuseIdentifier: self.CELL_ID)
     }
     
@@ -86,6 +89,37 @@ class SongsViewController: UIViewController {
         self.nowPlayingView.delegate = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
+    }
+    
+    private func setAlertController() {
+        self.sortAlertController = UIAlertController(title: "Sort By", message: nil, preferredStyle: .actionSheet)
+        
+        self.sortAlertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        var actions = [String : UIAlertAction]()
+        actions[Sort.ByArtist.rawValue] = UIAlertAction(title: "Artist", style: .default) { action in
+            self.player.sortSongs(by: .ByArtist)
+            self.tableView.reloadData()
+            actions.forEach { $0.value.setValue(false, forKey: "checked") }
+            action.setValue(true, forKey: "checked")
+        }
+        actions[Sort.ByTitle.rawValue] = UIAlertAction(title: "Title", style: .default) { action in
+            self.player.sortSongs(by: .ByTitle)
+            self.tableView.reloadData()
+            actions.forEach { $0.value.setValue(false, forKey: "checked") }
+            action.setValue(true, forKey: "checked")
+        }
+        actions[Sort.ByRecentlyAdded.rawValue] = UIAlertAction(title: "Recently Added", style: .default) { action in
+            self.player.sortSongs(by: .ByRecentlyAdded)
+            self.tableView.reloadData()
+            actions.forEach { $0.value.setValue(false, forKey: "checked") }
+            action.setValue(true, forKey: "checked")
+        }
+        if let sortBy = Defaults.getSortBy(), let action = actions[sortBy.rawValue] {
+            action.setValue(true, forKey: "checked")
+        }
+
+        actions.forEach { self.sortAlertController.addAction($0.value) }
     }
 }
 
@@ -160,28 +194,7 @@ extension SongsViewController: PlayerDelegate {
 extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate {
     
     func headerView(_ headerView: MPHeaderView, didSortButtonPressed button: MPButton) {
-        let alert = UIAlertController(title: "Sort By", message: nil, preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            print("cancel")
-        })
-        
-        alert.addAction(UIAlertAction(title: "Artist", style: .default) { _ in
-            self.player.sortSongs(by: .ByArtist)
-            self.tableView.reloadData()
-        })
-        
-        alert.addAction(UIAlertAction(title: "Title", style: .default) { _ in
-            self.player.sortSongs(by: .ByTitle)
-            self.tableView.reloadData()
-        })
-        
-        alert.addAction(UIAlertAction(title: "Recently Added", style: .default) { _ in
-            self.player.sortSongs(by: .ByRecentlyAdded)
-            self.tableView.reloadData()
-        })
-        
-        present(alert, animated: true)
+        present(self.sortAlertController, animated: true)
     }
     
     func play(in nowPlayingView: MPNowPlayingView) {
@@ -204,12 +217,14 @@ extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate {
 extension SongsViewController {
     
     @objc private func playButtonPressed() {
+        self.playButton.animate(completion: nil)
         let song = self.player.getSong(at: 0)
         self.player.setNewQueue(with: .default, startingFrom: song)
         self.player.play()
     }
     
     @objc private func shuffleButtonPressed() {
+        self.shuffleButton.animate(completion: nil)
         self.player.setNewQueue(with: .shuffle, startingFrom: nil)
         self.player.play()
     }
