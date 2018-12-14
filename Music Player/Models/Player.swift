@@ -175,6 +175,14 @@ class Player: NSObject {
             self.player.insert(item, after: afterItem)
         }
     }
+    
+    func removeSong(at index: Int) {
+        if let delegate = self.delegate {
+            delegate.player(self, willRemoveSong: self.songs[index])
+        }
+        self.songs.remove(at: index)
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let keyPath = keyPath {
             if keyPath == #keyPath(AVQueuePlayer.currentItem) {

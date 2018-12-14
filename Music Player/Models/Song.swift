@@ -10,19 +10,22 @@ import UIKit
 import AVFoundation
 
 class Song {
+    var path: String
     var playerItem: AVPlayerItem!
     var title: String
     var artist: String
     var artwork: UIImage?
     
-    init(playerItem: AVPlayerItem) {
+    init(path: String, playerItem: AVPlayerItem) {
+        self.path = path
         self.playerItem = playerItem
         self.title = ""
         self.artist = ""
         self.artwork = UIImage(named: "music")
     }
     
-    init(playerItem: AVPlayerItem, title: String, artist: String, artwork: UIImage?) {
+    init(path: String, playerItem: AVPlayerItem, title: String, artist: String, artwork: UIImage?) {
+        self.path = path
         self.playerItem = playerItem
         self.title = title
         self.artist = artist

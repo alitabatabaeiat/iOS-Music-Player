@@ -142,7 +142,7 @@ extension AppDelegate {
         for path in songsPath {
             let url = dir.appendingPathComponent(path)
             let playerItem = AVPlayerItem(url: url)
-            let song = Song(playerItem: playerItem)
+            let song = Song(path: path, playerItem: playerItem)
             self.setSongInfo(song, fileName: String(path.split(separator: ".")[0]))
             
             songs.append(song)

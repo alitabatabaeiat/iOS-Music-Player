@@ -119,9 +119,48 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.player.removeSong(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
 }
 
-extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate, PlayerDelegate {
+extension SongsViewController: PlayerDelegate {
+    func player(_ player: Player, didPlay song: Song?) {
+        if let playingSong = song {
+            self.nowPlayingView.configure(with: playingSong)
+        }
+    }
+    
+    func player(_ player: Player, didPause song: Song?) {
+        self.nowPlayingView.pause()
+    }
+    
+    func player(_ player: Player, didAdvanceToNext song: Song?) {
+        if let playingSong = song {
+            self.nowPlayingView.configure(with: playingSong)
+        }
+    }
+    
+    func player(_ player: Player, willRemoveSong song: Song) {
+        let fileManager = FileManager.default
+        guard let container = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.ir.alitabatabaei.Music-Player") else { return }
+        let dir = container.appendingPathComponent("sharedSongs")
+        let path = dir.appendingPathComponent(song.path)
+        do {
+            try fileManager.removeItem(at: path)
+        } catch let ex {
+            print("Error in removing song: \(ex)")
+        }
+    }
+}
+
+extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate {
     
     func headerView(_ headerView: MPHeaderView, didSortButtonPressed button: MPButton) {
         let alert = UIAlertController(title: "Sort By", message: nil, preferredStyle: .actionSheet)
@@ -162,23 +201,6 @@ extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate, P
     
     func previous(in nowPlayingView: MPNowPlayingView) {
         self.player.previous()
-    }
-    
-    
-    func player(_ player: Player, didPlay song: Song?) {
-        if let playingSong = song {
-            self.nowPlayingView.configure(with: playingSong)
-        }
-    }
-    
-    func player(_ player: Player, didPause song: Song?) {
-        self.nowPlayingView.pause()
-    }
-    
-    func player(_ player: Player, didAdvanceToNext song: Song?) {
-        if let playingSong = song {
-            self.nowPlayingView.configure(with: playingSong)
-        }
     }
 }
 
