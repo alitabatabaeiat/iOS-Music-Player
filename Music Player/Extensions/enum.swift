@@ -13,7 +13,7 @@ enum Queue {
     case shuffle
 }
 
-enum Sort {
+enum Sort: String {
     case ByTitle
     case ByArtist
     case ByRecentlyAdded

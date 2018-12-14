@@ -14,9 +14,9 @@ class Player: NSObject {
     static let shared = Player()
     
     var delegate: PlayerDelegate?
-    var player: AVQueuePlayer
-    var songs: [Song]
-    var currentSong: Song? {
+    private var player: AVQueuePlayer
+    private var songs: [Song]
+    private var currentSong: Song? {
         get {
             return self.songs.first { $0.playerItem === self.player.currentItem }
         }
@@ -31,18 +31,43 @@ class Player: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(self.audioSessionInterruptionHandler), name: AVAudioSession.interruptionNotification, object: nil)
     }
     
+    func add(mulitpleSongs songs: [Song]) {
+        self.songs = songs
+        if let sortBy = Defaults.getSortBy() {
+            self.sortSongs(by: sortBy)
+        }
+    }
+    
+    func getSongs() -> [Song] {
+        return self.songs
+    }
+    
+    func getSong(at index: Int) -> Song {
+        return self.songs[index]
+    }
+    
     func sortSongs(by sort: Sort) {
         switch sort {
             case .ByTitle:
                 self.songs.sort { $0.title < $1.title }
                 break
             case .ByArtist:
-                self.songs.sort { $0.artist < $1.artist }
+                self.songs.sort {
+                    if $0.artist.isEmpty {
+                        return false
+                    }
+                    if $1.artist.isEmpty {
+                        return true
+                    }
+                    return $0.artist < $1.artist
+                }
                 break
             case .ByRecentlyAdded:
                 // TODO: implement after core data modeled
                 break
         }
+        
+        Defaults.set(sortBy: sort)
     }
     
     func setNewQueue(with queueOption: Queue, startingFrom song: Song?) {

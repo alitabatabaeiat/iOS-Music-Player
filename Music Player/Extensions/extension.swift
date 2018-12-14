@@ -167,6 +167,10 @@ extension UIColor {
 
 extension UIFont {
     
-    static let raleway = UIFont(name: "Raleway-v4020-Regular", size: 16)
-    static let ralewayBold = UIFont(name: "Raleway-v4020-Bold", size: 16)
+    static var raleway: UIFont? { return UIFont(name: "Raleway-v4020-Regular", size: 16) }
+    static var ralewayBold: UIFont? { return UIFont(name: "Raleway-v4020-Bold", size: 16) }
+    
+    static var latoThin: UIFont? { return UIFont(name: "Lato-Thin", size: 16) }
+    static var latoLight: UIFont? { return UIFont(name: "Lato-Light", size: 16) }
+    static var lato: UIFont? { return UIFont(name: "Lato-Regular", size: 16) }
 }

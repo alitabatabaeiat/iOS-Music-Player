@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if FileManager.default.fileExists(atPath: dir.path) {
                     let items = try FileManager.default.contentsOfDirectory(atPath: dir.path)
                     
-                    Player.shared.songs = getAllSongs(from: dir, songsPath: items)
+                    Player.shared.add(mulitpleSongs: getAllSongs(from: dir, songsPath: items))
                 } else {
                     // file or directory does not exist
                     try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: false, attributes: nil)
@@ -124,7 +124,7 @@ extension AppDelegate {
             let dir = container.appendingPathComponent("sharedSongs")
             let items = try FileManager.default.contentsOfDirectory(atPath: dir.path)
             
-            Player.shared.songs = getAllSongs(from: dir, songsPath: items)
+            Player.shared.add(mulitpleSongs: getAllSongs(from: dir, songsPath: items))
         } catch let error {
             print("filemanager: \(error)")
         }
@@ -157,7 +157,6 @@ extension AppDelegate {
                 continue
             }
     
-            print(key)
             switch key {
                 case "title" : song.title = value as? String ?? ""
                 case "artist" : song.artist = value as? String ?? ""

@@ -14,7 +14,8 @@ class MPButton: UIButton {
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        self.titleLabel?.font = UIFont(name: "Raleway-v4020-Regular", size: fontSize)
+        self.titleLabel?.font = UIFont.lato
+        self.titleLabel?.font.withSize(fontSize)
     }
     
     required init?(coder aDecoder: NSCoder) {

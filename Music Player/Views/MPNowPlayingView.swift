@@ -25,8 +25,8 @@ class MPNowPlayingView: UIView {
         }
     }
     let artwork = MPImageView(cornerRadius: 3)
-    let titleLabel = MPLabel(text: "Not Playing", fontSize: 12)
-    let artistLabel = MPLabel(text: "", fontSize: 12)
+    let titleLabel = MPLabel(text: "", fontSize: 12)
+    let artistLabel = MPLabel(text: "Not Playing", fontSize: 12)
     let previousButton: MPButton = {
         let button = MPButton()
         button.setImage(UIImage(from: .ionicon, code: "ios-rewind", textColor: .darkGray, backgroundColor: .clear, size: MPNowPlayingView.buttonSize), for: .normal)

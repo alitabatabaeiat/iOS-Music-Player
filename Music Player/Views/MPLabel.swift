@@ -16,12 +16,8 @@ class MPLabel: UILabel {
         
         self.text = text
         self.textColor = textColor
-        self.font = UIFont(name: "Raleway-v4020-Regular", size: fontSize)
+        self.font = UIFont.lato?.withSize(fontSize)
         self.textAlignment = textAlignment
-    }
-    
-    func setFontSize(fontSize: CGFloat) {
-        self.font = UIFont(name: "Raleway-v4020-Regular", size: fontSize)
     }
 
     required init?(coder aDecoder: NSCoder) {

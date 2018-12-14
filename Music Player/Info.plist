@@ -4,6 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Lato-Light.ttf</string>
+		<string>Lato-Thin.ttf</string>
+		<string>Lato-Regular.ttf</string>
 		<string>Raleway-v4020-Regular.otf</string>
 		<string>Raleway-v4020-Bold.otf</string>
 	</array>

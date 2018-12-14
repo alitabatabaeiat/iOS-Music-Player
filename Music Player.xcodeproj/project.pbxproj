@@ -32,6 +32,10 @@
 		34F0BD7521B32793007436EF /* MPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD7421B32793007436EF /* MPLabel.swift */; };
 		34F0BD7D21B32D39007436EF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD7C21B32D39007436EF /* ShareViewController.swift */; };
 		34F0BD8421B32D39007436EF /* Copy to Music Player.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 34F0BD7A21B32D39007436EF /* Copy to Music Player.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		34F1C2DD21C3B381002D6C05 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F1C2DC21C3B381002D6C05 /* Defaults.swift */; };
+		34F1C2DF21C3B74E002D6C05 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34F1C2DE21C3B74E002D6C05 /* Lato-Regular.ttf */; };
+		34F1C2E221C3B94E002D6C05 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34F1C2E021C3B94E002D6C05 /* Lato-Light.ttf */; };
+		34F1C2E321C3B94E002D6C05 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34F1C2E121C3B94E002D6C05 /* Lato-Thin.ttf */; };
 		8899B2BCD3F95620CE4A21D1 /* Pods_Music_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2910B7BF9B6B2141A31EFF64 /* Pods_Music_Player.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +96,10 @@
 		34F0BD8121B32D39007436EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F0BD8921B32D6D007436EF /* Copy to Music Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Copy to Music Player.entitlements"; sourceTree = "<group>"; };
 		34F0BD8A21B33C2B007436EF /* Music Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Music Player.entitlements"; sourceTree = "<group>"; };
+		34F1C2DC21C3B381002D6C05 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		34F1C2DE21C3B74E002D6C05 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		34F1C2E021C3B94E002D6C05 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		34F1C2E121C3B94E002D6C05 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		364C4D3C5725178CA35A0719 /* Pods-Music Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Music Player/Pods-Music Player.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +133,9 @@
 		3441A43921B80BB00073449E /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				34F1C2E021C3B94E002D6C05 /* Lato-Light.ttf */,
+				34F1C2E121C3B94E002D6C05 /* Lato-Thin.ttf */,
+				34F1C2DE21C3B74E002D6C05 /* Lato-Regular.ttf */,
 				3443025321B9731B0034679A /* Raleway-v4020-Bold.otf */,
 				3441A43A21B80BCC0073449E /* Raleway-v4020-Regular.otf */,
 			);
@@ -174,6 +185,7 @@
 				34F0BD5521B31E17007436EF /* LaunchScreen.storyboard */,
 				34F0BD5821B31E17007436EF /* Info.plist */,
 				3443025721B9B7720034679A /* Music_Player.xcdatamodeld */,
+				34F1C2DC21C3B381002D6C05 /* Defaults.swift */,
 			);
 			path = "Music Player";
 			sourceTree = "<group>";
@@ -331,6 +343,9 @@
 			files = (
 				3441A43B21B80BCC0073449E /* Raleway-v4020-Regular.otf in Resources */,
 				3443025421B9731B0034679A /* Raleway-v4020-Bold.otf in Resources */,
+				34F1C2E321C3B94E002D6C05 /* Lato-Thin.ttf in Resources */,
+				34F1C2DF21C3B74E002D6C05 /* Lato-Regular.ttf in Resources */,
+				34F1C2E221C3B94E002D6C05 /* Lato-Light.ttf in Resources */,
 				34F0BD5721B31E17007436EF /* LaunchScreen.storyboard in Resources */,
 				34F0BD5421B31E17007436EF /* Assets.xcassets in Resources */,
 			);
@@ -414,6 +429,7 @@
 				342B79F021B871DC00586DA3 /* MPHeaderView.swift in Sources */,
 				34F0BD6621B31F90007436EF /* PlaylistsViewController.swift in Sources */,
 				3441A43E21B85FA30073449E /* Song.swift in Sources */,
+				34F1C2DD21C3B381002D6C05 /* Defaults.swift in Sources */,
 				3443025621B97EBD0034679A /* Player.swift in Sources */,
 				34F0BD4A21B31E14007436EF /* AppDelegate.swift in Sources */,
 			);

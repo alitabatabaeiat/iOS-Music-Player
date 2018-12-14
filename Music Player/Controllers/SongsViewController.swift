@@ -27,8 +27,7 @@ class SongsViewController: UIViewController {
         button.clipsToBounds = true
         button.backgroundColor = .grey2
         button.setTitleColor(.blue1, for: .normal)
-        button.titleLabel?.font = UIFont.ralewayBold
-        button.titleLabel?.font.withSize(20)
+        button.titleLabel?.font = UIFont.lato?.withSize(18)
         
         return button
     }()
@@ -40,8 +39,7 @@ class SongsViewController: UIViewController {
         button.clipsToBounds = true
         button.backgroundColor = .grey2
         button.setTitleColor(.blue1, for: .normal)
-        button.titleLabel?.font = UIFont.ralewayBold
-        button.titleLabel?.font.withSize(20)
+        button.titleLabel?.font = UIFont.lato?.withSize(18)
         
         return button
     }()
@@ -57,7 +55,6 @@ class SongsViewController: UIViewController {
         self.setTargets()
         self.setDelegates()
         self.tableView.register(MPTableViewCell.self, forCellReuseIdentifier: self.CELL_ID)
-        print("songsCtrl")
     }
     
     func setAnchors () {
@@ -99,12 +96,12 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.player.songs.count
+        return self.player.getSongs().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! MPTableViewCell
-        cell.song = self.player.songs[indexPath.row]
+        cell.song = self.player.getSong(at: indexPath.row)
         
         return cell
     }
@@ -207,10 +204,9 @@ extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate {
 extension SongsViewController {
     
     @objc private func playButtonPressed() {
-        if let song = self.player.songs.first {
-            self.player.setNewQueue(with: .default, startingFrom: song)
-            self.player.play()
-        }
+        let song = self.player.getSong(at: 0)
+        self.player.setNewQueue(with: .default, startingFrom: song)
+        self.player.play()
     }
     
     @objc private func shuffleButtonPressed() {
