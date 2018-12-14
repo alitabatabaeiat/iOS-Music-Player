@@ -14,7 +14,7 @@ class PlaylistsViewController: UIViewController {
     
     let CELL_ID = "cell_id"
     let tableView = MPTableView()
-    let headerView = MPHeaderView(titleText: "PLAYLISTS")
+    let headerView = MPHeaderView(titleText: "PLAYLISTS", rightButtonImage: UIImage(from: .iconic, code: "plus", textColor: .darkGray, backgroundColor: .clear, size: CGSize(width: 20, height: 20)))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,7 @@ class PlaylistsViewController: UIViewController {
     private func setDelegates() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.headerView.delegate = self
     }
 }
 
@@ -55,5 +56,24 @@ extension PlaylistsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.playlist = playlist
         
         return cell
+    }
+}
+
+extension PlaylistsViewController: MPHeaderViewDelegate {
+    func headerView(_ headerView: MPHeaderView, didRightButtonPressed button: MPButton) {
+        let alertController = UIAlertController(title: "New Playlist", message: "please type new playlist title", preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "playlist title"
+            textField.isSecureTextEntry = true
+        }
+        let confirmAction = UIAlertAction(title: "OK", style: .default) { [weak alertController] _ in
+            guard let alertController = alertController, let textField = alertController.textFields?.first, let title = textField.text else { return }
+            Defaults.add(playlist: title)
+            self.tableView.reloadData()
+        }
+        alertController.addAction(confirmAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

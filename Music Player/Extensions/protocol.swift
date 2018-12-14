@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 
 protocol MPHeaderViewDelegate {
-    func headerView(_ headerView: MPHeaderView, didSortButtonPressed button: MPButton)
+    func headerView(_ headerView: MPHeaderView, didRightButtonPressed button: MPButton)
 }
 
 protocol MPNowPlayingViewDelegate {

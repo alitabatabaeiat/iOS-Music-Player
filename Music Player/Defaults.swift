@@ -38,6 +38,7 @@ struct Defaults {
         do {
             let data = try JSONEncoder().encode(playlists)
             UserDefaults.standard.set(data, forKey: playlistsKey)
+            Player.shared.setPlaylists(playlists)
         } catch let ex {
             print(ex)
         }

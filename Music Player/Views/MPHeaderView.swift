@@ -13,38 +13,35 @@ class MPHeaderView: UIView {
     var delegate: MPHeaderViewDelegate?
     
     let title = MPLabel(fontSize: 20, textAlignment: .center)
-    let sortButton: MPButton = {
-        let button = MPButton()
-        let image = UIImage(from: .iconic, code: "sort-ascending", textColor: .darkGray, backgroundColor: .clear, size: CGSize(width: 30, height: 30))
-        button.setImage(image, for: .normal)
-        
-        return button
-    }()
+    let rightButton = MPButton()
     
-    init(titleText: String) {
+    init(titleText: String, rightButtonImage: UIImage? = nil) {
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
         
         self.title.text = titleText
+        self.rightButton.setImage(rightButtonImage, for: .normal)
         
-        [self.title, self.sortButton].forEach { self.addSubview($0) }
+        [self.title, self.rightButton].forEach { self.addSubview($0) }
         
         self.setAnchors()
         self.addBorders(edges: [.bottom], color: .gray, thickness: 0.2)
-        self.sortButton.addTarget(self, action: #selector(self.sortButtonPressed), for: .touchUpInside)
+        if rightButtonImage != nil {
+            self.rightButton.addTarget(self, action: #selector(self.rightButtonPressed), for: .touchUpInside)
+        }
     }
     
     func setAnchors() {
         self.title.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.title.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         
-        self.sortButton.anchor(top: self.title.topAnchor, right: self.rightAnchor, bottom: nil, left: nil, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15), size: CGSize(width: 25, height: 25))
+        self.rightButton.anchor(top: self.title.topAnchor, right: self.rightAnchor, bottom: nil, left: nil, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15), size: CGSize(width: 25, height: 25))
     }
     
-    @objc func sortButtonPressed() {
-        self.sortButton.animate(completion: nil)
+    @objc func rightButtonPressed() {
+        self.rightButton.animate(completion: nil)
         if let delegate = self.delegate {
-            delegate.headerView(self, didSortButtonPressed: self.sortButton)
+            delegate.headerView(self, didRightButtonPressed: self.rightButton)
         }
     }
     

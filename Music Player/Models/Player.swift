@@ -54,6 +54,10 @@ class Player: NSObject {
         return self.songs.first { $0.title == title }
     }
     
+    func setPlaylists(_ playlists: [Playlist]) {
+        self.playlists = playlists
+    }
+    
     func getPlaylists() -> [Playlist] {
         return self.playlists
     }
@@ -62,7 +66,6 @@ class Player: NSObject {
         return self.playlists[index]
     }
 
-    
     func sortSongs(by sort: Sort) {
         switch sort {
             case .ByTitle:

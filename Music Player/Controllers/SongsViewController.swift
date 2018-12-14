@@ -17,7 +17,7 @@ class SongsViewController: UIViewController {
     let CELL_ID = "cell_id"
     let tableView = MPTableView()
     let nowPlayingView = MPNowPlayingView()
-    let headerView = MPHeaderView(titleText: "SONGS")
+    let headerView = MPHeaderView(titleText: "SONGS", rightButtonImage: UIImage(from: .iconic, code: "sort-ascending", textColor: .darkGray, backgroundColor: .clear, size: CGSize(width: 30, height: 30)))
     let buttonContainer = MPView()
     let playButton: MPButton = {
         let button = MPButton()
@@ -193,7 +193,7 @@ extension SongsViewController: PlayerDelegate {
 
 extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate {
     
-    func headerView(_ headerView: MPHeaderView, didSortButtonPressed button: MPButton) {
+    func headerView(_ headerView: MPHeaderView, didRightButtonPressed button: MPButton) {
         present(self.sortAlertController, animated: true)
     }
     
