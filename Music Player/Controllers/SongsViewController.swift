@@ -69,8 +69,6 @@ class SongsViewController: UIViewController {
         
         self.nowPlayingView.anchor(top: nil, right: self.view.safeAreaRightAnchor(), bottom: self.view.safeAreaBottomAnchor(), left: self.view.safeAreaLeftAnchor(), size: CGSize(width: 0, height: 60))
         
-        self.nowPlayingView.anchor(top: nil, right: self.view.safeAreaRightAnchor(), bottom: self.view.safeAreaBottomAnchor(), left: self.view.safeAreaLeftAnchor(), size: CGSize(width: 0, height: 60))
-        
         self.playButton.centerYAnchor.constraint(equalTo: self.buttonContainer.centerYAnchor).isActive = true
         self.playButton.anchor(top: nil, right: self.buttonContainer.centerXAnchor, bottom: nil, left: self.buttonContainer.leftAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10), size: CGSize(width: 0, height: 40))
         
@@ -188,6 +186,11 @@ extension SongsViewController: PlayerDelegate {
         } catch let ex {
             print("Error in removing song: \(ex)")
         }
+    }
+    
+    func player(_ player: Player, timeElapsed time: CMTime) {
+        let seconds = CMTimeGetSeconds(time)
+        self.nowPlayingView.playbackSlider.value = Float(seconds)
     }
 }
 

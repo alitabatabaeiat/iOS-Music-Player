@@ -48,6 +48,15 @@ class MPNowPlayingView: UIView {
         
         return button
     }()
+    let playbackSlider: UISlider = {
+        let slider = UISlider()
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.isContinuous = false
+        slider.minimumTrackTintColor = .blue1
+        slider.setThumbImage(UIImage(), for: .normal)
+        
+        return slider
+    }()
 
     init() {
         super.init(frame: .zero)
@@ -56,7 +65,7 @@ class MPNowPlayingView: UIView {
         self.backgroundColor = .white
         self.addBorders(edges: [.top], color: .gray, thickness: 0.2)
         
-        [self.artwork, self.titleLabel, self.artistLabel, self.playButton, self.nextButton, self.previousButton].forEach { self.addSubview($0) }
+        [self.artwork, self.titleLabel, self.artistLabel, self.playButton, self.nextButton, self.previousButton, self.playbackSlider].forEach { self.addSubview($0) }
         
         self.setAnchors()
         self.setTargets()
@@ -86,6 +95,8 @@ extension MPNowPlayingView {
         
         self.artistLabel.anchor(top: self.titleLabel.bottomAnchor, right: self.titleLabel.rightAnchor, bottom: nil, left: self.titleLabel.leftAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         
+        self.playbackSlider.anchor(top: self.topAnchor, right: self.rightAnchor, bottom: nil, left: self.leftAnchor)
+        
     }
     
     private func setTargets() {
@@ -98,6 +109,9 @@ extension MPNowPlayingView {
         self.titleLabel.text = song.title
         self.artistLabel.text = song.artist
         self.artwork.image = song.artwork
+        self.playbackSlider.minimumValue = 0
+        let seconds = CMTimeGetSeconds(song.playerItem.asset.duration)
+        self.playbackSlider.maximumValue = Float(seconds)
         self.play()
     }
     

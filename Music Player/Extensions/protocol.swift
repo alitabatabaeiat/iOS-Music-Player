@@ -25,4 +25,5 @@ protocol PlayerDelegate {
     func player(_ player: Player, didPause song: Song?)
     func player(_ player: Player, didAdvanceToNext song: Song?)
     func player(_ player: Player, willRemoveSong song: Song)
+    func player(_ player: Player, timeElapsed time: CMTime)
 }

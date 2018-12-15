@@ -32,6 +32,11 @@ class Player: NSObject {
         super.init()
         
         self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
+        self.player.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(0.01, preferredTimescale: 100), queue: DispatchQueue.main) { time in
+            if let delegate = self.delegate {
+                delegate.player(self, timeElapsed: time)
+            }
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(self.audioSessionInterruptionHandler), name: AVAudioSession.interruptionNotification, object: nil)
     }
     
@@ -206,8 +211,11 @@ class Player: NSObject {
         }
     }
     
-    func isPlaying(song: Song) -> Bool {
-        return self.currentSong === song
+    func isPlaying(song: Song?) -> Bool {
+        if song != nil {
+            return self.currentSong === song && self.player.rate > 0
+        }
+        return self.player.rate > 0
     }
     
     func insert(_ item: AVPlayerItem, afterIndex index: Int?) {
