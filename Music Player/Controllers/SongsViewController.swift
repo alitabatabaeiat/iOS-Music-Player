@@ -12,11 +12,10 @@ import MediaPlayer
 
 class SongsViewController: UIViewController {
     
-    var player = Player.shared
+    let player = Player.shared
     
     let CELL_ID = "cell_id"
     let tableView = MPTableView()
-    let nowPlayingView = MPNowPlayingView()
     let headerView = MPHeaderView(titleText: "SONGS", rightButtonImage: UIImage(from: .iconic, code: "sort-ascending", textColor: .darkGray, backgroundColor: .clear, size: CGSize(width: 30, height: 30)))
     let buttonContainer = MPView()
     let playButton: MPButton = {
@@ -51,7 +50,7 @@ class SongsViewController: UIViewController {
         
         self.view.backgroundColor = .white
         
-        [self.tableView, self.nowPlayingView, self.headerView, self.buttonContainer, self.playButton, self.shuffleButton].forEach { view.addSubview($0) }
+        [self.tableView, self.headerView, self.buttonContainer, self.playButton, self.shuffleButton].forEach { self.view.addSubview($0) }
         
         self.setAnchors()
         self.setTargets()
@@ -65,9 +64,7 @@ class SongsViewController: UIViewController {
         
         self.buttonContainer.anchor(top: self.headerView.bottomAnchor, right: self.view.safeAreaRightAnchor(), bottom: nil, left: self.view.safeAreaLeftAnchor(), size: CGSize(width: 0, height: 60))
         
-        self.tableView.anchor(top: self.buttonContainer.bottomAnchor, right: self.view.safeAreaRightAnchor(), bottom: self.nowPlayingView.topAnchor, left: self.view.safeAreaLeftAnchor())
-        
-        self.nowPlayingView.anchor(top: nil, right: self.view.safeAreaRightAnchor(), bottom: self.view.safeAreaBottomAnchor(), left: self.view.safeAreaLeftAnchor(), size: CGSize(width: 0, height: 60))
+        self.tableView.anchor(top: self.buttonContainer.bottomAnchor, right: self.view.safeAreaRightAnchor(), bottom: self.view.safeAreaBottomAnchor(), left: self.view.safeAreaLeftAnchor(), padding: UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0))
         
         self.playButton.centerYAnchor.constraint(equalTo: self.buttonContainer.centerYAnchor).isActive = true
         self.playButton.anchor(top: nil, right: self.buttonContainer.centerXAnchor, bottom: nil, left: self.buttonContainer.leftAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10), size: CGSize(width: 0, height: 40))
@@ -82,9 +79,7 @@ class SongsViewController: UIViewController {
     }
     
     private func setDelegates() {
-        self.player.delegate = self
         self.headerView.delegate = self
-        self.nowPlayingView.delegate = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -159,61 +154,10 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension SongsViewController: PlayerDelegate {
-    func player(_ player: Player, didPlay song: Song?) {
-        if let playingSong = song {
-            self.nowPlayingView.configure(with: playingSong)
-        }
-    }
-    
-    func player(_ player: Player, didPause song: Song?) {
-        self.nowPlayingView.pause()
-    }
-    
-    func player(_ player: Player, didAdvanceToNext song: Song?) {
-        if let playingSong = song {
-            self.nowPlayingView.configure(with: playingSong)
-        }
-    }
-    
-    func player(_ player: Player, willRemoveSong song: Song) {
-        let fileManager = FileManager.default
-        guard let container = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.ir.alitabatabaei.Music-Player") else { return }
-        let dir = container.appendingPathComponent("sharedSongs")
-        let path = dir.appendingPathComponent(song.path)
-        do {
-            try fileManager.removeItem(at: path)
-        } catch let ex {
-            print("Error in removing song: \(ex)")
-        }
-    }
-    
-    func player(_ player: Player, timeElapsed time: CMTime) {
-        let seconds = CMTimeGetSeconds(time)
-        self.nowPlayingView.playbackSlider.value = Float(seconds)
-    }
-}
-
-extension SongsViewController: MPHeaderViewDelegate, MPNowPlayingViewDelegate {
+extension SongsViewController: MPHeaderViewDelegate {
     
     func headerView(_ headerView: MPHeaderView, didRightButtonPressed button: MPButton) {
         present(self.sortAlertController, animated: true)
-    }
-    
-    func play(in nowPlayingView: MPNowPlayingView) {
-        self.player.play()
-    }
-    
-    func pause(in nowPlayingView: MPNowPlayingView) {
-        self.player.pause()
-    }
-    
-    func next(in nowPlayingView: MPNowPlayingView) {
-        self.player.next()
-    }
-    
-    func previous(in nowPlayingView: MPNowPlayingView) {
-        self.player.previous()
     }
 }
 

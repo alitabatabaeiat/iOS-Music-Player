@@ -119,7 +119,7 @@ class Player: NSObject {
         self.insertMany(from: songs, startingFrom: startingSong)
     }
     
-    func setNewQueue(with songs: [Song], startingFrom song: Song) {
+    private func setNewQueue(with songs: [Song], startingFrom song: Song) {
         self.seek(to: .zero)
         self.player.removeAllItems()
         
@@ -157,6 +157,9 @@ class Player: NSObject {
     }
     
     func play() {
+        if self.currentSong == nil {
+            self.setNewQueue(with: .shuffle, startingFrom: nil)
+        }
         if self.player.rate == 0 {
             self.player.play()
             self.setAudioSession()

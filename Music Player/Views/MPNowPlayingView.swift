@@ -127,28 +127,22 @@ extension MPNowPlayingView {
 extension MPNowPlayingView {
     @objc func playButtonPressed() {
         self.playButton.animate(completion: nil)
-        if let delegate = self.delegate {
-            if !self.isPlaying {
-                delegate.play(in: self)
-                self.play()
-            } else {
-                delegate.pause(in: self)
-                self.pause()
-            }
+        if !self.isPlaying {
+            Player.shared.play()
+            self.play()
+        } else {
+            Player.shared.pause()
+            self.pause()
         }
     }
     
     @objc func nextButtonPressed() {
         self.nextButton.animate(completion: nil)
-        if let delegate = self.delegate {
-            delegate.next(in: self)
-        }
+        Player.shared.next()
     }
     
     @objc func previousButtonPressed() {
         self.previousButton.animate(completion: nil)
-        if let delegate = self.delegate {
-            delegate.previous(in: self)
-        }
+        Player.shared.previous()
     }
 }
