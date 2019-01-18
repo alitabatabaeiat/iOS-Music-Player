@@ -240,6 +240,13 @@ class Player: NSObject {
         }
     }
     
+    func remove(song: Song) {
+        print(song.title)
+        if let index = self.songs.firstIndex(where: { $0 === song }) {
+            self.removeSong(at: index)
+        }
+    }
+    
     func removeSong(at index: Int) {
         if let delegate = self.delegate {
             delegate.player(self, willRemoveSong: self.songs[index])

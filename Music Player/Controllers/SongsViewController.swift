@@ -146,7 +146,7 @@ class SongsViewController: UIViewController {
                 songDictionary[startWith] = [song]
             }
         }
-        self.songs = songDictionary.sorted { return $0.key! < $1.key! }
+        self.songs = songDictionary.sorted { $0.key! < $1.key! }
         if self.songs[0].key == "#" {
             self.songs.append(self.songs[0])
             self.songs.remove(at: 0)
@@ -204,8 +204,10 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.player.removeSong(at: indexPath.row)
+            self.player.remove(song: self.songs[indexPath.section].value[indexPath.row])
+            self.songs[indexPath.section].value.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+//            self.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
