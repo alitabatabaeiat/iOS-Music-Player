@@ -14,8 +14,34 @@ import MobileCoreServices
 
 class ShareViewController: UIViewController {
     
+    var numOfCompletedAttachments: Int = 0 {
+        didSet {
+            if self.numOfAttachments == self.numOfCompletedAttachments {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.redirectToHostApp()
+                }
+            }
+        }
+    }
+    var numOfAttachments: Int = 0
+    
+    let view2: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor  = .white
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.addSubview(view2)
+        
+        view2.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        view2.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        view2.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -30).isActive = true
+        view2.bottomAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 30).isActive = true
         
         view.backgroundColor = .white
         self.copySongsAndRedirectToHostApp()
@@ -26,6 +52,7 @@ class ShareViewController: UIViewController {
         let contentType = kUTTypeAudio as String
         guard let attachments = content.attachments else { return }
         
+        self.numOfAttachments = attachments.count
         for (_, attachment) in attachments.enumerated() {
             if attachment.hasItemConformingToTypeIdentifier(contentType) {
                 attachment.loadItem(forTypeIdentifier: contentType, options: nil, completionHandler: self.loadItemCallback(data:error:))
@@ -58,7 +85,7 @@ class ShareViewController: UIViewController {
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
         }
-        self.redirectToHostApp()
+        self.numOfCompletedAttachments += 1
     }
     
     @objc func redirectToHostApp() {

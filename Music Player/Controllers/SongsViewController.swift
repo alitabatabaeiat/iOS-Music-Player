@@ -13,6 +13,7 @@ import MediaPlayer
 class SongsViewController: UIViewController {
     
     let player = Player.shared
+    var songs = [(key: String?, value: [Song])]()
     
     let CELL_ID = "cell_id"
     let tableView = MPTableView()
@@ -56,6 +57,7 @@ class SongsViewController: UIViewController {
         self.setTargets()
         self.setDelegates()
         self.setAlertController()
+        self.categorizeSongs()
         self.tableView.register(MPSongTableViewCell.self, forCellReuseIdentifier: self.CELL_ID)
     }
     
@@ -91,20 +93,20 @@ class SongsViewController: UIViewController {
         
         var actions = [String : UIAlertAction]()
         actions[Sort.ByArtist.rawValue] = UIAlertAction(title: "Artist", style: .default) { action in
-            self.player.sortSongs(by: .ByArtist)
-            self.tableView.reloadData()
+            self.player.setSort(.ByArtist)
+            self.reloadData()
             actions.forEach { $0.value.setValue(false, forKey: "checked") }
             action.setValue(true, forKey: "checked")
         }
         actions[Sort.ByTitle.rawValue] = UIAlertAction(title: "Title", style: .default) { action in
-            self.player.sortSongs(by: .ByTitle)
-            self.tableView.reloadData()
+            self.player.setSort(.ByTitle)
+            self.reloadData()
             actions.forEach { $0.value.setValue(false, forKey: "checked") }
             action.setValue(true, forKey: "checked")
         }
         actions[Sort.ByRecentlyAdded.rawValue] = UIAlertAction(title: "Recently Added", style: .default) { action in
-            self.player.sortSongs(by: .ByRecentlyAdded)
-            self.tableView.reloadData()
+            self.player.setSort(.ByRecentlyAdded)
+            self.reloadData()
             actions.forEach { $0.value.setValue(false, forKey: "checked") }
             action.setValue(true, forKey: "checked")
         }
@@ -114,21 +116,77 @@ class SongsViewController: UIViewController {
 
         actions.forEach { self.sortAlertController.addAction($0.value) }
     }
+    
+    private func categorizeSongs() {
+        let sort = self.player.getSort()
+        let songs = self.player.getSongs();
+        self.songs.removeAll()
+        if sort == .ByRecentlyAdded {
+            self.songs = [(nil, songs)]
+            return
+        }
+        
+        var songDictionary = [String? : [Song]]()
+        for song in songs {
+            var string = ""
+            if sort == .ByArtist {
+                string = song.artist
+            } else if sort == .ByTitle {
+                string = song.title
+            }
+
+            var startWith = "#"
+            if let firstLetter = string.first, ("a" <= firstLetter && firstLetter <= "z") || ("A" <= firstLetter && firstLetter <= "Z") {
+                startWith = String(firstLetter)
+            }
+            
+            if songDictionary[startWith] != nil {
+                songDictionary[startWith]!.append(song)
+            } else {
+                songDictionary[startWith] = [song]
+            }
+        }
+        self.songs = songDictionary.sorted { return $0.key! < $1.key! }
+        if self.songs[0].key == "#" {
+            self.songs.append(self.songs[0])
+            self.songs.remove(at: 0)
+        }
+    }
+    
+    private func reloadData() {
+        self.categorizeSongs()
+        self.tableView.reloadData()
+    }
 }
 
 extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.songs.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.player.getSongs().count
+        return self.songs[section].value.count
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let view = view as? UITableViewHeaderFooterView {
+            view.backgroundView?.backgroundColor = .white
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return songs[section].key
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! MPSongTableViewCell
-        cell.song = self.player.getSong(at: indexPath.row)
+        cell.song = self.songs[indexPath.section].value[indexPath.row]
+        if self.songs[indexPath.section].value.count - 1 == indexPath.row{
+            cell.removeBottomLine()
+        } else {
+            cell.addBottomLine()
+        }
         
         return cell
     }

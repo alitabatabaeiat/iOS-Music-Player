@@ -11,16 +11,19 @@ import AVFoundation
 import MediaPlayer
 
 class Player: NSObject {
-    static let shared = Player()
+    public static let shared = Player()
     
-    var delegate: PlayerDelegate?
+    public var delegate: PlayerDelegate?
     private var player: AVQueuePlayer
     private var songs: [Song]
+    private var sort = Sort.ByTitle
     private var currentSong: Song? {
         get {
             return self.songs.first { $0.playerItem === self.player.currentItem }
         }
     }
+
+    public var numberOfSongs: Int { return self.songs.count }
     
     private var playlists: [Playlist]
     
@@ -28,7 +31,6 @@ class Player: NSObject {
         self.player = AVQueuePlayer()
         self.songs = [Song]()
         self.playlists = Defaults.getPlaylists()
-        print(self.playlists.count)
         super.init()
         
         self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
@@ -43,7 +45,7 @@ class Player: NSObject {
     func add(mulitpleSongs songs: [Song]) {
         self.songs = songs
         if let sortBy = Defaults.getSortBy() {
-            self.sortSongs(by: sortBy)
+            self.setSort(sortBy)
         }
     }
     
@@ -71,7 +73,7 @@ class Player: NSObject {
         return self.playlists[index]
     }
 
-    func sortSongs(by sort: Sort) {
+    func setSort(_ sort: Sort) {
         switch sort {
             case .ByTitle:
                 self.songs.sort { $0.title < $1.title }
@@ -92,7 +94,12 @@ class Player: NSObject {
                 break
         }
         
+        self.sort = sort
         Defaults.set(sortBy: sort)
+    }
+    
+    func getSort() -> Sort {
+        return self.sort
     }
     
     func setNewQueue(with queueOption: Queue, startingFrom song: Song?) {
