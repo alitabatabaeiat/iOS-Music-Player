@@ -7,5 +7,4 @@ target 'Music Player' do
 
   # Pods for Music Player
   pod 'SwiftIconFont'
-
 end

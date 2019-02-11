@@ -68,18 +68,6 @@ extension MainTabBarController: PlayerDelegate {
         }
     }
     
-    func player(_ player: Player, willRemoveSong song: Song) {
-        let fileManager = FileManager.default
-        guard let container = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.ir.alitabatabaei.Music-Player") else { return }
-        let dir = container.appendingPathComponent("sharedSongs")
-        let path = dir.appendingPathComponent(song.path)
-        do {
-            try fileManager.removeItem(at: path)
-        } catch let ex {
-            print("Error in removing song: \(ex)")
-        }
-    }
-    
     func player(_ player: Player, timeElapsed time: CMTime) {
         let seconds = CMTimeGetSeconds(time)
         self.nowPlayingView.playbackSlider.value = Float(seconds)

@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import MediaPlayer
+import RxCocoa
 
 class Player: NSObject {
     public static let shared = Player()
@@ -247,9 +248,6 @@ class Player: NSObject {
     }
     
     private func removeSong(at index: Int) {
-        if let delegate = self.delegate {
-            delegate.player(self, willRemoveSong: self.songs[index])
-        }
         if self.currentSong === self.songs[index] {
             self.player.removeAllItems()
         }

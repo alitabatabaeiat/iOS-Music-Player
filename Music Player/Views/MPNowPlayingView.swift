@@ -31,20 +31,17 @@ class MPNowPlayingView: UIView {
         let button = MPButton()
         button.setImage(UIImage(from: .ionicon, code: "ios-rewind", textColor: .darkGray, backgroundColor: .clear, size: MPNowPlayingView.buttonSize), for: .normal)
         
-        
         return button
     }()
     let playButton: MPButton = {
         let button = MPButton()
         button.setImage(UIImage(from: .ionicon, code: "ios-play", textColor: .darkGray, backgroundColor: .clear, size: MPNowPlayingView.buttonSize), for: .normal)
         
-        
         return button
     }()
     let nextButton: MPButton = {
         let button = MPButton()
         button.setImage(UIImage(from: .ionicon, code: "ios-fastforward", textColor: .darkGray, backgroundColor: .clear, size: MPNowPlayingView.buttonSize), for: .normal)
-        
         
         return button
     }()
@@ -91,7 +88,7 @@ extension MPNowPlayingView {
         self.previousButton.anchor(top: nil, right: self.playButton.leftAnchor, bottom: nil, left: nil, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10), size: MPNowPlayingView.buttonSize)
         self.previousButton.centerYAnchor.constraint(equalTo: self.nextButton.centerYAnchor).isActive = true
         
-        self.titleLabel.anchor(top: nil, right: self.playButton.leftAnchor, bottom: self.centerYAnchor, left: self.artwork.rightAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5))
+        self.titleLabel.anchor(top: nil, right: self.previousButton.leftAnchor, bottom: self.centerYAnchor, left: self.artwork.rightAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5))
         
         self.artistLabel.anchor(top: self.titleLabel.bottomAnchor, right: self.titleLabel.rightAnchor, bottom: nil, left: self.titleLabel.leftAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         
