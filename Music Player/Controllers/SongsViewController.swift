@@ -58,6 +58,7 @@ class SongsViewController: UIViewController {
         self.setDelegates()
         self.setAlertController()
         self.categorizeSongs()
+        self.addObservers()
         self.tableView.register(MPSongTableViewCell.self, forCellReuseIdentifier: self.CELL_ID)
     }
     
@@ -117,7 +118,7 @@ class SongsViewController: UIViewController {
         actions.forEach { self.sortAlertController.addAction($0.value) }
     }
     
-    private func categorizeSongs() {
+    public func categorizeSongs() {
         let sort = self.player.getSort()
         let songs = self.player.getSongs();
         self.songs.removeAll()
@@ -156,6 +157,14 @@ class SongsViewController: UIViewController {
     private func reloadData() {
         self.categorizeSongs()
         self.tableView.reloadData()
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActiveNotification), name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    
+    @objc private func appDidBecomeActiveNotification() {
+        self.reloadData()
     }
 }
 

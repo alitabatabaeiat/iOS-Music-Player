@@ -14,34 +14,88 @@ class SongsManager {
     public static let shared = SongsManager(path: "group.ir.alitabatabaei.Music-Player", sharedPath: "sharedSongs")
     
     private let fileManager = FileManager.default
-    private let container: URL?
+    private let documentDirectory: URL?
+    private let sharedContainer: URL?
     private let sharedPath: String
+    private let musicPath: String
     
     init(path: String, sharedPath: String) {
-        self.container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: path)
+        self.documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        self.sharedContainer = fileManager.containerURL(forSecurityApplicationGroupIdentifier: path)
         self.sharedPath = sharedPath
+        self.musicPath = ".music"
     }
     
     public func createDirectoryIfNeeded() {
-        if let container = self.container {
-            let dir = container.appendingPathComponent(self.sharedPath)
-            if !fileManager.fileExists(atPath: dir.path) {
-                do {
-                    try fileManager.createDirectory(at: dir, withIntermediateDirectories: false, attributes: nil)
-                } catch let error {
-                    print("Error on creating directory: \(error.localizedDescription)")
-                }
+        guard let container = self.sharedContainer else { return }
+        guard let documentDirectory = self.documentDirectory else { return }
+        let musicDirectory = documentDirectory.appendingPathComponent(self.musicPath)
+        let dir = container.appendingPathComponent(self.sharedPath)
+        
+        if !fileManager.fileExists(atPath: musicDirectory.path) {
+            do {
+                try fileManager.createDirectory(at: musicDirectory, withIntermediateDirectories: false, attributes: nil)
+            } catch let error {
+                print("Error on creating \(self.musicPath) directory: \(error.localizedDescription)")
+            }
+        }
+        
+        if !fileManager.fileExists(atPath: dir.path) {
+            do {
+                try fileManager.createDirectory(at: dir, withIntermediateDirectories: false, attributes: nil)
+            } catch let error {
+                print("Error on creating \(self.sharedPath) directory: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    public func moveSongsToMusicDirectory() -> [Song] {
+        guard let documentDirectory = self.documentDirectory else { return [] }
+        guard let container = self.sharedContainer else { return [] }
+        let musicDirectory = documentDirectory.appendingPathComponent(self.musicPath)
+        let dir = container.appendingPathComponent(self.sharedPath)
+        
+        if !fileManager.fileExists(atPath: dir.path) { return [] }
+
+        do {
+            var newSongs = [Song]()
+            
+            var items = try fileManager.contentsOfDirectory(atPath: dir.path)
+            newSongs += self.readSongs(from: dir, songsPath: items)
+            moveSongs(items: items, from: dir, to: musicDirectory)
+            
+            items = try fileManager.contentsOfDirectory(atPath: documentDirectory.path)
+            if let index = items.firstIndex(where: { $0 == self.musicPath }) {
+                items.remove(at: index)
+            }
+            newSongs += self.readSongs(from: documentDirectory, songsPath: items)
+            moveSongs(items: items, from: documentDirectory, to: musicDirectory)
+            
+            return newSongs
+        } catch let error {
+            print("Error on reading contents of directory: \(error.localizedDescription)")
+        }
+        return []
+    }
+    
+    private func moveSongs(items: [String], from sourceDir: URL, to destinationDir: URL) {
+        for item in items {
+            do {
+                let source = sourceDir.appendingPathComponent(item)
+                let destination = destinationDir.appendingPathComponent(item)
+                try fileManager.moveItem(at: source, to: destination)
+            } catch let error {
+                print("Error on moving \(item) to musicDirectory: \(error.localizedDescription)")
             }
         }
     }
     
     public func getAllSongs() -> [Song] {
-        guard let container = self.container else { return [] }
-        let dir = container.appendingPathComponent(self.sharedPath)
-        if !fileManager.fileExists(atPath: dir.path) { return [] }
+        guard let musicDirectory = self.documentDirectory?.appendingPathComponent(self.musicPath) else { return [] }
+        if !fileManager.fileExists(atPath: musicDirectory.path) { return [] }
         do {
-            let items = try fileManager.contentsOfDirectory(atPath: dir.path)
-            return self.readSongs(from: dir, songsPath: items)
+            let items = try fileManager.contentsOfDirectory(atPath: musicDirectory.path)
+            return self.readSongs(from: musicDirectory, songsPath: items)
         } catch let error {
             print("Error on reading contents of directory: \(error.localizedDescription)")
             return []
@@ -49,9 +103,8 @@ class SongsManager {
     }
     
     public func remove(song: Song) {
-        guard let container = self.container else { return }
-        let dir = container.appendingPathComponent(self.sharedPath)
-        let path = dir.appendingPathComponent(song.path)
+        guard let documentDirectory = self.documentDirectory else { return }
+        let path = documentDirectory.appendingPathComponent(song.path)
         do {
             try fileManager.removeItem(at: path)
         } catch let error {

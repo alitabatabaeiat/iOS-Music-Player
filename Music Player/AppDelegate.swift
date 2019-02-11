@@ -19,11 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SongsManager.shared.createDirectoryIfNeeded()
         
         Player.shared.add(mulitpleSongs: SongsManager.shared.getAllSongs())
+        let newSongs = SongsManager.shared.moveSongsToMusicDirectory()
+        Player.shared.add(mulitpleSongs: newSongs)
         
         let ctrl = MainTabBarController()
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        window?.rootViewController = ctrl
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = ctrl
         
         return true
     }
@@ -40,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        let newSongs = SongsManager.shared.moveSongsToMusicDirectory()
+        Player.shared.add(mulitpleSongs: newSongs)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -104,6 +108,8 @@ extension AppDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
         Player.shared.add(mulitpleSongs: SongsManager.shared.getAllSongs())
+        let newSongs = SongsManager.shared.moveSongsToMusicDirectory()
+        Player.shared.add(mulitpleSongs: newSongs)
         
         let ctrl = MainTabBarController()
         window = UIWindow(frame: UIScreen.main.bounds)

@@ -9,7 +9,6 @@
 import Foundation
 import AVFoundation
 import MediaPlayer
-import RxCocoa
 
 class Player: NSObject {
     public static let shared = Player()
@@ -20,7 +19,10 @@ class Player: NSObject {
     private var sort = Sort.ByTitle
     private var currentSong: Song? {
         get {
-            return self.songs.first { $0.playerItem === self.player.currentItem }
+            if let currentItem = self.player.currentItem {
+                let description = currentItem.asset.description
+            }
+            return self.player.currentItem != nil ? self.songs.first { $0.playerItem == self.player.currentItem } : nil
         }
     }
 
@@ -34,6 +36,10 @@ class Player: NSObject {
         self.playlists = Defaults.getPlaylists()
         super.init()
         
+        if let sortBy = Defaults.getSortBy() {
+            self.setSort(sortBy)
+        }
+        
         self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
         self.player.addPeriodicTimeObserver(forInterval: CMTimeMake(value: 1, timescale: 100), queue: DispatchQueue.main) { time in
             if let delegate = self.delegate {
@@ -44,10 +50,7 @@ class Player: NSObject {
     }
     
     func add(mulitpleSongs songs: [Song]) {
-        self.songs = songs
-        if let sortBy = Defaults.getSortBy() {
-            self.setSort(sortBy)
-        }
+        self.songs += songs
     }
     
     func getSongs() -> [Song] {
