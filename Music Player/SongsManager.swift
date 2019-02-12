@@ -69,8 +69,6 @@ class SongsManager {
             items = moveSongs(items: items, from: documentDirectory, to: musicDirectory)
             newSongs += self.readSongs(from: musicDirectory, songsPath: items)
             
-            print("newSongs.count = \(newSongs.count)")
-            
             return newSongs
         } catch let error {
             print("Error on reading contents of directory: \(error.localizedDescription)")

@@ -174,3 +174,17 @@ extension UIFont {
     static var latoLight: UIFont? { return UIFont(name: "Lato-Light", size: 16) }
     static var lato: UIFont? { return UIFont(name: "Lato-Regular", size: 16) }
 }
+
+extension UISearchBar {
+    
+    var cancelButton : UIButton? {
+        if let view = self.subviews.first {
+            for subView in view.subviews {
+                if let cancelButton = subView as? UIButton {
+                    return cancelButton
+                }
+            }
+        }
+        return nil
+    }
+}

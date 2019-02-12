@@ -16,7 +16,7 @@ class Player: NSObject {
     public var delegate: PlayerDelegate?
     private var player: AVQueuePlayer
     private var songs: [Song]
-    private var sort = Sort.ByTitle
+    private var sortBy = Sort.ByTitle
     private var currentSong: Song? {
         get {
             return self.player.currentItem != nil ? self.songs.first { $0.playerItem == self.player.currentItem } : nil
@@ -34,7 +34,7 @@ class Player: NSObject {
         super.init()
         
         if let sortBy = Defaults.getSortBy() {
-            self.setSort(sortBy)
+            self.setSortBy(sortBy)
         }
         
         self.player.addObserver(self, forKeyPath: #keyPath(AVQueuePlayer.currentItem), options: [.new, .old], context: nil)
@@ -48,6 +48,7 @@ class Player: NSObject {
     
     func add(mulitpleSongs songs: [Song]) {
         self.songs += songs
+        self.sort()
     }
     
     func getSongs() -> [Song] {
@@ -73,9 +74,9 @@ class Player: NSObject {
     func getPlaylist(at index: Int) -> Playlist {
         return self.playlists[index]
     }
-
-    func setSort(_ sort: Sort) {
-        switch sort {
+    
+    func sort() {
+        switch self.sortBy {
             case .ByTitle:
                 self.songs.sort { $0.title < $1.title }
                 break
@@ -94,13 +95,15 @@ class Player: NSObject {
                 // TODO: implement after core data modeled
                 break
         }
-        
-        self.sort = sort
-        Defaults.set(sortBy: sort)
+    }
+
+    func setSortBy(_ sortBy: Sort) {
+        self.sortBy = sortBy
+        Defaults.set(sortBy: sortBy)
     }
     
-    func getSort() -> Sort {
-        return self.sort
+    func getSortBy() -> Sort {
+        return self.sortBy
     }
     
     func setNewQueue(with queueOption: Queue, startingFrom song: Song?) {

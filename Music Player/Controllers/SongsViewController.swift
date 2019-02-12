@@ -15,7 +15,7 @@ class SongsViewController: UIViewController {
     let player = Player.shared
     var songs = [(key: String?, value: [Song])]()
     
-    let CELL_ID = "cell_id"
+    let CELL_ID = "sogns_view_controller_cell_id"
     let tableView = MPTableView()
     let headerView = MPHeaderView(titleText: "SONGS", rightButtonImage: UIImage(from: .iconic, code: "sort-ascending", textColor: .darkGray, backgroundColor: .clear, size: CGSize(width: 30, height: 30)))
     let buttonContainer = MPView()
@@ -94,19 +94,19 @@ class SongsViewController: UIViewController {
         
         var actions = [String : UIAlertAction]()
         actions[Sort.ByArtist.rawValue] = UIAlertAction(title: "Artist", style: .default) { action in
-            self.player.setSort(.ByArtist)
+            self.player.setSortBy(.ByArtist)
             self.reloadData()
             actions.forEach { $0.value.setValue(false, forKey: "checked") }
             action.setValue(true, forKey: "checked")
         }
         actions[Sort.ByTitle.rawValue] = UIAlertAction(title: "Title", style: .default) { action in
-            self.player.setSort(.ByTitle)
+            self.player.setSortBy(.ByTitle)
             self.reloadData()
             actions.forEach { $0.value.setValue(false, forKey: "checked") }
             action.setValue(true, forKey: "checked")
         }
         actions[Sort.ByRecentlyAdded.rawValue] = UIAlertAction(title: "Recently Added", style: .default) { action in
-            self.player.setSort(.ByRecentlyAdded)
+            self.player.setSortBy(.ByRecentlyAdded)
             self.reloadData()
             actions.forEach { $0.value.setValue(false, forKey: "checked") }
             action.setValue(true, forKey: "checked")
@@ -114,12 +114,14 @@ class SongsViewController: UIViewController {
         if let sortBy = Defaults.getSortBy(), let action = actions[sortBy.rawValue] {
             action.setValue(true, forKey: "checked")
         }
-
-        actions.forEach { self.sortAlertController.addAction($0.value) }
+        
+        self.sortAlertController.addAction(actions[Sort.ByArtist.rawValue]!)
+        self.sortAlertController.addAction(actions[Sort.ByTitle.rawValue]!)
+        self.sortAlertController.addAction(actions[Sort.ByRecentlyAdded.rawValue]!)
     }
     
     public func categorizeSongs() {
-        let sort = self.player.getSort()
+        let sort = self.player.getSortBy()
         let songs = self.player.getSongs();
         self.songs.removeAll()
         if sort == .ByRecentlyAdded {
@@ -201,7 +203,7 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? MPSongTableViewCell, let song = cell.song {
+        if let cell = self.tableView.cellForRow(at: indexPath) as? MPSongTableViewCell, let song = cell.song {
             if !self.player.isPlaying(song: song)  {
                 self.player.setNewQueue(with: .default, startingFrom: song)
                 self.player.play()
@@ -214,7 +216,6 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let removedSong = self.songs[indexPath.section].value[indexPath.row]
-            print(removedSong.title)
             self.player.remove(song: removedSong)
             SongsManager.shared.remove(song: removedSong)
             self.songs[indexPath.section].value.remove(at: indexPath.row)
