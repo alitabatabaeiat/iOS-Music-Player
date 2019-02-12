@@ -8,3 +8,10 @@ target 'Music Player' do
   # Pods for Music Player
   pod 'SwiftIconFont'
 end
+
+target 'Copy to Music Player' do
+    
+    use_frameworks!
+    
+    pod 'MBProgressHUD', '~> 1.1.0'
+end

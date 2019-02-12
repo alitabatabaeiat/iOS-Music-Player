@@ -3,333 +3,497 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		004948B2A445049BB62501BC85C4037F /* Octicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041CE773936EC2297E230838DFF5C6AF /* Octicon.swift */; };
-		016679AB3B4567AB1A81BE461284F850 /* SwiftIconFont+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157EE4959DEA61FC2760199B806FA50C /* SwiftIconFont+UITextField.swift */; };
-		10A60C2BFCA2D1DC2EEACF781BCF4BAE /* FontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE779E26DAC3259C5BA550DBFFB72 /* FontLoader.swift */; };
-		10CE537315C8F2258030BA96FE6B982D /* SwiftIconFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5591F0ACBA885E437AB8ADA47F7DABB7 /* SwiftIconFontView.swift */; };
-		1D53996FBCA970799A66D3EED0B26A42 /* SwiftIconFont+UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E313A037B9FD5DDF9CBE2FB1153C1B /* SwiftIconFont+UITextView.swift */; };
-		20A0E6FFFC1388C6CDFF32A700D38294 /* SegoeMDL2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D08611FD5E21DF072E6092C5657C2 /* SegoeMDL2.swift */; };
-		21181ED1D0D6B0A82BBC99F348655DC8 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E59FF0BE51C47DCC69B0980194877A6 /* FontAwesome.ttf */; };
-		2250AB6AA6CACF850426A26F0C184EA8 /* SwiftIconFont+UITabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27F4EDB21465C46CE959CB89372EB12 /* SwiftIconFont+UITabBarItem.swift */; };
-		229D674454E134E72086DB0783592D33 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00798D9A299DC30EF51DD333673D8FF /* FontAwesome.swift */; };
-		2B1F6A92422F0CDAE8CE8BBDB90446EA /* SwiftIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8707CE52AD6BFCF62427CBD9202248 /* SwiftIconTextView.swift */; };
-		32D0AD0A8FA7BF42BCD01E2DF8D5539A /* Segoe mdl2 assets.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56576EFF52A45EC5A685CD3CEE9111C5 /* Segoe mdl2 assets.ttf */; };
-		33944B28EDFCC4161881C212D9DB5F9A /* SwiftIconFont+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3460AC477E8D025321731D710B90F00 /* SwiftIconFont+UIImage.swift */; };
-		3A540D5C5139C03561FB140F35691EB7 /* ThemifyIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58359802D9A33E312FB1C3A6B38E47FE /* ThemifyIcon.swift */; };
-		3ACF369A08B84F94CDFF86ACA6EC3E46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
-		4EF188C42FC74FEB42D516D7AFE33FE2 /* map-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D37D361196CAE93A65F37FC5CCCB1AEE /* map-icons.ttf */; };
-		577024661969C04B7CF1BF1FF9AB660E /* SwiftIconFont+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A217E94C99DE9618B1B53B4BFB81EC9 /* SwiftIconFont+NSRange.swift */; };
-		5A3A9C2D03838846A2C9349451EC83F9 /* SwiftIconTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7741793723498EE51B36DFC11EAB69 /* SwiftIconTabBarItem.swift */; };
-		683D2465042F2A9AB987109E51324E47 /* SwiftIconFont+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE778C8926CAC7CE7D99554AE6C9A8DB /* SwiftIconFont+UILabel.swift */; };
-		7575F38A1C6257FAEDC9D014181729EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
-		787FF03F49F443FDCB6788686EBFF6BD /* SwiftIconFont-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EB75F6A01BD82FEC1E31D822E863A68 /* SwiftIconFont-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7CFFC1E4A5CF1F6B1F0C84A2903EFAD1 /* SwiftIconFont+UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BC188F6BFDE633EC47C11EBC6F49C /* SwiftIconFont+UIBarButtonItem.swift */; };
-		7F270A60C3BCCFB1AC39108614411836 /* MaterialIcons-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E0449CA7BE6D664CFCA234BB311543 /* MaterialIcons-Regular.ttf */; };
-		7FB72336A480029DDA1260B9B92E7A01 /* SwiftIconStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A0E12124AE0233D63170EB0DB1B85 /* SwiftIconStepper.swift */; };
-		81E53E41C2FC1E0C5F0C095E6F87DDF4 /* SwiftIconBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A881BAB6EA1DF3560A5A34C4DC555 /* SwiftIconBarButtonItem.swift */; };
-		82A0DCC129E1D5499CE91F7AB2A037FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */; };
-		87D1A7BA03CC3E01E9CFAED828DC93C2 /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 861A35AF2C0D8EAD806CF0C263B537DA /* octicons.ttf */; };
-		8F2DA7684F3F888462AEAD77CBE605E4 /* MapIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEF0D99B67375F495A9C52F02E10FE /* MapIcon.swift */; };
-		9691788E4C20CC146A9F258741578BB2 /* SwiftIconFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98D558C254DAF1BE90BCCFCF49F325 /* SwiftIconFont.swift */; };
-		99D81500992056285474940250A203B6 /* themify.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 590B28C263F4CF8F82344FFC44B00969 /* themify.ttf */; };
-		A0F3570088E51B32D1B9D6DE9AFDA230 /* SwiftIconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756B649F042277A9311576B0D87B01F /* SwiftIconTextField.swift */; };
-		A144A8F6907EE5DB82350A27CBC07839 /* MaterialIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161EECA1547FFFEA9DEC200197B1634C /* MaterialIcon.swift */; };
-		A3FE1B2426FBE63A7340EB5AAC633B0D /* SwiftIconFont+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6445A3B35DB44B8E8FE0E00E2A220119 /* SwiftIconFont+UIImageView.swift */; };
-		B3FC7E91A8D25C6D9201AE7687F0515B /* Pods-Music Player-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 51A291E605196086182646B068159C49 /* Pods-Music Player-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B5A1D8B208B99AF456275D4FD1DCF748 /* open-iconic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C6903BC0DF586CF5179EB9369CAB736 /* open-iconic.ttf */; };
-		B74720F708FC301FE89D1CE5148BB1F2 /* SwiftIconFont+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA005E7EEA03E688E122B286A345650C /* SwiftIconFont+String.swift */; };
-		BBB2BBDFDD03DF824D78CDC7397114D4 /* SwiftIconFont-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E2558085D468D19AFE4385D5A5D90D0C /* SwiftIconFont-dummy.m */; };
-		BE4702B0193E8DA953900ACAC10DA889 /* SwiftIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F1986C48D81917EE2648C46FF6B06F /* SwiftIconButton.swift */; };
-		C5ED59662A0BFD7F37D377A04B1B903B /* Pods-Music Player-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D781D6EDAB1F55A2BEA4F972255F6B4E /* Pods-Music Player-dummy.m */; };
-		C83BC680AE0F47C29CDE022E9F2B8A2B /* SwiftIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B576ED036C3C9055F5CF9A928590D /* SwiftIconLabel.swift */; };
-		C989E9DD1156C1B5D5EFACC4C318E0C9 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 054EB4AD107EC344F74CA62017AF016B /* Ionicons.ttf */; };
-		D36456D58FE295CDF7155067B1392583 /* SwiftIconFont+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6215EF1966CF449758E6B73A80A53A8B /* SwiftIconFont+UIButton.swift */; };
-		D4FCDE2EA23E8CB8E8AC31F4855BEE72 /* Iconic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D97DC76AEDEEE45B7032EB68C423A4 /* Iconic.swift */; };
-		E51B10E5242284ED2A1B14CCD1DA5B73 /* IonIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4460982B8E3B60A12414440DEA4581 /* IonIcons.swift */; };
+		01FF64F3801A9EAB591244EFDE690C28 /* themify.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1F8C388E9B1AAB7AAE35AE3E61E169F /* themify.ttf */; };
+		0242AABE7291F28D9428F7D5AB2F2755 /* SwiftIconFont+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FA0A8FE88A314BCB844D302C9C02FE /* SwiftIconFont+UIButton.swift */; };
+		045356E795A8DE3EDE6B8BC3F615ADF4 /* SwiftIconFont+UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4501179AB3E57E3090A4379681E597F6 /* SwiftIconFont+UIBarButtonItem.swift */; };
+		0A8169AF5BC0B170068554797BB8B6D6 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5664948E5FAFA0CA5703719A82EA3BB1 /* FontAwesome.swift */; };
+		0AEDCFADADAFBC9D0F1D9CAD38940E80 /* SwiftIconBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40DD8146E8F17985FEE948721AFACD /* SwiftIconBarButtonItem.swift */; };
+		170D3A9439D2B884DF3AE3D5F65709E9 /* SwiftIconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73B2CE09B873DB3EE27E8E3B475158 /* SwiftIconTextField.swift */; };
+		2214D9EF048C093D94CEFDC849C2743E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65E433A68C225D6FF6B2CE970853F1D /* QuartzCore.framework */; };
+		24E13CF021BC9D75208698D986150519 /* MaterialIcons-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF4719EDD060B838A092A25AFC611D99 /* MaterialIcons-Regular.ttf */; };
+		2AE846FFD0738828AC4C9D3B0CDAB5AD /* SwiftIconFont+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627AC1ACBCBD998507F467C29E1DB2C /* SwiftIconFont+NSRange.swift */; };
+		3EF1E335C49EC64A77467BF6AA92618F /* Segoe mdl2 assets.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7783C93F5C0028F1ABBC575C8AA4C98E /* Segoe mdl2 assets.ttf */; };
+		4BB09744308F959E3CCBC185A2957877 /* MaterialIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC473F2C4FF264DD1689E3AA9CC46E59 /* MaterialIcon.swift */; };
+		4BD3B1D588017EA43F3E98563319DC19 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0812AA8E2D391604FA16E456E405E31D /* MBProgressHUD.m */; };
+		4BDE50760615765B493A10CD603C0601 /* Pods-Music Player-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F10479F1E8E579A588D1FA7FF30902 /* Pods-Music Player-dummy.m */; };
+		4F9863537BC7DA16B2F5D24FB8332853 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C473026796F8AFAA2ECD5A761494CE /* CoreGraphics.framework */; };
+		5444A55F1887B194401765944164F265 /* SwiftIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8554C89651709FAF1DE0BA3A56F6A3 /* SwiftIconLabel.swift */; };
+		56FD24494B5E0DBF5AFF5F4D1AA9B5CE /* SwiftIconFont+UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE701649050FDB4035CEF09E8D8B93 /* SwiftIconFont+UITextView.swift */; };
+		6E2FCFEC9E89052F01A113A47BDF1D52 /* FontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195392C9ACE091D827B9DA92F301144D /* FontLoader.swift */; };
+		6FBC1412EE2FB1E70AF8FC016FAA0145 /* Pods-Music Player-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F23CC7D20DD00AC1BCBC4CA58E37946B /* Pods-Music Player-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		72272CF7430A5388AE8387BD486FF5FB /* SwiftIconFont+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C2FCA7A9288F8527CA6AABDEF083D /* SwiftIconFont+UILabel.swift */; };
+		7E171A149D4F799E5F65B172E5020259 /* SwiftIconFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028745FEB87799D338DD9885F0C71EF9 /* SwiftIconFontView.swift */; };
+		8441E9DF5BC790084A04BBFA2EC62634 /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17946614AD55037CF70BB431EA861998 /* octicons.ttf */; };
+		86AB68A7B1CAEA4F27AEF8751A7B5B0C /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABED2C44DD1034EEAE09DEDE6924303F /* FontAwesome.ttf */; };
+		8B04E533222E5749DF11CAE69829399A /* SwiftIconFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8076D018F477CD41D90A5D8879C221A4 /* SwiftIconFont.swift */; };
+		8E9FE4A955DD44F90CBCCD36CA1C71FD /* Pods-Copy to Music Player-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D15BEB7B210A31B0A81ACF2F145E9685 /* Pods-Copy to Music Player-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92B6ED0B23E492726D083C5C6980F77B /* map-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54949164F9CEE727BE9EB7C244CDDA06 /* map-icons.ttf */; };
+		9414D60AA3BB4700BC8D6814A983B271 /* Iconic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5B774746E75DA3317B9841D3BDF7E6 /* Iconic.swift */; };
+		A77B1465AA63A8C3320BDC132ED5E840 /* SwiftIconFont+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FA86FD20081FE65FAF85EF97AB264A /* SwiftIconFont+UITextField.swift */; };
+		A8906F6003D20F1B2E9C5BFEF7AE9C1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D56348597C0DD615177C5C15A774BCF2 /* Foundation.framework */; };
+		AE787093D36B99764246A69FFDA25786 /* ThemifyIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57194D5ADCE244BF7D3C759642722797 /* ThemifyIcon.swift */; };
+		AFBFEC932687D0439306A9BA2DC47E2A /* SwiftIconFont-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 25FB68D3F8F17CFFBDE6A2230C9902FD /* SwiftIconFont-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4F7C2B8FC009E5A577E43CBE5EBE028 /* Octicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E8C8900C3764091A23F972BA5574F2 /* Octicon.swift */; };
+		BD4EDE446ED2A0E8540A7C0031553650 /* SwiftIconFont+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034341F0C575AB705CA7BE19622164C5 /* SwiftIconFont+UIImage.swift */; };
+		C065757739825058D6BA129833B78DCF /* MapIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9DD7F23EFBC8752252509F5AD8928 /* MapIcon.swift */; };
+		C14A880408BAC5CAF16E2EA3521ED19D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D56348597C0DD615177C5C15A774BCF2 /* Foundation.framework */; };
+		C31470E92B1A691AC3D3D55A127DCBF0 /* MBProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C95650A0940A3C0CFDBEA737B24E55B5 /* MBProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C89E9F4A8BC78B67EC8ECEE9B331B919 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F838B2462C227FB9DE8A09E3117C4CF5 /* Ionicons.ttf */; };
+		CA42C41BF3E51DC13DD0DAFC78F6AAC7 /* IonIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349667FAAFAED0656C4E7819A2E90981 /* IonIcons.swift */; };
+		CB6EBA737D850936063E293A8DD9808D /* SwiftIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01440556BC6BA8070570E510648D536 /* SwiftIconTextView.swift */; };
+		CE7A0EDEF5A5134287A1BD09C5DD6768 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89163E94743FDDD60913C47150E225B /* UIKit.framework */; };
+		CEED91E2672D29FA218528DCD5683EB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D56348597C0DD615177C5C15A774BCF2 /* Foundation.framework */; };
+		D274D20F5EA35039BB08E8593242D9E6 /* SwiftIconFont-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B341BF64F2E199155DCAE0B0107862E /* SwiftIconFont-dummy.m */; };
+		D966EB561A0A6A10BAF414F0B952E95E /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = E207F2C1401DD0DEAF8CF46B5CA0A962 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E445EC5F586399C3B57BFC4B80744257 /* SwiftIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE22F3FBBFBA03C85452B5199A1016B /* SwiftIconButton.swift */; };
+		EDCEA97A122328FC5F0AB7231D710F2D /* Pods-Copy to Music Player-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F7006CCBFC2E8C3343272B67D5A0A /* Pods-Copy to Music Player-dummy.m */; };
+		EE80AA69BF90D3A26D538A5B4B34ECBB /* SwiftIconFont+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47594BB5C1AF0A0DB62CF34B447055E /* SwiftIconFont+String.swift */; };
+		EEB4A455551D7B917E1AD4B0A1A964FF /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D1B6E0DE56B9EB4132B393A6D200F /* MBProgressHUD-dummy.m */; };
+		EEE6A4A9ABA8B9620D27AD3733DEB1F9 /* open-iconic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF79750FEFBFA353E8F11C31FEB60758 /* open-iconic.ttf */; };
+		F12F5FCD8F7212B3C6D8D0A9EE6C5BCE /* SwiftIconTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEFF529266134373D0CFF562CC60C17 /* SwiftIconTabBarItem.swift */; };
+		F65709E666A8E7378AA3191EA265109D /* SwiftIconFont+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83405CBA889DB3E96F7815EF77B3A29D /* SwiftIconFont+UIImageView.swift */; };
+		F7D273F17E84B2B283A3538CD681AA0F /* SegoeMDL2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336B7E286D6FD63C18B2451F3674FDCE /* SegoeMDL2.swift */; };
+		FD5414F6D05A5D02113201CC63993638 /* SwiftIconFont+UITabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FBD92D53BF7A8689798490EF792CA9 /* SwiftIconFont+UITabBarItem.swift */; };
+		FDC1F44EB9E41F4C32A9EC0C05ECD5BE /* SwiftIconStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CD4AF2D10A98680BE31CC7FFDCFEE1 /* SwiftIconStepper.swift */; };
+		FFBC51519A268F445C97076BADC17E3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D56348597C0DD615177C5C15A774BCF2 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D69D90D772EF1297B893F27711B3BE7D /* PBXContainerItemProxy */ = {
+		03946C1DC764F0CAC3660523011349E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F8EBA174F2A8A6FC0F4FF5028AA5B459;
+			remoteGlobalIDString = AD408BAB384B6DDA88A50A16FB158B66;
+			remoteInfo = MBProgressHUD;
+		};
+		291B3A3F295D01B4B6E020A2223C8A1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD408BAB384B6DDA88A50A16FB158B66;
+			remoteInfo = MBProgressHUD;
+		};
+		6B62B25CE640125F10586DD13E5E8033 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CED297D97EF9606A2CFAC143EFCC1047;
 			remoteInfo = SwiftIconFont;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		041CE773936EC2297E230838DFF5C6AF /* Octicon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Octicon.swift; path = SwiftIconFont/Classes/Fonts/Octicon.swift; sourceTree = "<group>"; };
-		054EB4AD107EC344F74CA62017AF016B /* Ionicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = Ionicons.ttf; path = SwiftIconFont/Resources/Ionicons.ttf; sourceTree = "<group>"; };
-		1365703FF57AA24929CB31C0224A7E2C /* SwiftIconFont.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftIconFont.framework; path = SwiftIconFont.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		157EE4959DEA61FC2760199B806FA50C /* SwiftIconFont+UITextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UITextField.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UITextField.swift"; sourceTree = "<group>"; };
-		161EECA1547FFFEA9DEC200197B1634C /* MaterialIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaterialIcon.swift; path = SwiftIconFont/Classes/Fonts/MaterialIcon.swift; sourceTree = "<group>"; };
-		16A5651A8993A8BB8D9D423CBA227135 /* Pods-Music Player-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Music Player-acknowledgements.plist"; sourceTree = "<group>"; };
-		1A217E94C99DE9618B1B53B4BFB81EC9 /* SwiftIconFont+NSRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+NSRange.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+NSRange.swift"; sourceTree = "<group>"; };
-		1A4460982B8E3B60A12414440DEA4581 /* IonIcons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IonIcons.swift; path = SwiftIconFont/Classes/Fonts/IonIcons.swift; sourceTree = "<group>"; };
-		1C6903BC0DF586CF5179EB9369CAB736 /* open-iconic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "open-iconic.ttf"; path = "SwiftIconFont/Resources/open-iconic.ttf"; sourceTree = "<group>"; };
-		1D0C4ECAA965E2FE4098D7F78882ADD2 /* Pods-Music Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Music Player.release.xcconfig"; sourceTree = "<group>"; };
-		1EFF582B7F2286AD360C8FAB68A8A7D7 /* Pods-Music Player-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Music Player-acknowledgements.markdown"; sourceTree = "<group>"; };
-		26D97DC76AEDEEE45B7032EB68C423A4 /* Iconic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Iconic.swift; path = SwiftIconFont/Classes/Fonts/Iconic.swift; sourceTree = "<group>"; };
-		2756B649F042277A9311576B0D87B01F /* SwiftIconTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconTextField.swift; path = SwiftIconFont/Classes/UI/SwiftIconTextField.swift; sourceTree = "<group>"; };
-		3583CF2E98952116997BE5BA951B3BA2 /* Pods_Music_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Music_Player.framework; path = "Pods-Music Player.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3788FEE14FA7492420AAC853F943BBB0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D7741793723498EE51B36DFC11EAB69 /* SwiftIconTabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconTabBarItem.swift; path = SwiftIconFont/Classes/UI/SwiftIconTabBarItem.swift; sourceTree = "<group>"; };
-		42E313A037B9FD5DDF9CBE2FB1153C1B /* SwiftIconFont+UITextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UITextView.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UITextView.swift"; sourceTree = "<group>"; };
-		4CDEF0D99B67375F495A9C52F02E10FE /* MapIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MapIcon.swift; path = SwiftIconFont/Classes/Fonts/MapIcon.swift; sourceTree = "<group>"; };
-		51A291E605196086182646B068159C49 /* Pods-Music Player-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Music Player-umbrella.h"; sourceTree = "<group>"; };
-		53A0D6CEF01D34A34123BE97A9951EC8 /* Pods-Music Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Music Player.debug.xcconfig"; sourceTree = "<group>"; };
-		5591F0ACBA885E437AB8ADA47F7DABB7 /* SwiftIconFontView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconFontView.swift; path = SwiftIconFont/Classes/UI/SwiftIconFontView.swift; sourceTree = "<group>"; };
-		56576EFF52A45EC5A685CD3CEE9111C5 /* Segoe mdl2 assets.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Segoe mdl2 assets.ttf"; path = "SwiftIconFont/Resources/Segoe mdl2 assets.ttf"; sourceTree = "<group>"; };
-		58359802D9A33E312FB1C3A6B38E47FE /* ThemifyIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemifyIcon.swift; path = SwiftIconFont/Classes/Fonts/ThemifyIcon.swift; sourceTree = "<group>"; };
-		590B28C263F4CF8F82344FFC44B00969 /* themify.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = themify.ttf; path = SwiftIconFont/Resources/themify.ttf; sourceTree = "<group>"; };
-		5A8707CE52AD6BFCF62427CBD9202248 /* SwiftIconTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconTextView.swift; path = SwiftIconFont/Classes/UI/SwiftIconTextView.swift; sourceTree = "<group>"; };
-		5B05F863D66E0C65BDB3C91E33D01086 /* SwiftIconFont.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftIconFont.xcconfig; sourceTree = "<group>"; };
-		6215EF1966CF449758E6B73A80A53A8B /* SwiftIconFont+UIButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UIButton.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UIButton.swift"; sourceTree = "<group>"; };
-		6445A3B35DB44B8E8FE0E00E2A220119 /* SwiftIconFont+UIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UIImageView.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UIImageView.swift"; sourceTree = "<group>"; };
-		65C754EFAAD6885C6F4C795E7494DF0F /* SwiftIconFont-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftIconFont-prefix.pch"; sourceTree = "<group>"; };
-		6F3B576ED036C3C9055F5CF9A928590D /* SwiftIconLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconLabel.swift; path = SwiftIconFont/Classes/UI/SwiftIconLabel.swift; sourceTree = "<group>"; };
-		77DFD17B757CFBA0D62716CEC433FE52 /* Pods-Music Player.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Music Player.modulemap"; sourceTree = "<group>"; };
-		861A35AF2C0D8EAD806CF0C263B537DA /* octicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = octicons.ttf; path = SwiftIconFont/Resources/octicons.ttf; sourceTree = "<group>"; };
-		8B4A0E12124AE0233D63170EB0DB1B85 /* SwiftIconStepper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconStepper.swift; path = SwiftIconFont/Classes/UI/SwiftIconStepper.swift; sourceTree = "<group>"; };
-		8E0DDAD8D4DF2B390185EAD5C4F243B8 /* Pods-Music Player-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Music Player-resources.sh"; sourceTree = "<group>"; };
-		8E59FF0BE51C47DCC69B0980194877A6 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.ttf; path = SwiftIconFont/Resources/FontAwesome.ttf; sourceTree = "<group>"; };
-		8EB75F6A01BD82FEC1E31D822E863A68 /* SwiftIconFont-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftIconFont-umbrella.h"; sourceTree = "<group>"; };
-		8F31452786BD680E6B05BC0C9E93740C /* Pods-Music Player-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Music Player-frameworks.sh"; sourceTree = "<group>"; };
-		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		960FE779E26DAC3259C5BA550DBFFB72 /* FontLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontLoader.swift; path = SwiftIconFont/Classes/FontLoader.swift; sourceTree = "<group>"; };
-		A5E0449CA7BE6D664CFCA234BB311543 /* MaterialIcons-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "MaterialIcons-Regular.ttf"; path = "SwiftIconFont/Resources/MaterialIcons-Regular.ttf"; sourceTree = "<group>"; };
-		A88BC188F6BFDE633EC47C11EBC6F49C /* SwiftIconFont+UIBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UIBarButtonItem.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UIBarButtonItem.swift"; sourceTree = "<group>"; };
-		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		C00798D9A299DC30EF51DD333673D8FF /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = SwiftIconFont/Classes/Fonts/FontAwesome.swift; sourceTree = "<group>"; };
-		C27F4EDB21465C46CE959CB89372EB12 /* SwiftIconFont+UITabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UITabBarItem.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UITabBarItem.swift"; sourceTree = "<group>"; };
-		CA005E7EEA03E688E122B286A345650C /* SwiftIconFont+String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+String.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+String.swift"; sourceTree = "<group>"; };
-		CE778C8926CAC7CE7D99554AE6C9A8DB /* SwiftIconFont+UILabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UILabel.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UILabel.swift"; sourceTree = "<group>"; };
-		CF704659ED61C71B2300C1C14C53B0FD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0E6AE3B9D859E0EBFD82295DA97C22E /* SwiftIconFont.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftIconFont.modulemap; sourceTree = "<group>"; };
-		D37D361196CAE93A65F37FC5CCCB1AEE /* map-icons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "map-icons.ttf"; path = "SwiftIconFont/Resources/map-icons.ttf"; sourceTree = "<group>"; };
-		D781D6EDAB1F55A2BEA4F972255F6B4E /* Pods-Music Player-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Music Player-dummy.m"; sourceTree = "<group>"; };
-		DC98D558C254DAF1BE90BCCFCF49F325 /* SwiftIconFont.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconFont.swift; path = SwiftIconFont/Classes/SwiftIconFont.swift; sourceTree = "<group>"; };
-		E2558085D468D19AFE4385D5A5D90D0C /* SwiftIconFont-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftIconFont-dummy.m"; sourceTree = "<group>"; };
-		E51D08611FD5E21DF072E6092C5657C2 /* SegoeMDL2.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegoeMDL2.swift; path = SwiftIconFont/Classes/Fonts/SegoeMDL2.swift; sourceTree = "<group>"; };
-		E77A881BAB6EA1DF3560A5A34C4DC555 /* SwiftIconBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconBarButtonItem.swift; path = SwiftIconFont/Classes/UI/SwiftIconBarButtonItem.swift; sourceTree = "<group>"; };
-		F3460AC477E8D025321731D710B90F00 /* SwiftIconFont+UIImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UIImage.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UIImage.swift"; sourceTree = "<group>"; };
-		F7F1986C48D81917EE2648C46FF6B06F /* SwiftIconButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconButton.swift; path = SwiftIconFont/Classes/UI/SwiftIconButton.swift; sourceTree = "<group>"; };
+		028745FEB87799D338DD9885F0C71EF9 /* SwiftIconFontView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconFontView.swift; path = SwiftIconFont/Classes/UI/SwiftIconFontView.swift; sourceTree = "<group>"; };
+		02D9654A440EB7C9BFAA1DB626FB1BE1 /* Pods-Music Player-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Music Player-acknowledgements.plist"; sourceTree = "<group>"; };
+		034341F0C575AB705CA7BE19622164C5 /* SwiftIconFont+UIImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UIImage.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UIImage.swift"; sourceTree = "<group>"; };
+		0445F3C34CDB503A7F12C6C0398DC244 /* Pods-Music Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Music Player.release.xcconfig"; sourceTree = "<group>"; };
+		046C2FCA7A9288F8527CA6AABDEF083D /* SwiftIconFont+UILabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UILabel.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UILabel.swift"; sourceTree = "<group>"; };
+		06FA0A8FE88A314BCB844D302C9C02FE /* SwiftIconFont+UIButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UIButton.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UIButton.swift"; sourceTree = "<group>"; };
+		0812AA8E2D391604FA16E456E405E31D /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		11F10479F1E8E579A588D1FA7FF30902 /* Pods-Music Player-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Music Player-dummy.m"; sourceTree = "<group>"; };
+		17946614AD55037CF70BB431EA861998 /* octicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = octicons.ttf; path = SwiftIconFont/Resources/octicons.ttf; sourceTree = "<group>"; };
+		195392C9ACE091D827B9DA92F301144D /* FontLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontLoader.swift; path = SwiftIconFont/Classes/FontLoader.swift; sourceTree = "<group>"; };
+		1D05CFACF0F6EEE2C6C37C82326F29C5 /* Pods-Music Player-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Music Player-resources.sh"; sourceTree = "<group>"; };
+		1D8420E15188BAC0D644F88A1E5F93C1 /* Pods-Music Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Music Player.debug.xcconfig"; sourceTree = "<group>"; };
+		2329A90AE45E7A40F38D0D23C23613F3 /* SwiftIconFont.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftIconFont.modulemap; sourceTree = "<group>"; };
+		242B84A38C172EA8B399386C883C310A /* Pods-Copy to Music Player-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Copy to Music Player-resources.sh"; sourceTree = "<group>"; };
+		24FA86FD20081FE65FAF85EF97AB264A /* SwiftIconFont+UITextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UITextField.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UITextField.swift"; sourceTree = "<group>"; };
+		25FB68D3F8F17CFFBDE6A2230C9902FD /* SwiftIconFont-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftIconFont-umbrella.h"; sourceTree = "<group>"; };
+		273ED0B3A1271A2F11DDB4874CF5D385 /* Pods-Music Player-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Music Player-acknowledgements.markdown"; sourceTree = "<group>"; };
+		29CD4AF2D10A98680BE31CC7FFDCFEE1 /* SwiftIconStepper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconStepper.swift; path = SwiftIconFont/Classes/UI/SwiftIconStepper.swift; sourceTree = "<group>"; };
+		2C9A599E6503746FB23081F89DFF1D1E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D9F7006CCBFC2E8C3343272B67D5A0A /* Pods-Copy to Music Player-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Copy to Music Player-dummy.m"; sourceTree = "<group>"; };
+		32C23ED63E27E5760676F70AF30119FE /* Pods-Copy to Music Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Copy to Music Player.release.xcconfig"; sourceTree = "<group>"; };
+		336B7E286D6FD63C18B2451F3674FDCE /* SegoeMDL2.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegoeMDL2.swift; path = SwiftIconFont/Classes/Fonts/SegoeMDL2.swift; sourceTree = "<group>"; };
+		349667FAAFAED0656C4E7819A2E90981 /* IonIcons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IonIcons.swift; path = SwiftIconFont/Classes/Fonts/IonIcons.swift; sourceTree = "<group>"; };
+		37C473026796F8AFAA2ECD5A761494CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		3CE5CEC62B47F9ADF894A87F5CDDBFE2 /* Pods_Music_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Music_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F40DD8146E8F17985FEE948721AFACD /* SwiftIconBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconBarButtonItem.swift; path = SwiftIconFont/Classes/UI/SwiftIconBarButtonItem.swift; sourceTree = "<group>"; };
+		4501179AB3E57E3090A4379681E597F6 /* SwiftIconFont+UIBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UIBarButtonItem.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UIBarButtonItem.swift"; sourceTree = "<group>"; };
+		54949164F9CEE727BE9EB7C244CDDA06 /* map-icons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "map-icons.ttf"; path = "SwiftIconFont/Resources/map-icons.ttf"; sourceTree = "<group>"; };
+		5664948E5FAFA0CA5703719A82EA3BB1 /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = SwiftIconFont/Classes/Fonts/FontAwesome.swift; sourceTree = "<group>"; };
+		57194D5ADCE244BF7D3C759642722797 /* ThemifyIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemifyIcon.swift; path = SwiftIconFont/Classes/Fonts/ThemifyIcon.swift; sourceTree = "<group>"; };
+		5AEE701649050FDB4035CEF09E8D8B93 /* SwiftIconFont+UITextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UITextView.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UITextView.swift"; sourceTree = "<group>"; };
+		680D124468CC76B08E1C7154C1060788 /* Pods-Music Player-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Music Player-frameworks.sh"; sourceTree = "<group>"; };
+		6A63448A8EA4B04D3C1A9F5A12F55C79 /* Pods-Copy to Music Player-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Copy to Music Player-acknowledgements.plist"; sourceTree = "<group>"; };
+		6CD9E2C4C04C65DBB1554ADF907529DB /* MBProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		7125CE84277B9906AD9608A641F8580A /* SwiftIconFont-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftIconFont-prefix.pch"; sourceTree = "<group>"; };
+		7783C93F5C0028F1ABBC575C8AA4C98E /* Segoe mdl2 assets.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Segoe mdl2 assets.ttf"; path = "SwiftIconFont/Resources/Segoe mdl2 assets.ttf"; sourceTree = "<group>"; };
+		7A60A79B6C3E09C8375919261119C282 /* SwiftIconFont.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftIconFont.xcconfig; sourceTree = "<group>"; };
+		7BEFF529266134373D0CFF562CC60C17 /* SwiftIconTabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconTabBarItem.swift; path = SwiftIconFont/Classes/UI/SwiftIconTabBarItem.swift; sourceTree = "<group>"; };
+		7DD896B05A5558A9B55ADBF066A14F32 /* Pods-Copy to Music Player.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Copy to Music Player.modulemap"; sourceTree = "<group>"; };
+		8076D018F477CD41D90A5D8879C221A4 /* SwiftIconFont.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconFont.swift; path = SwiftIconFont/Classes/SwiftIconFont.swift; sourceTree = "<group>"; };
+		83405CBA889DB3E96F7815EF77B3A29D /* SwiftIconFont+UIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UIImageView.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UIImageView.swift"; sourceTree = "<group>"; };
+		86E17FAC5131B8E6FBA07EFD137A9E82 /* Pods_Copy_to_Music_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Copy_to_Music_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F4360AF19C6CE75AC0D7BC28997D966 /* MBProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MBProgressHUD.modulemap; sourceTree = "<group>"; };
+		8FF9DD7F23EFBC8752252509F5AD8928 /* MapIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MapIcon.swift; path = SwiftIconFont/Classes/Fonts/MapIcon.swift; sourceTree = "<group>"; };
+		92BEB35C285E3B03680DD8FDFDDD13D8 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9627AC1ACBCBD998507F467C29E1DB2C /* SwiftIconFont+NSRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+NSRange.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+NSRange.swift"; sourceTree = "<group>"; };
+		9B341BF64F2E199155DCAE0B0107862E /* SwiftIconFont-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftIconFont-dummy.m"; sourceTree = "<group>"; };
+		9B8554C89651709FAF1DE0BA3A56F6A3 /* SwiftIconLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconLabel.swift; path = SwiftIconFont/Classes/UI/SwiftIconLabel.swift; sourceTree = "<group>"; };
+		9C1D1B6E0DE56B9EB4132B393A6D200F /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		A01440556BC6BA8070570E510648D536 /* SwiftIconTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconTextView.swift; path = SwiftIconFont/Classes/UI/SwiftIconTextView.swift; sourceTree = "<group>"; };
+		A47594BB5C1AF0A0DB62CF34B447055E /* SwiftIconFont+String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+String.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+String.swift"; sourceTree = "<group>"; };
+		A91944E032AB8D18CBC18C0AF8400CC2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB97E8E1AEF25393A9968845B360AEED /* Pods-Copy to Music Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Copy to Music Player.debug.xcconfig"; sourceTree = "<group>"; };
+		ABED2C44DD1034EEAE09DEDE6924303F /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.ttf; path = SwiftIconFont/Resources/FontAwesome.ttf; sourceTree = "<group>"; };
+		B65E433A68C225D6FF6B2CE970853F1D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		BF4719EDD060B838A092A25AFC611D99 /* MaterialIcons-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "MaterialIcons-Regular.ttf"; path = "SwiftIconFont/Resources/MaterialIcons-Regular.ttf"; sourceTree = "<group>"; };
+		C6FBD92D53BF7A8689798490EF792CA9 /* SwiftIconFont+UITabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftIconFont+UITabBarItem.swift"; path = "SwiftIconFont/Classes/Extensions/SwiftIconFont+UITabBarItem.swift"; sourceTree = "<group>"; };
+		C95650A0940A3C0CFDBEA737B24E55B5 /* MBProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		CC473F2C4FF264DD1689E3AA9CC46E59 /* MaterialIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaterialIcon.swift; path = SwiftIconFont/Classes/Fonts/MaterialIcon.swift; sourceTree = "<group>"; };
+		CE73B2CE09B873DB3EE27E8E3B475158 /* SwiftIconTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconTextField.swift; path = SwiftIconFont/Classes/UI/SwiftIconTextField.swift; sourceTree = "<group>"; };
+		D15BEB7B210A31B0A81ACF2F145E9685 /* Pods-Copy to Music Player-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Copy to Music Player-umbrella.h"; sourceTree = "<group>"; };
+		D56348597C0DD615177C5C15A774BCF2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D7E8C8900C3764091A23F972BA5574F2 /* Octicon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Octicon.swift; path = SwiftIconFont/Classes/Fonts/Octicon.swift; sourceTree = "<group>"; };
+		DA5B774746E75DA3317B9841D3BDF7E6 /* Iconic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Iconic.swift; path = SwiftIconFont/Classes/Fonts/Iconic.swift; sourceTree = "<group>"; };
+		DF79750FEFBFA353E8F11C31FEB60758 /* open-iconic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "open-iconic.ttf"; path = "SwiftIconFont/Resources/open-iconic.ttf"; sourceTree = "<group>"; };
+		DFE22F3FBBFBA03C85452B5199A1016B /* SwiftIconButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconButton.swift; path = SwiftIconFont/Classes/UI/SwiftIconButton.swift; sourceTree = "<group>"; };
+		E1F8C388E9B1AAB7AAE35AE3E61E169F /* themify.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = themify.ttf; path = SwiftIconFont/Resources/themify.ttf; sourceTree = "<group>"; };
+		E207F2C1401DD0DEAF8CF46B5CA0A962 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		E3EED29A08C09AF2F7AE8885CA77C919 /* SwiftIconFont.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftIconFont.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50E359819AA9F3A47B0A7889BDCA9FD /* MBProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.xcconfig; sourceTree = "<group>"; };
+		E84B413D628D102DA50251E0112F2078 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E89163E94743FDDD60913C47150E225B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		E947C20F309542F50A2A66F1326B04BF /* Pods-Music Player.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Music Player.modulemap"; sourceTree = "<group>"; };
+		ECAC1E86FDC538D0B38D6CDF7E3222BE /* Pods-Copy to Music Player-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Copy to Music Player-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ECCB0A086282C51C159E0BA64CB9B7FD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F23CC7D20DD00AC1BCBC4CA58E37946B /* Pods-Music Player-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Music Player-umbrella.h"; sourceTree = "<group>"; };
+		F838B2462C227FB9DE8A09E3117C4CF5 /* Ionicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = Ionicons.ttf; path = SwiftIconFont/Resources/Ionicons.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4C2CECF8F0885A699A5421B26572A3E4 /* Frameworks */ = {
+		35A398F6CC37A8D8E469498B848E286F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7575F38A1C6257FAEDC9D014181729EF /* Foundation.framework in Frameworks */,
+				4F9863537BC7DA16B2F5D24FB8332853 /* CoreGraphics.framework in Frameworks */,
+				A8906F6003D20F1B2E9C5BFEF7AE9C1F /* Foundation.framework in Frameworks */,
+				2214D9EF048C093D94CEFDC849C2743E /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F184C1960EB94C0AF5E07BCB13E440CD /* Frameworks */ = {
+		75188A0EC6DDDF4C63719844B4A40C4F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ACF369A08B84F94CDFF86ACA6EC3E46 /* Foundation.framework in Frameworks */,
-				82A0DCC129E1D5499CE91F7AB2A037FF /* UIKit.framework in Frameworks */,
+				CEED91E2672D29FA218528DCD5683EB9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C060A0F640D0658A8B63646881D13455 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFBC51519A268F445C97076BADC17E3A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2A390DE76A807E38D7599242C5D2C1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C14A880408BAC5CAF16E2EA3521ED19D /* Foundation.framework in Frameworks */,
+				CE7A0EDEF5A5134287A1BD09C5DD6768 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0708936E30720FADF3D7793FDA845EAB /* Targets Support Files */ = {
+		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				366CF66DECFBCEF9D999865D1104FF25 /* Pods-Music Player */,
+				53C8B4AB97860F06FE722851EA867B18 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E2499262D69A3FFF7F07819619167FE /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				25F7F8B714444640AF59CAE6CB63F6C7 /* Pods-Copy to Music Player */,
+				1F51DDDE816D70A4F8A85D46CE3A8758 /* Pods-Music Player */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */ = {
+		1F51DDDE816D70A4F8A85D46CE3A8758 /* Pods-Music Player */ = {
 			isa = PBXGroup;
 			children = (
-				908E902E026C5C22904CF9014A5604AD /* Foundation.framework */,
-				BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		2438AABD508F6BF4EACE11ED93265827 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				8E59FF0BE51C47DCC69B0980194877A6 /* FontAwesome.ttf */,
-				054EB4AD107EC344F74CA62017AF016B /* Ionicons.ttf */,
-				D37D361196CAE93A65F37FC5CCCB1AEE /* map-icons.ttf */,
-				A5E0449CA7BE6D664CFCA234BB311543 /* MaterialIcons-Regular.ttf */,
-				861A35AF2C0D8EAD806CF0C263B537DA /* octicons.ttf */,
-				1C6903BC0DF586CF5179EB9369CAB736 /* open-iconic.ttf */,
-				56576EFF52A45EC5A685CD3CEE9111C5 /* Segoe mdl2 assets.ttf */,
-				590B28C263F4CF8F82344FFC44B00969 /* themify.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		366CF66DECFBCEF9D999865D1104FF25 /* Pods-Music Player */ = {
-			isa = PBXGroup;
-			children = (
-				3788FEE14FA7492420AAC853F943BBB0 /* Info.plist */,
-				77DFD17B757CFBA0D62716CEC433FE52 /* Pods-Music Player.modulemap */,
-				1EFF582B7F2286AD360C8FAB68A8A7D7 /* Pods-Music Player-acknowledgements.markdown */,
-				16A5651A8993A8BB8D9D423CBA227135 /* Pods-Music Player-acknowledgements.plist */,
-				D781D6EDAB1F55A2BEA4F972255F6B4E /* Pods-Music Player-dummy.m */,
-				8F31452786BD680E6B05BC0C9E93740C /* Pods-Music Player-frameworks.sh */,
-				8E0DDAD8D4DF2B390185EAD5C4F243B8 /* Pods-Music Player-resources.sh */,
-				51A291E605196086182646B068159C49 /* Pods-Music Player-umbrella.h */,
-				53A0D6CEF01D34A34123BE97A9951EC8 /* Pods-Music Player.debug.xcconfig */,
-				1D0C4ECAA965E2FE4098D7F78882ADD2 /* Pods-Music Player.release.xcconfig */,
+				2C9A599E6503746FB23081F89DFF1D1E /* Info.plist */,
+				E947C20F309542F50A2A66F1326B04BF /* Pods-Music Player.modulemap */,
+				273ED0B3A1271A2F11DDB4874CF5D385 /* Pods-Music Player-acknowledgements.markdown */,
+				02D9654A440EB7C9BFAA1DB626FB1BE1 /* Pods-Music Player-acknowledgements.plist */,
+				11F10479F1E8E579A588D1FA7FF30902 /* Pods-Music Player-dummy.m */,
+				680D124468CC76B08E1C7154C1060788 /* Pods-Music Player-frameworks.sh */,
+				1D05CFACF0F6EEE2C6C37C82326F29C5 /* Pods-Music Player-resources.sh */,
+				F23CC7D20DD00AC1BCBC4CA58E37946B /* Pods-Music Player-umbrella.h */,
+				1D8420E15188BAC0D644F88A1E5F93C1 /* Pods-Music Player.debug.xcconfig */,
+				0445F3C34CDB503A7F12C6C0398DC244 /* Pods-Music Player.release.xcconfig */,
 			);
 			name = "Pods-Music Player";
 			path = "Target Support Files/Pods-Music Player";
 			sourceTree = "<group>";
 		};
-		4286F025F325BCDA3B3412BA4B38F626 /* Pods */ = {
+		20D0C53C7B65F77A1ED54FFECA2171A1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9F93595327A7E4046BAF98FC3C9FE7F3 /* SwiftIconFont */,
+				E84B413D628D102DA50251E0112F2078 /* Info.plist */,
+				2329A90AE45E7A40F38D0D23C23613F3 /* SwiftIconFont.modulemap */,
+				7A60A79B6C3E09C8375919261119C282 /* SwiftIconFont.xcconfig */,
+				9B341BF64F2E199155DCAE0B0107862E /* SwiftIconFont-dummy.m */,
+				7125CE84277B9906AD9608A641F8580A /* SwiftIconFont-prefix.pch */,
+				25FB68D3F8F17CFFBDE6A2230C9902FD /* SwiftIconFont-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftIconFont";
+			sourceTree = "<group>";
+		};
+		25F7F8B714444640AF59CAE6CB63F6C7 /* Pods-Copy to Music Player */ = {
+			isa = PBXGroup;
+			children = (
+				A91944E032AB8D18CBC18C0AF8400CC2 /* Info.plist */,
+				7DD896B05A5558A9B55ADBF066A14F32 /* Pods-Copy to Music Player.modulemap */,
+				ECAC1E86FDC538D0B38D6CDF7E3222BE /* Pods-Copy to Music Player-acknowledgements.markdown */,
+				6A63448A8EA4B04D3C1A9F5A12F55C79 /* Pods-Copy to Music Player-acknowledgements.plist */,
+				2D9F7006CCBFC2E8C3343272B67D5A0A /* Pods-Copy to Music Player-dummy.m */,
+				242B84A38C172EA8B399386C883C310A /* Pods-Copy to Music Player-resources.sh */,
+				D15BEB7B210A31B0A81ACF2F145E9685 /* Pods-Copy to Music Player-umbrella.h */,
+				AB97E8E1AEF25393A9968845B360AEED /* Pods-Copy to Music Player.debug.xcconfig */,
+				32C23ED63E27E5760676F70AF30119FE /* Pods-Copy to Music Player.release.xcconfig */,
+			);
+			name = "Pods-Copy to Music Player";
+			path = "Target Support Files/Pods-Copy to Music Player";
+			sourceTree = "<group>";
+		};
+		397BB2A7B3A72BC891661E6DC7B541CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BD47A211D4C1217EC26524FFDCD507E0 /* MBProgressHUD */,
+				C6D07D7CEADBCDC1CE78BF4E21185076 /* SwiftIconFont */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+		4AE633EA0C0ADDD0262DA1F08167A962 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */,
+				92BEB35C285E3B03680DD8FDFDDD13D8 /* MBProgressHUD.framework */,
+				86E17FAC5131B8E6FBA07EFD137A9E82 /* Pods_Copy_to_Music_Player.framework */,
+				3CE5CEC62B47F9ADF894A87F5CDDBFE2 /* Pods_Music_Player.framework */,
+				E3EED29A08C09AF2F7AE8885CA77C919 /* SwiftIconFont.framework */,
 			);
-			name = Frameworks;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		53C8B4AB97860F06FE722851EA867B18 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				37C473026796F8AFAA2ECD5A761494CE /* CoreGraphics.framework */,
+				D56348597C0DD615177C5C15A774BCF2 /* Foundation.framework */,
+				B65E433A68C225D6FF6B2CE970853F1D /* QuartzCore.framework */,
+				E89163E94743FDDD60913C47150E225B /* UIKit.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				4286F025F325BCDA3B3412BA4B38F626 /* Pods */,
-				AAD5ABEFD79924E47F656C6A785C1A65 /* Products */,
-				0708936E30720FADF3D7793FDA845EAB /* Targets Support Files */,
+				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
+				397BB2A7B3A72BC891661E6DC7B541CA /* Pods */,
+				4AE633EA0C0ADDD0262DA1F08167A962 /* Products */,
+				1E2499262D69A3FFF7F07819619167FE /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		9F93595327A7E4046BAF98FC3C9FE7F3 /* SwiftIconFont */ = {
+		BD1CFDD7DAAA760D84E5B10CF83098D9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C00798D9A299DC30EF51DD333673D8FF /* FontAwesome.swift */,
-				960FE779E26DAC3259C5BA550DBFFB72 /* FontLoader.swift */,
-				26D97DC76AEDEEE45B7032EB68C423A4 /* Iconic.swift */,
-				1A4460982B8E3B60A12414440DEA4581 /* IonIcons.swift */,
-				4CDEF0D99B67375F495A9C52F02E10FE /* MapIcon.swift */,
-				161EECA1547FFFEA9DEC200197B1634C /* MaterialIcon.swift */,
-				041CE773936EC2297E230838DFF5C6AF /* Octicon.swift */,
-				E51D08611FD5E21DF072E6092C5657C2 /* SegoeMDL2.swift */,
-				E77A881BAB6EA1DF3560A5A34C4DC555 /* SwiftIconBarButtonItem.swift */,
-				F7F1986C48D81917EE2648C46FF6B06F /* SwiftIconButton.swift */,
-				DC98D558C254DAF1BE90BCCFCF49F325 /* SwiftIconFont.swift */,
-				1A217E94C99DE9618B1B53B4BFB81EC9 /* SwiftIconFont+NSRange.swift */,
-				CA005E7EEA03E688E122B286A345650C /* SwiftIconFont+String.swift */,
-				A88BC188F6BFDE633EC47C11EBC6F49C /* SwiftIconFont+UIBarButtonItem.swift */,
-				6215EF1966CF449758E6B73A80A53A8B /* SwiftIconFont+UIButton.swift */,
-				F3460AC477E8D025321731D710B90F00 /* SwiftIconFont+UIImage.swift */,
-				6445A3B35DB44B8E8FE0E00E2A220119 /* SwiftIconFont+UIImageView.swift */,
-				CE778C8926CAC7CE7D99554AE6C9A8DB /* SwiftIconFont+UILabel.swift */,
-				C27F4EDB21465C46CE959CB89372EB12 /* SwiftIconFont+UITabBarItem.swift */,
-				157EE4959DEA61FC2760199B806FA50C /* SwiftIconFont+UITextField.swift */,
-				42E313A037B9FD5DDF9CBE2FB1153C1B /* SwiftIconFont+UITextView.swift */,
-				5591F0ACBA885E437AB8ADA47F7DABB7 /* SwiftIconFontView.swift */,
-				6F3B576ED036C3C9055F5CF9A928590D /* SwiftIconLabel.swift */,
-				8B4A0E12124AE0233D63170EB0DB1B85 /* SwiftIconStepper.swift */,
-				3D7741793723498EE51B36DFC11EAB69 /* SwiftIconTabBarItem.swift */,
-				2756B649F042277A9311576B0D87B01F /* SwiftIconTextField.swift */,
-				5A8707CE52AD6BFCF62427CBD9202248 /* SwiftIconTextView.swift */,
-				58359802D9A33E312FB1C3A6B38E47FE /* ThemifyIcon.swift */,
-				2438AABD508F6BF4EACE11ED93265827 /* Resources */,
-				BD4AEAD3CB508178B8359C893432686F /* Support Files */,
+				ECCB0A086282C51C159E0BA64CB9B7FD /* Info.plist */,
+				8F4360AF19C6CE75AC0D7BC28997D966 /* MBProgressHUD.modulemap */,
+				E50E359819AA9F3A47B0A7889BDCA9FD /* MBProgressHUD.xcconfig */,
+				9C1D1B6E0DE56B9EB4132B393A6D200F /* MBProgressHUD-dummy.m */,
+				6CD9E2C4C04C65DBB1554ADF907529DB /* MBProgressHUD-prefix.pch */,
+				C95650A0940A3C0CFDBEA737B24E55B5 /* MBProgressHUD-umbrella.h */,
 			);
-			name = SwiftIconFont;
+			name = "Support Files";
+			path = "../Target Support Files/MBProgressHUD";
+			sourceTree = "<group>";
+		};
+		BD47A211D4C1217EC26524FFDCD507E0 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E207F2C1401DD0DEAF8CF46B5CA0A962 /* MBProgressHUD.h */,
+				0812AA8E2D391604FA16E456E405E31D /* MBProgressHUD.m */,
+				BD1CFDD7DAAA760D84E5B10CF83098D9 /* Support Files */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		C6D07D7CEADBCDC1CE78BF4E21185076 /* SwiftIconFont */ = {
+			isa = PBXGroup;
+			children = (
+				5664948E5FAFA0CA5703719A82EA3BB1 /* FontAwesome.swift */,
+				195392C9ACE091D827B9DA92F301144D /* FontLoader.swift */,
+				DA5B774746E75DA3317B9841D3BDF7E6 /* Iconic.swift */,
+				349667FAAFAED0656C4E7819A2E90981 /* IonIcons.swift */,
+				8FF9DD7F23EFBC8752252509F5AD8928 /* MapIcon.swift */,
+				CC473F2C4FF264DD1689E3AA9CC46E59 /* MaterialIcon.swift */,
+				D7E8C8900C3764091A23F972BA5574F2 /* Octicon.swift */,
+				336B7E286D6FD63C18B2451F3674FDCE /* SegoeMDL2.swift */,
+				3F40DD8146E8F17985FEE948721AFACD /* SwiftIconBarButtonItem.swift */,
+				DFE22F3FBBFBA03C85452B5199A1016B /* SwiftIconButton.swift */,
+				8076D018F477CD41D90A5D8879C221A4 /* SwiftIconFont.swift */,
+				9627AC1ACBCBD998507F467C29E1DB2C /* SwiftIconFont+NSRange.swift */,
+				A47594BB5C1AF0A0DB62CF34B447055E /* SwiftIconFont+String.swift */,
+				4501179AB3E57E3090A4379681E597F6 /* SwiftIconFont+UIBarButtonItem.swift */,
+				06FA0A8FE88A314BCB844D302C9C02FE /* SwiftIconFont+UIButton.swift */,
+				034341F0C575AB705CA7BE19622164C5 /* SwiftIconFont+UIImage.swift */,
+				83405CBA889DB3E96F7815EF77B3A29D /* SwiftIconFont+UIImageView.swift */,
+				046C2FCA7A9288F8527CA6AABDEF083D /* SwiftIconFont+UILabel.swift */,
+				C6FBD92D53BF7A8689798490EF792CA9 /* SwiftIconFont+UITabBarItem.swift */,
+				24FA86FD20081FE65FAF85EF97AB264A /* SwiftIconFont+UITextField.swift */,
+				5AEE701649050FDB4035CEF09E8D8B93 /* SwiftIconFont+UITextView.swift */,
+				028745FEB87799D338DD9885F0C71EF9 /* SwiftIconFontView.swift */,
+				9B8554C89651709FAF1DE0BA3A56F6A3 /* SwiftIconLabel.swift */,
+				29CD4AF2D10A98680BE31CC7FFDCFEE1 /* SwiftIconStepper.swift */,
+				7BEFF529266134373D0CFF562CC60C17 /* SwiftIconTabBarItem.swift */,
+				CE73B2CE09B873DB3EE27E8E3B475158 /* SwiftIconTextField.swift */,
+				A01440556BC6BA8070570E510648D536 /* SwiftIconTextView.swift */,
+				57194D5ADCE244BF7D3C759642722797 /* ThemifyIcon.swift */,
+				D6BB5A4F6BA0A00EC79BFFEC57B60A46 /* Resources */,
+				20D0C53C7B65F77A1ED54FFECA2171A1 /* Support Files */,
+			);
 			path = SwiftIconFont;
 			sourceTree = "<group>";
 		};
-		AAD5ABEFD79924E47F656C6A785C1A65 /* Products */ = {
+		D6BB5A4F6BA0A00EC79BFFEC57B60A46 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3583CF2E98952116997BE5BA951B3BA2 /* Pods_Music_Player.framework */,
-				1365703FF57AA24929CB31C0224A7E2C /* SwiftIconFont.framework */,
+				ABED2C44DD1034EEAE09DEDE6924303F /* FontAwesome.ttf */,
+				F838B2462C227FB9DE8A09E3117C4CF5 /* Ionicons.ttf */,
+				54949164F9CEE727BE9EB7C244CDDA06 /* map-icons.ttf */,
+				BF4719EDD060B838A092A25AFC611D99 /* MaterialIcons-Regular.ttf */,
+				17946614AD55037CF70BB431EA861998 /* octicons.ttf */,
+				DF79750FEFBFA353E8F11C31FEB60758 /* open-iconic.ttf */,
+				7783C93F5C0028F1ABBC575C8AA4C98E /* Segoe mdl2 assets.ttf */,
+				E1F8C388E9B1AAB7AAE35AE3E61E169F /* themify.ttf */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BD4AEAD3CB508178B8359C893432686F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CF704659ED61C71B2300C1C14C53B0FD /* Info.plist */,
-				D0E6AE3B9D859E0EBFD82295DA97C22E /* SwiftIconFont.modulemap */,
-				5B05F863D66E0C65BDB3C91E33D01086 /* SwiftIconFont.xcconfig */,
-				E2558085D468D19AFE4385D5A5D90D0C /* SwiftIconFont-dummy.m */,
-				65C754EFAAD6885C6F4C795E7494DF0F /* SwiftIconFont-prefix.pch */,
-				8EB75F6A01BD82FEC1E31D822E863A68 /* SwiftIconFont-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftIconFont";
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6D06BEF5544F071A07EA762387B79A17 /* Headers */ = {
+		5CE17C32A4504B751C3375AA3458D828 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				787FF03F49F443FDCB6788686EBFF6BD /* SwiftIconFont-umbrella.h in Headers */,
+				C31470E92B1A691AC3D3D55A127DCBF0 /* MBProgressHUD-umbrella.h in Headers */,
+				D966EB561A0A6A10BAF414F0B952E95E /* MBProgressHUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDCD4912C192A3CF9C238E0F6D613699 /* Headers */ = {
+		8CE0716499567F2192B9CC2725F1D104 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3FC7E91A8D25C6D9201AE7687F0515B /* Pods-Music Player-umbrella.h in Headers */,
+				8E9FE4A955DD44F90CBCCD36CA1C71FD /* Pods-Copy to Music Player-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8FA4D16EDF3B9FA50B7C9EB4FB067F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBFEC932687D0439306A9BA2DC47E2A /* SwiftIconFont-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF641DCE1D82F2EF58D3ECC974BE264D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FBC1412EE2FB1E70AF8FC016FAA0145 /* Pods-Music Player-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B9B59734AF2731DC8D41BF534A949265 /* Pods-Music Player */ = {
+		00DE70BB164C0CFD09C5DF12305069F5 /* Pods-Music Player */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC7A637B31A0B60468B110CD35234D5D /* Build configuration list for PBXNativeTarget "Pods-Music Player" */;
+			buildConfigurationList = 931D02921D642F0ABF4B5D8C4C135C97 /* Build configuration list for PBXNativeTarget "Pods-Music Player" */;
 			buildPhases = (
-				DDCD4912C192A3CF9C238E0F6D613699 /* Headers */,
-				71735FC59FCB182326F3894A091D0617 /* Sources */,
-				4C2CECF8F0885A699A5421B26572A3E4 /* Frameworks */,
-				46C7271150B37932959E2ABFF1F3B466 /* Resources */,
+				FF641DCE1D82F2EF58D3ECC974BE264D /* Headers */,
+				1041C2BCA416942EDC667190EBE119B1 /* Sources */,
+				C060A0F640D0658A8B63646881D13455 /* Frameworks */,
+				88FF707247457AF350A5749D8A50218F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				55562EADE5213FB34C49C681FAAAE458 /* PBXTargetDependency */,
+				573D4782A219A8809151B42AFF7FE3F8 /* PBXTargetDependency */,
+				F6233B06FCCA9792CC88F45A4DDC7E3A /* PBXTargetDependency */,
 			);
 			name = "Pods-Music Player";
 			productName = "Pods-Music Player";
-			productReference = 3583CF2E98952116997BE5BA951B3BA2 /* Pods_Music_Player.framework */;
+			productReference = 3CE5CEC62B47F9ADF894A87F5CDDBFE2 /* Pods_Music_Player.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F8EBA174F2A8A6FC0F4FF5028AA5B459 /* SwiftIconFont */ = {
+		AD408BAB384B6DDA88A50A16FB158B66 /* MBProgressHUD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97FD485AF2065DF11575C7FB15882594 /* Build configuration list for PBXNativeTarget "SwiftIconFont" */;
+			buildConfigurationList = 09600571F63852ACA3B7A23B4729B6A4 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
 			buildPhases = (
-				6D06BEF5544F071A07EA762387B79A17 /* Headers */,
-				7017D5EE86603E8689EC4E90F37C9CD7 /* Sources */,
-				F184C1960EB94C0AF5E07BCB13E440CD /* Frameworks */,
-				A01FDA146821F552E8428FC8DDD339CE /* Resources */,
+				5CE17C32A4504B751C3375AA3458D828 /* Headers */,
+				88F228B332626246A6113EBE81AB9792 /* Sources */,
+				35A398F6CC37A8D8E469498B848E286F /* Frameworks */,
+				96C60439BF31F7D396AAA2AAD2622A98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MBProgressHUD;
+			productName = MBProgressHUD;
+			productReference = 92BEB35C285E3B03680DD8FDFDDD13D8 /* MBProgressHUD.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CE0D3150BEFC89B58423FB70893AF601 /* Pods-Copy to Music Player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1E5D8512602C8D4BA387732893CD8F0 /* Build configuration list for PBXNativeTarget "Pods-Copy to Music Player" */;
+			buildPhases = (
+				8CE0716499567F2192B9CC2725F1D104 /* Headers */,
+				00FC07BE81D3769ABBB2BF2AEAE07E48 /* Sources */,
+				75188A0EC6DDDF4C63719844B4A40C4F /* Frameworks */,
+				BBC8B4682771549E02DAD4C5FEFA2F6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5F6AB5321F9DC2D91EEDC71E80CCD7B /* PBXTargetDependency */,
+			);
+			name = "Pods-Copy to Music Player";
+			productName = "Pods-Copy to Music Player";
+			productReference = 86E17FAC5131B8E6FBA07EFD137A9E82 /* Pods_Copy_to_Music_Player.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CED297D97EF9606A2CFAC143EFCC1047 /* SwiftIconFont */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6D38BADF253704688B1EA09059A3D6C /* Build configuration list for PBXNativeTarget "SwiftIconFont" */;
+			buildPhases = (
+				8D8FA4D16EDF3B9FA50B7C9EB4FB067F /* Headers */,
+				3AE8A0C275C3B7F0F7B70907A465ECFA /* Sources */,
+				E2A390DE76A807E38D7599242C5D2C1D /* Frameworks */,
+				89CAECF3FFA205D5E601023087AD8B9C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -337,7 +501,7 @@
 			);
 			name = SwiftIconFont;
 			productName = SwiftIconFont;
-			productReference = 1365703FF57AA24929CB31C0224A7E2C /* SwiftIconFont.framework */;
+			productReference = E3EED29A08C09AF2F7AE8885CA77C919 /* SwiftIconFont.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -347,7 +511,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -357,101 +521,279 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = AAD5ABEFD79924E47F656C6A785C1A65 /* Products */;
+			productRefGroup = 4AE633EA0C0ADDD0262DA1F08167A962 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B9B59734AF2731DC8D41BF534A949265 /* Pods-Music Player */,
-				F8EBA174F2A8A6FC0F4FF5028AA5B459 /* SwiftIconFont */,
+				AD408BAB384B6DDA88A50A16FB158B66 /* MBProgressHUD */,
+				CE0D3150BEFC89B58423FB70893AF601 /* Pods-Copy to Music Player */,
+				00DE70BB164C0CFD09C5DF12305069F5 /* Pods-Music Player */,
+				CED297D97EF9606A2CFAC143EFCC1047 /* SwiftIconFont */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		46C7271150B37932959E2ABFF1F3B466 /* Resources */ = {
+		88FF707247457AF350A5749D8A50218F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A01FDA146821F552E8428FC8DDD339CE /* Resources */ = {
+		89CAECF3FFA205D5E601023087AD8B9C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21181ED1D0D6B0A82BBC99F348655DC8 /* FontAwesome.ttf in Resources */,
-				C989E9DD1156C1B5D5EFACC4C318E0C9 /* Ionicons.ttf in Resources */,
-				4EF188C42FC74FEB42D516D7AFE33FE2 /* map-icons.ttf in Resources */,
-				7F270A60C3BCCFB1AC39108614411836 /* MaterialIcons-Regular.ttf in Resources */,
-				87D1A7BA03CC3E01E9CFAED828DC93C2 /* octicons.ttf in Resources */,
-				B5A1D8B208B99AF456275D4FD1DCF748 /* open-iconic.ttf in Resources */,
-				32D0AD0A8FA7BF42BCD01E2DF8D5539A /* Segoe mdl2 assets.ttf in Resources */,
-				99D81500992056285474940250A203B6 /* themify.ttf in Resources */,
+				86AB68A7B1CAEA4F27AEF8751A7B5B0C /* FontAwesome.ttf in Resources */,
+				C89E9F4A8BC78B67EC8ECEE9B331B919 /* Ionicons.ttf in Resources */,
+				92B6ED0B23E492726D083C5C6980F77B /* map-icons.ttf in Resources */,
+				24E13CF021BC9D75208698D986150519 /* MaterialIcons-Regular.ttf in Resources */,
+				8441E9DF5BC790084A04BBFA2EC62634 /* octicons.ttf in Resources */,
+				EEE6A4A9ABA8B9620D27AD3733DEB1F9 /* open-iconic.ttf in Resources */,
+				3EF1E335C49EC64A77467BF6AA92618F /* Segoe mdl2 assets.ttf in Resources */,
+				01FF64F3801A9EAB591244EFDE690C28 /* themify.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96C60439BF31F7D396AAA2AAD2622A98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBC8B4682771549E02DAD4C5FEFA2F6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7017D5EE86603E8689EC4E90F37C9CD7 /* Sources */ = {
+		00FC07BE81D3769ABBB2BF2AEAE07E48 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				229D674454E134E72086DB0783592D33 /* FontAwesome.swift in Sources */,
-				10A60C2BFCA2D1DC2EEACF781BCF4BAE /* FontLoader.swift in Sources */,
-				D4FCDE2EA23E8CB8E8AC31F4855BEE72 /* Iconic.swift in Sources */,
-				E51B10E5242284ED2A1B14CCD1DA5B73 /* IonIcons.swift in Sources */,
-				8F2DA7684F3F888462AEAD77CBE605E4 /* MapIcon.swift in Sources */,
-				A144A8F6907EE5DB82350A27CBC07839 /* MaterialIcon.swift in Sources */,
-				004948B2A445049BB62501BC85C4037F /* Octicon.swift in Sources */,
-				20A0E6FFFC1388C6CDFF32A700D38294 /* SegoeMDL2.swift in Sources */,
-				81E53E41C2FC1E0C5F0C095E6F87DDF4 /* SwiftIconBarButtonItem.swift in Sources */,
-				BE4702B0193E8DA953900ACAC10DA889 /* SwiftIconButton.swift in Sources */,
-				577024661969C04B7CF1BF1FF9AB660E /* SwiftIconFont+NSRange.swift in Sources */,
-				B74720F708FC301FE89D1CE5148BB1F2 /* SwiftIconFont+String.swift in Sources */,
-				7CFFC1E4A5CF1F6B1F0C84A2903EFAD1 /* SwiftIconFont+UIBarButtonItem.swift in Sources */,
-				D36456D58FE295CDF7155067B1392583 /* SwiftIconFont+UIButton.swift in Sources */,
-				33944B28EDFCC4161881C212D9DB5F9A /* SwiftIconFont+UIImage.swift in Sources */,
-				A3FE1B2426FBE63A7340EB5AAC633B0D /* SwiftIconFont+UIImageView.swift in Sources */,
-				683D2465042F2A9AB987109E51324E47 /* SwiftIconFont+UILabel.swift in Sources */,
-				2250AB6AA6CACF850426A26F0C184EA8 /* SwiftIconFont+UITabBarItem.swift in Sources */,
-				016679AB3B4567AB1A81BE461284F850 /* SwiftIconFont+UITextField.swift in Sources */,
-				1D53996FBCA970799A66D3EED0B26A42 /* SwiftIconFont+UITextView.swift in Sources */,
-				BBB2BBDFDD03DF824D78CDC7397114D4 /* SwiftIconFont-dummy.m in Sources */,
-				9691788E4C20CC146A9F258741578BB2 /* SwiftIconFont.swift in Sources */,
-				10CE537315C8F2258030BA96FE6B982D /* SwiftIconFontView.swift in Sources */,
-				C83BC680AE0F47C29CDE022E9F2B8A2B /* SwiftIconLabel.swift in Sources */,
-				7FB72336A480029DDA1260B9B92E7A01 /* SwiftIconStepper.swift in Sources */,
-				5A3A9C2D03838846A2C9349451EC83F9 /* SwiftIconTabBarItem.swift in Sources */,
-				A0F3570088E51B32D1B9D6DE9AFDA230 /* SwiftIconTextField.swift in Sources */,
-				2B1F6A92422F0CDAE8CE8BBDB90446EA /* SwiftIconTextView.swift in Sources */,
-				3A540D5C5139C03561FB140F35691EB7 /* ThemifyIcon.swift in Sources */,
+				EDCEA97A122328FC5F0AB7231D710F2D /* Pods-Copy to Music Player-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		71735FC59FCB182326F3894A091D0617 /* Sources */ = {
+		1041C2BCA416942EDC667190EBE119B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5ED59662A0BFD7F37D377A04B1B903B /* Pods-Music Player-dummy.m in Sources */,
+				4BDE50760615765B493A10CD603C0601 /* Pods-Music Player-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AE8A0C275C3B7F0F7B70907A465ECFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A8169AF5BC0B170068554797BB8B6D6 /* FontAwesome.swift in Sources */,
+				6E2FCFEC9E89052F01A113A47BDF1D52 /* FontLoader.swift in Sources */,
+				9414D60AA3BB4700BC8D6814A983B271 /* Iconic.swift in Sources */,
+				CA42C41BF3E51DC13DD0DAFC78F6AAC7 /* IonIcons.swift in Sources */,
+				C065757739825058D6BA129833B78DCF /* MapIcon.swift in Sources */,
+				4BB09744308F959E3CCBC185A2957877 /* MaterialIcon.swift in Sources */,
+				B4F7C2B8FC009E5A577E43CBE5EBE028 /* Octicon.swift in Sources */,
+				F7D273F17E84B2B283A3538CD681AA0F /* SegoeMDL2.swift in Sources */,
+				0AEDCFADADAFBC9D0F1D9CAD38940E80 /* SwiftIconBarButtonItem.swift in Sources */,
+				E445EC5F586399C3B57BFC4B80744257 /* SwiftIconButton.swift in Sources */,
+				2AE846FFD0738828AC4C9D3B0CDAB5AD /* SwiftIconFont+NSRange.swift in Sources */,
+				EE80AA69BF90D3A26D538A5B4B34ECBB /* SwiftIconFont+String.swift in Sources */,
+				045356E795A8DE3EDE6B8BC3F615ADF4 /* SwiftIconFont+UIBarButtonItem.swift in Sources */,
+				0242AABE7291F28D9428F7D5AB2F2755 /* SwiftIconFont+UIButton.swift in Sources */,
+				BD4EDE446ED2A0E8540A7C0031553650 /* SwiftIconFont+UIImage.swift in Sources */,
+				F65709E666A8E7378AA3191EA265109D /* SwiftIconFont+UIImageView.swift in Sources */,
+				72272CF7430A5388AE8387BD486FF5FB /* SwiftIconFont+UILabel.swift in Sources */,
+				FD5414F6D05A5D02113201CC63993638 /* SwiftIconFont+UITabBarItem.swift in Sources */,
+				A77B1465AA63A8C3320BDC132ED5E840 /* SwiftIconFont+UITextField.swift in Sources */,
+				56FD24494B5E0DBF5AFF5F4D1AA9B5CE /* SwiftIconFont+UITextView.swift in Sources */,
+				D274D20F5EA35039BB08E8593242D9E6 /* SwiftIconFont-dummy.m in Sources */,
+				8B04E533222E5749DF11CAE69829399A /* SwiftIconFont.swift in Sources */,
+				7E171A149D4F799E5F65B172E5020259 /* SwiftIconFontView.swift in Sources */,
+				5444A55F1887B194401765944164F265 /* SwiftIconLabel.swift in Sources */,
+				FDC1F44EB9E41F4C32A9EC0C05ECD5BE /* SwiftIconStepper.swift in Sources */,
+				F12F5FCD8F7212B3C6D8D0A9EE6C5BCE /* SwiftIconTabBarItem.swift in Sources */,
+				170D3A9439D2B884DF3AE3D5F65709E9 /* SwiftIconTextField.swift in Sources */,
+				CB6EBA737D850936063E293A8DD9808D /* SwiftIconTextView.swift in Sources */,
+				AE787093D36B99764246A69FFDA25786 /* ThemifyIcon.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88F228B332626246A6113EBE81AB9792 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEB4A455551D7B917E1AD4B0A1A964FF /* MBProgressHUD-dummy.m in Sources */,
+				4BD3B1D588017EA43F3E98563319DC19 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		55562EADE5213FB34C49C681FAAAE458 /* PBXTargetDependency */ = {
+		573D4782A219A8809151B42AFF7FE3F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MBProgressHUD;
+			target = AD408BAB384B6DDA88A50A16FB158B66 /* MBProgressHUD */;
+			targetProxy = 291B3A3F295D01B4B6E020A2223C8A1E /* PBXContainerItemProxy */;
+		};
+		D5F6AB5321F9DC2D91EEDC71E80CCD7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MBProgressHUD;
+			target = AD408BAB384B6DDA88A50A16FB158B66 /* MBProgressHUD */;
+			targetProxy = 03946C1DC764F0CAC3660523011349E6 /* PBXContainerItemProxy */;
+		};
+		F6233B06FCCA9792CC88F45A4DDC7E3A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftIconFont;
-			target = F8EBA174F2A8A6FC0F4FF5028AA5B459 /* SwiftIconFont */;
-			targetProxy = D69D90D772EF1297B893F27711B3BE7D /* PBXContainerItemProxy */;
+			target = CED297D97EF9606A2CFAC143EFCC1047 /* SwiftIconFont */;
+			targetProxy = 6B62B25CE640125F10586DD13E5E8033 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		178E7AE7C373E21B618D243353FB8CE9 /* Debug */ = {
+		1562465030F7DE4F09436B7198C09494 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53A0D6CEF01D34A34123BE97A9951EC8 /* Pods-Music Player.debug.xcconfig */;
+			baseConfigurationReference = 7A60A79B6C3E09C8375919261119C282 /* SwiftIconFont.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftIconFont/SwiftIconFont-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftIconFont/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftIconFont/SwiftIconFont.modulemap";
+				PRODUCT_MODULE_NAME = SwiftIconFont;
+				PRODUCT_NAME = SwiftIconFont;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1A9610FBE5BED70BE549C473976C7AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E50E359819AA9F3A47B0A7889BDCA9FD /* MBProgressHUD.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MBProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MBProgressHUD/MBProgressHUD.modulemap";
+				PRODUCT_MODULE_NAME = MBProgressHUD;
+				PRODUCT_NAME = MBProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		639629521165746F3C82CC7BFECA29AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32C23ED63E27E5760676F70AF30119FE /* Pods-Copy to Music Player.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Copy to Music Player/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Copy to Music Player/Pods-Copy to Music Player.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9BBFB7EF428253FD534801030B132843 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E50E359819AA9F3A47B0A7889BDCA9FD /* MBProgressHUD.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MBProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MBProgressHUD/MBProgressHUD.modulemap";
+				PRODUCT_MODULE_NAME = MBProgressHUD;
+				PRODUCT_NAME = MBProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B22EDEC465E426FBB8A34C525325F37B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D8420E15188BAC0D644F88A1E5F93C1 /* Pods-Music Player.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -467,11 +809,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Music Player/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Music Player/Pods-Music Player.modulemap";
 				OTHER_LDFLAGS = "";
@@ -488,85 +826,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		4CE93FAD74DD526F1F7D87EC0E8A7C34 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B05F863D66E0C65BDB3C91E33D01086 /* SwiftIconFont.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftIconFont/SwiftIconFont-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftIconFont/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftIconFont/SwiftIconFont.modulemap";
-				PRODUCT_MODULE_NAME = SwiftIconFont;
-				PRODUCT_NAME = SwiftIconFont;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B1B2758AB8606DD1AFB169D718BC0A87 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D0C4ECAA965E2FE4098D7F78882ADD2 /* Pods-Music Player.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Music Player/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Music Player/Pods-Music Player.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		C92782E717C52E3633C9A5F211E7987A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -632,10 +891,13 @@
 			};
 			name = Debug;
 		};
-		CF5E2593CD56587D30E54EF7688BBA2D /* Debug */ = {
+		D608689E42E730BD022440499F92CB70 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B05F863D66E0C65BDB3C91E33D01086 /* SwiftIconFont.xcconfig */;
+			baseConfigurationReference = AB97E8E1AEF25393A9968845B360AEED /* Pods-Copy to Music Player.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -645,28 +907,60 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftIconFont/SwiftIconFont-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftIconFont/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Copy to Music Player/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftIconFont/SwiftIconFont.modulemap";
-				PRODUCT_MODULE_NAME = SwiftIconFont;
-				PRODUCT_NAME = SwiftIconFont;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Copy to Music Player/Pods-Copy to Music Player.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		E6855362E567C2FDC41397A4AB1C3CC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0445F3C34CDB503A7F12C6C0398DC244 /* Pods-Music Player.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Music Player/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Music Player/Pods-Music Player.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		EA8C7AF90938697605468604B2A17B9F /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -723,13 +1017,56 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		FE38500147B1CFC2A0A91F9167CC93BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A60A79B6C3E09C8375919261119C282 /* SwiftIconFont.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftIconFont/SwiftIconFont-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftIconFont/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftIconFont/SwiftIconFont.modulemap";
+				PRODUCT_MODULE_NAME = SwiftIconFont;
+				PRODUCT_NAME = SwiftIconFont;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		09600571F63852ACA3B7A23B4729B6A4 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A9610FBE5BED70BE549C473976C7AB4 /* Debug */,
+				9BBFB7EF428253FD534801030B132843 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -739,20 +1076,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97FD485AF2065DF11575C7FB15882594 /* Build configuration list for PBXNativeTarget "SwiftIconFont" */ = {
+		931D02921D642F0ABF4B5D8C4C135C97 /* Build configuration list for PBXNativeTarget "Pods-Music Player" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CF5E2593CD56587D30E54EF7688BBA2D /* Debug */,
-				4CE93FAD74DD526F1F7D87EC0E8A7C34 /* Release */,
+				B22EDEC465E426FBB8A34C525325F37B /* Debug */,
+				E6855362E567C2FDC41397A4AB1C3CC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC7A637B31A0B60468B110CD35234D5D /* Build configuration list for PBXNativeTarget "Pods-Music Player" */ = {
+		F1E5D8512602C8D4BA387732893CD8F0 /* Build configuration list for PBXNativeTarget "Pods-Copy to Music Player" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				178E7AE7C373E21B618D243353FB8CE9 /* Debug */,
-				B1B2758AB8606DD1AFB169D718BC0A87 /* Release */,
+				D608689E42E730BD022440499F92CB70 /* Debug */,
+				639629521165746F3C82CC7BFECA29AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6D38BADF253704688B1EA09059A3D6C /* Build configuration list for PBXNativeTarget "SwiftIconFont" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1562465030F7DE4F09436B7198C09494 /* Debug */,
+				FE38500147B1CFC2A0A91F9167CC93BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

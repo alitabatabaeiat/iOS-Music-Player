@@ -1,16 +1,20 @@
 PODS:
+  - MBProgressHUD (1.1.0)
   - SwiftIconFont (3.0.0)
 
 DEPENDENCIES:
+  - MBProgressHUD (~> 1.1.0)
   - SwiftIconFont
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - MBProgressHUD
     - SwiftIconFont
 
 SPEC CHECKSUMS:
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
 
-PODFILE CHECKSUM: 66f3d680334ff71b2eebce3b29197b80bc173f45
+PODFILE CHECKSUM: ecc4fcc38ae955daf6e173a0cc68ef74c05bc7b0
 
 COCOAPODS: 1.5.3

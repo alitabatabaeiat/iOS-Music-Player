@@ -61,15 +61,15 @@ class SongsManager {
             var newSongs = [Song]()
             
             var items = try fileManager.contentsOfDirectory(atPath: dir.path)
+            
+            items = moveSongs(items: items, from: dir, to: musicDirectory)
             newSongs += self.readSongs(from: dir, songsPath: items)
-            moveSongs(items: items, from: dir, to: musicDirectory)
             
             items = try fileManager.contentsOfDirectory(atPath: documentDirectory.path)
-            if let index = items.firstIndex(where: { $0 == self.musicPath }) {
-                items.remove(at: index)
-            }
+            items = moveSongs(items: items, from: documentDirectory, to: musicDirectory)
             newSongs += self.readSongs(from: documentDirectory, songsPath: items)
-            moveSongs(items: items, from: documentDirectory, to: musicDirectory)
+            
+            print("newSongs.count = \(newSongs.count)")
             
             return newSongs
         } catch let error {
@@ -78,16 +78,25 @@ class SongsManager {
         return []
     }
     
-    private func moveSongs(items: [String], from sourceDir: URL, to destinationDir: URL) {
+    private func moveSongs(items: [String], from sourceDir: URL, to destinationDir: URL) -> [String] {
+        var newItems = [String]()
         for item in items {
+            if item == self.musicPath { continue }
+            let source = sourceDir.appendingPathComponent(item)
+            let destination = destinationDir.appendingPathComponent(item)
             do {
-                let source = sourceDir.appendingPathComponent(item)
-                let destination = destinationDir.appendingPathComponent(item)
                 try fileManager.moveItem(at: source, to: destination)
+                newItems.append(item)
             } catch let error {
                 print("Error on moving \(item) to musicDirectory: \(error.localizedDescription)")
+                do {
+                    try fileManager.removeItem(at: source)
+                } catch let error {
+                    print("Error on removing\(item): \(error.localizedDescription)")
+                }
             }
         }
+        return newItems
     }
     
     public func getAllSongs() -> [Song] {

@@ -40,6 +40,7 @@
 		34F1C2E521C3DB19002D6C05 /* MPPlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F1C2E421C3DB19002D6C05 /* MPPlaylistTableViewCell.swift */; };
 		34F1C2E721C3E776002D6C05 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F1C2E621C3E776002D6C05 /* Playlist.swift */; };
 		8899B2BCD3F95620CE4A21D1 /* Pods_Music_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2910B7BF9B6B2141A31EFF64 /* Pods_Music_Player.framework */; };
+		F13689444146945FC24FB173 /* Pods_Copy_to_Music_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA571FA3E6BD5607E2694D9 /* Pods_Copy_to_Music_Player.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,9 @@
 		34F1C2E421C3DB19002D6C05 /* MPPlaylistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPPlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		34F1C2E621C3E776002D6C05 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		364C4D3C5725178CA35A0719 /* Pods-Music Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Music Player/Pods-Music Player.release.xcconfig"; sourceTree = "<group>"; };
+		3CA571FA3E6BD5607E2694D9 /* Pods_Copy_to_Music_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Copy_to_Music_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		565CEE94320F891E6FB11FDC /* Pods-Copy to Music Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Copy to Music Player.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Copy to Music Player/Pods-Copy to Music Player.debug.xcconfig"; sourceTree = "<group>"; };
+		7A23BE90BE8D285C2F097C41 /* Pods-Copy to Music Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Copy to Music Player.release.xcconfig"; path = "Pods/Target Support Files/Pods-Copy to Music Player/Pods-Copy to Music Player.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13689444146945FC24FB173 /* Pods_Copy_to_Music_Player.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				2910B7BF9B6B2141A31EFF64 /* Pods_Music_Player.framework */,
+				3CA571FA3E6BD5607E2694D9 /* Pods_Copy_to_Music_Player.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,6 +256,8 @@
 			children = (
 				0111CF2463941D01380DD69F /* Pods-Music Player.debug.xcconfig */,
 				364C4D3C5725178CA35A0719 /* Pods-Music Player.release.xcconfig */,
+				565CEE94320F891E6FB11FDC /* Pods-Copy to Music Player.debug.xcconfig */,
+				7A23BE90BE8D285C2F097C41 /* Pods-Copy to Music Player.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -282,6 +290,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34F0BD8721B32D39007436EF /* Build configuration list for PBXNativeTarget "Copy to Music Player" */;
 			buildPhases = (
+				755F9FB58BAC4C69C185AB66 /* [CP] Check Pods Manifest.lock */,
 				34F0BD7621B32D39007436EF /* Sources */,
 				34F0BD7721B32D39007436EF /* Frameworks */,
 				34F0BD7821B32D39007436EF /* Resources */,
@@ -402,16 +411,40 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Music Player/Pods-Music Player-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Music Player/Pods-Music Player-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		755F9FB58BAC4C69C185AB66 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Copy to Music Player-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -637,6 +670,7 @@
 		};
 		34F0BD8521B32D39007436EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 565CEE94320F891E6FB11FDC /* Pods-Copy to Music Player.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Copy to Music Player/Copy to Music Player.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -657,6 +691,7 @@
 		};
 		34F0BD8621B32D39007436EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A23BE90BE8D285C2F097C41 /* Pods-Copy to Music Player.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Copy to Music Player/Copy to Music Player.entitlements";
 				CODE_SIGN_STYLE = Automatic;

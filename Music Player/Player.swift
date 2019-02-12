@@ -19,9 +19,6 @@ class Player: NSObject {
     private var sort = Sort.ByTitle
     private var currentSong: Song? {
         get {
-            if let currentItem = self.player.currentItem {
-                let description = currentItem.asset.description
-            }
             return self.player.currentItem != nil ? self.songs.first { $0.playerItem == self.player.currentItem } : nil
         }
     }
