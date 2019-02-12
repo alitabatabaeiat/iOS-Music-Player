@@ -107,14 +107,19 @@ extension AppDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        Player.shared.add(mulitpleSongs: SongsManager.shared.getAllSongs())
-        let newSongs = SongsManager.shared.moveSongsToMusicDirectory()
-        Player.shared.add(mulitpleSongs: newSongs)
-        
-        let ctrl = MainTabBarController()
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        window?.rootViewController = ctrl
+        if self.window == nil {
+            Player.shared.add(mulitpleSongs: SongsManager.shared.getAllSongs())
+            let newSongs = SongsManager.shared.moveSongsToMusicDirectory()
+            Player.shared.add(mulitpleSongs: newSongs)
+            
+            let ctrl = MainTabBarController()
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.makeKeyAndVisible()
+            window?.rootViewController = ctrl
+        } else {
+            let newSongs = SongsManager.shared.moveSongsToMusicDirectory()
+            Player.shared.add(mulitpleSongs: newSongs)
+        }
         
         return true
     }

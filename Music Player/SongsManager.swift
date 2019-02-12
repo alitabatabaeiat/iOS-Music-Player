@@ -63,11 +63,11 @@ class SongsManager {
             var items = try fileManager.contentsOfDirectory(atPath: dir.path)
             
             items = moveSongs(items: items, from: dir, to: musicDirectory)
-            newSongs += self.readSongs(from: dir, songsPath: items)
+            newSongs += self.readSongs(from: musicDirectory, songsPath: items)
             
             items = try fileManager.contentsOfDirectory(atPath: documentDirectory.path)
             items = moveSongs(items: items, from: documentDirectory, to: musicDirectory)
-            newSongs += self.readSongs(from: documentDirectory, songsPath: items)
+            newSongs += self.readSongs(from: musicDirectory, songsPath: items)
             
             print("newSongs.count = \(newSongs.count)")
             
