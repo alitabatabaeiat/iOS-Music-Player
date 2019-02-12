@@ -21,11 +21,10 @@ class SearchViewController: UIViewController {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.barTintColor = .blue1
-        searchBar.setShowsCancelButton(true, animated: true)
-        searchBar.cancelButton?.setTitleColor(.white, for: .normal)
         
         return searchBar
     }()
+    lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +38,8 @@ class SearchViewController: UIViewController {
 //        self.setTargets()
         self.setDelegates()
 //        self.setAlertController()
-//        self.categorizeSongs()
 //        self.addObservers()
+        self.setGestures()
         self.tableView.register(MPSongTableViewCell.self, forCellReuseIdentifier: self.CELL_ID)
     }
     
@@ -56,8 +55,17 @@ class SearchViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate = self
+        self.tapGestureRecognizer.delegate = self
     }
-
+    
+    private func setGestures() {
+        self.view.addGestureRecognizer(self.tapGestureRecognizer)
+    }
+    
+    @objc private func dismissKeyboard() {
+        self.searchBar.resignFirstResponder()
+    }
+    
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,6 +79,22 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.addBottomLine()
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.dismissKeyboard()
+        if let cell = self.tableView.cellForRow(at: indexPath) as? MPSongTableViewCell, let song = cell.song {
+            if !self.player.isPlaying(song: song)  {
+                self.player.setNewQueue(with: .shuffle, startingFrom: song)
+                self.player.play()
+            } else {
+                
+            }
+        }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.dismissKeyboard()
     }
 }
 
@@ -90,5 +114,28 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.text = ""
         self.searchedSongs.removeAll()
         self.tableView.reloadData()
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+        searchBar.cancelButton?.setTitleColor(.white, for: .normal)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+}
+
+extension SearchViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view?.isDescendant(of: self.tableView) ?? false {
+            return false
+        }
+        return true
     }
 }

@@ -114,18 +114,16 @@ class Player: NSObject {
         
         var startingSong: Song
         var songs = [Song]()
-        
+        if let song = song {
+            startingSong = song
+        } else {
+            startingSong = songs[0]
+        }
         switch queueOption {
             case .default:
                 songs = self.songs
-                if let song = song {
-                    startingSong = song
-                } else {
-                    startingSong = songs[0]
-                }
             case .shuffle:
                 songs = self.songs.shuffled()
-                startingSong = songs[0]
         }
         self.insertMany(from: songs, startingFrom: startingSong)
     }
