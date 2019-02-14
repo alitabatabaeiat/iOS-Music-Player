@@ -139,7 +139,7 @@ class SongsViewController: UIViewController {
             }
 
             var startWith = "#"
-            if let firstLetter = string.first, ("a" <= firstLetter && firstLetter <= "z") || ("A" <= firstLetter && firstLetter <= "Z") {
+            if let firstLetter = string.lowercased().first, ("a" <= firstLetter && firstLetter <= "z") {
                 startWith = String(firstLetter)
             }
             

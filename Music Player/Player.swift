@@ -78,7 +78,18 @@ class Player: NSObject {
     func sort() {
         switch self.sortBy {
             case .ByTitle:
-                self.songs.sort { $0.title < $1.title }
+                self.songs.sort {
+                    if $0.title.isEmpty {
+                        return false
+                    }
+                    if $1.title.isEmpty {
+                        return true
+                    }
+                    if "a" > $0.title.lowercased().first! || $1.title.lowercased().first! > "z" {
+                        return false
+                    }
+                    return $0.title < $1.title
+                }
                 break
             case .ByArtist:
                 self.songs.sort {
@@ -87,6 +98,9 @@ class Player: NSObject {
                     }
                     if $1.artist.isEmpty {
                         return true
+                    }
+                    if "a" > $0.artist.lowercased().first! || $1.artist.lowercased().first! > "z" {
+                        return false
                     }
                     return $0.artist < $1.artist
                 }
@@ -114,16 +128,16 @@ class Player: NSObject {
         
         var startingSong: Song
         var songs = [Song]()
-        if let song = song {
-            startingSong = song
-        } else {
-            startingSong = songs[0]
-        }
         switch queueOption {
             case .default:
                 songs = self.songs
             case .shuffle:
                 songs = self.songs.shuffled()
+        }
+        if let song = song {
+            startingSong = song
+        } else {
+            startingSong = songs[0]
         }
         self.insertMany(from: songs, startingFrom: startingSong)
     }
