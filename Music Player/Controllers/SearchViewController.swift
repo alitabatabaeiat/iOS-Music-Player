@@ -15,12 +15,15 @@ class SearchViewController: UIViewController {
     var searchedSongs = [Song]()
     
     let CELL_ID = "search_view_controller_cell_id"
-    let headerView = MPHeaderView(titleText: "SEARCH", rightButtonImage: nil)
+    let headerView = MPHeaderView(titleText: "SEARCH", rightButtonImage: nil, withBottomBorder: false)
     let tableView = MPTableView()
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.barTintColor = .blue1
+        searchBar.barTintColor = .blue2
+        searchBar.searchBarStyle = UISearchBar.Style.minimal
+        searchBar.addBorders(edges: [.bottom], color: .gray, thickness: 0.2)
+        searchBar.placeholder = "artist or song"
         
         return searchBar
     }()
@@ -102,7 +105,8 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             self.searchedSongs = self.songs.filter {
-                $0.title.lowercased().prefix(searchText.count) == searchText.lowercased()
+                $0.title.lowercased().prefix(searchText.count) == searchText.lowercased() ||
+                $0.artist.lowercased().prefix(searchText.count) == searchText.lowercased()
             }
         } else {
             self.searchedSongs.removeAll()
@@ -123,7 +127,8 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
-        searchBar.cancelButton?.setTitleColor(.white, for: .normal)
+        searchBar.cancelButton?.setTitleColor(.blue1, for: .normal)
+        searchBar.image(for: .search, state: .focused)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

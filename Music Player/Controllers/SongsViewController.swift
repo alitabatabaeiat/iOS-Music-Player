@@ -25,7 +25,7 @@ class SongsViewController: UIViewController {
         button.setTitle("play", for: .normal)
         button.layer.cornerRadius = 4
         button.clipsToBounds = true
-        button.backgroundColor = .grey2
+        button.backgroundColor = .blue2
         button.setTitleColor(.blue1, for: .normal)
         button.titleLabel?.font = UIFont.lato?.withSize(18)
         
@@ -37,7 +37,7 @@ class SongsViewController: UIViewController {
         button.setTitle("shuffle", for: .normal)
         button.layer.cornerRadius = 4
         button.clipsToBounds = true
-        button.backgroundColor = .grey2
+        button.backgroundColor = .blue2
         button.setTitleColor(.blue1, for: .normal)
         button.titleLabel?.font = UIFont.lato?.withSize(18)
         

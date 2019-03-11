@@ -15,7 +15,7 @@ class MPHeaderView: UIView {
     let title = MPLabel(fontSize: 20, textAlignment: .center)
     let rightButton = MPButton()
     
-    init(titleText: String, rightButtonImage: UIImage? = nil) {
+    init(titleText: String, rightButtonImage: UIImage? = nil, withBottomBorder: Bool = true) {
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
         
@@ -25,7 +25,9 @@ class MPHeaderView: UIView {
         [self.title, self.rightButton].forEach { self.addSubview($0) }
         
         self.setAnchors()
-        self.addBorders(edges: [.bottom], color: .gray, thickness: 0.2)
+        if withBottomBorder {
+            self.addBorders(edges: [.bottom], color: .gray, thickness: 0.2)
+        }
         if rightButtonImage != nil {
             self.rightButton.addTarget(self, action: #selector(self.rightButtonPressed), for: .touchUpInside)
         }
