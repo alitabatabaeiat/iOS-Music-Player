@@ -52,6 +52,22 @@ extension UIView {
         }
     }
     
+    func safeAreaLeadingAnchor() -> NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.leadingAnchor
+        } else {
+            return self.leadingAnchor
+        }
+    }
+    
+    func safeAreaTrailingAnchor() -> NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.trailingAnchor
+        } else {
+            return self.trailingAnchor
+        }
+    }
+    
     @discardableResult
     func fillSuperview() -> [String:NSLayoutConstraint] {
         return anchor(top: superview?.topAnchor, right: superview?.rightAnchor, bottom: superview?.bottomAnchor, left: superview?.leftAnchor)
@@ -153,6 +169,14 @@ extension UIView {
         }
         
         return borders
+    }
+    
+    func makeSnapshot() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
+        drawHierarchy(in: bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }
 

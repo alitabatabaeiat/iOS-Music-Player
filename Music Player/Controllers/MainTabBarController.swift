@@ -53,6 +53,7 @@ class MainTabBarController: UITabBarController {
     
     private func expandSong(song: Song) {
         let songCardViewController = SongCardViewController()
+        songCardViewController.backingImage = self.view.makeSnapshot()
         songCardViewController.configure(song: song)
         self.present(songCardViewController, animated: true)
     }
