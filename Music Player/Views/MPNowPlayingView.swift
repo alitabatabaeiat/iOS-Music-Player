@@ -10,9 +10,11 @@ import UIKit
 import AVFoundation
 import SwiftIconFont
 
-class MPNowPlayingView: UIView {
+class MPNowPlayingView: UIView, SongSubscriber {
     
     var delegate: MPNowPlayingViewDelegate?
+    
+    var currentSong: Song?
     
     static let buttonSize = CGSize(width: 30, height: 30)
     var isPlaying = false {
@@ -77,7 +79,7 @@ extension MPNowPlayingView {
     
     private func setAnchors() {
         self.artwork.anchor(top: self.topAnchor, right: nil, bottom: self.bottomAnchor, left: self.leftAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0))
-        self.artwork.widthAnchor.constraint(equalTo: self.artwork.heightAnchor).isActive = true
+        self.artwork.aspect(1, 1, widthIsConstrained: false)
         
         self.nextButton.anchor(top: nil, right: self.rightAnchor, bottom: nil, left: nil, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 10), size: MPNowPlayingView.buttonSize)
         self.nextButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
@@ -100,9 +102,11 @@ extension MPNowPlayingView {
         self.playButton.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
         self.nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
         self.previousButton.addTarget(self, action: #selector(previousButtonPressed), for: .touchUpInside)
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handlePress)))
     }
     
-    func configure(with song: Song) {
+    func configure(song: Song) {
+        self.currentSong = song
         self.titleLabel.text = song.title
         self.artistLabel.text = song.artist
         self.artwork.image = song.artwork
@@ -141,5 +145,9 @@ extension MPNowPlayingView {
     @objc func previousButtonPressed() {
         self.previousButton.animate(completion: nil)
         Player.shared.previous()
+    }
+    
+    @objc func handlePress() {
+        self.delegate?.onPress(in: self)
     }
 }

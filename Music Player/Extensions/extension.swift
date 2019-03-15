@@ -10,6 +10,16 @@ import UIKit
 
 extension UIView {
     
+    func animate(completion: ((Bool) -> Void)?) {
+        UIView.animate(withDuration: 0.12, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
+        }) { (_) in
+            UIView.animate(withDuration: 0.23, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+                self.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }, completion: completion)
+        }
+    }
+    
     func safeAreaTopAnchor() -> NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.topAnchor
@@ -64,27 +74,27 @@ extension UIView {
         
         var constraintList = [String:NSLayoutConstraint]()
         if let top = top {
-            constraintList["top"] = topAnchor.constraint(equalTo: top, constant: padding.top)
+            constraintList["top"] = self.topAnchor.constraint(equalTo: top, constant: padding.top)
         }
         
         if let right = right {
-            constraintList["right"] = rightAnchor.constraint(equalTo: right, constant: -padding.right)
+            constraintList["right"] = self.rightAnchor.constraint(equalTo: right, constant: -padding.right)
         }
         
         if let bottom = bottom {
-            constraintList["bottom"] = bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom)
+            constraintList["bottom"] = self.bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom)
         }
         
         if let left = left {
-            constraintList["left"] = leftAnchor.constraint(equalTo: left, constant: padding.left)
+            constraintList["left"] = self.leftAnchor.constraint(equalTo: left, constant: padding.left)
         }
         
         if size.width != 0 {
-            constraintList["width"] = widthAnchor.constraint(equalToConstant: size.width)
+            constraintList["width"] = self.widthAnchor.constraint(equalToConstant: size.width)
         }
         
         if size.height != 0 {
-            constraintList["height"] = heightAnchor.constraint(equalToConstant: size.height)
+            constraintList["height"] = self.heightAnchor.constraint(equalToConstant: size.height)
         }
         
         for (_, constraint) in constraintList {
@@ -92,6 +102,14 @@ extension UIView {
         }
         
         return constraintList
+    }
+    
+    func aspect(_ width: Int, _ height: Int, widthIsConstrained: Bool) {
+        if widthIsConstrained {
+            self.heightAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        } else {
+            self.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        }
     }
     
     @discardableResult

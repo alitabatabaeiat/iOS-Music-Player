@@ -139,7 +139,7 @@ class SongsViewController: UIViewController {
             }
 
             var startWith = "#"
-            if let firstLetter = string.lowercased().first, ("a" <= firstLetter && firstLetter <= "z") {
+            if let firstLetter = string.uppercased().first, ("A" <= firstLetter && firstLetter <= "Z") {
                 startWith = String(firstLetter)
             }
             
@@ -204,6 +204,7 @@ extension SongsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = self.tableView.cellForRow(at: indexPath) as? MPSongTableViewCell, let song = cell.song {
+            cell.animate()
             if !self.player.isPlaying(song: song)  {
                 self.player.setNewQueue(with: .default, startingFrom: song)
                 self.player.play()

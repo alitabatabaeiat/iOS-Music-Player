@@ -87,6 +87,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.dismissKeyboard()
         if let cell = self.tableView.cellForRow(at: indexPath) as? MPSongTableViewCell, let song = cell.song {
+            cell.animate()
             if !self.player.isPlaying(song: song)  {
                 self.player.setNewQueue(with: .shuffle, startingFrom: song)
                 self.player.play()

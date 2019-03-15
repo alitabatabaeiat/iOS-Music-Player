@@ -19,6 +19,8 @@
 		3443025621B97EBD0034679A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443025521B97EBD0034679A /* Player.swift */; };
 		3443025921B9B7720034679A /* Music_Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3443025721B9B7720034679A /* Music_Player.xcdatamodeld */; };
 		34A2C37221BF03FD0012903F /* enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A2C37121BF03FD0012903F /* enum.swift */; };
+		34AFAA8C223B8C9500CFB2B4 /* SongCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AFAA8B223B8C9500CFB2B4 /* SongCardViewController.swift */; };
+		34AFAA8E223B950100CFB2B4 /* SongSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AFAA8D223B950100CFB2B4 /* SongSubscriber.swift */; };
 		34F0BD4A21B31E14007436EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD4921B31E14007436EF /* AppDelegate.swift */; };
 		34F0BD4C21B31E14007436EF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0BD4B21B31E14007436EF /* MainTabBarController.swift */; };
 		34F0BD5421B31E17007436EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F0BD5321B31E17007436EF /* Assets.xcassets */; };
@@ -82,6 +84,8 @@
 		3443025521B97EBD0034679A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3443025821B9B7720034679A /* Music_Player.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Music_Player.xcdatamodel; sourceTree = "<group>"; };
 		34A2C37121BF03FD0012903F /* enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enum.swift; sourceTree = "<group>"; };
+		34AFAA8B223B8C9500CFB2B4 /* SongCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardViewController.swift; sourceTree = "<group>"; };
+		34AFAA8D223B950100CFB2B4 /* SongSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSubscriber.swift; sourceTree = "<group>"; };
 		34F0BD4621B31E14007436EF /* Music Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F0BD4921B31E14007436EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F0BD4B21B31E14007436EF /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			children = (
 				3441A43D21B85FA30073449E /* Song.swift */,
 				34F1C2E621C3E776002D6C05 /* Playlist.swift */,
+				34AFAA8D223B950100CFB2B4 /* SongSubscriber.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				34F0BD6121B31EF9007436EF /* SongsViewController.swift */,
 				34F0BD6321B31F81007436EF /* SearchViewController.swift */,
 				34F0BD6521B31F90007436EF /* PlaylistsViewController.swift */,
+				34AFAA8B223B8C9500CFB2B4 /* SongCardViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 				3443025221B964260034679A /* MPView.swift in Sources */,
 				34F0BD6221B31EF9007436EF /* SongsViewController.swift in Sources */,
 				3443025921B9B7720034679A /* Music_Player.xcdatamodeld in Sources */,
+				34AFAA8C223B8C9500CFB2B4 /* SongCardViewController.swift in Sources */,
 				3441A43821B806470073449E /* MPNowPlayingView.swift in Sources */,
 				34F0BD6921B321DA007436EF /* MPTableView.swift in Sources */,
 				34A2C37221BF03FD0012903F /* enum.swift in Sources */,
@@ -470,6 +477,7 @@
 				34F0BD4C21B31E14007436EF /* MainTabBarController.swift in Sources */,
 				3443024E21B939A30034679A /* protocol.swift in Sources */,
 				342B79F021B871DC00586DA3 /* MPHeaderView.swift in Sources */,
+				34AFAA8E223B950100CFB2B4 /* SongSubscriber.swift in Sources */,
 				34F0BD6621B31F90007436EF /* PlaylistsViewController.swift in Sources */,
 				3441A43E21B85FA30073449E /* Song.swift in Sources */,
 				341E8203220979C200B4E4F9 /* SongsManager.swift in Sources */,

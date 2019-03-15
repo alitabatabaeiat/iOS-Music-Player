@@ -70,3 +70,9 @@ class MPSongTableViewCell: UITableViewCell {
     }
     
 }
+
+extension MPSongTableViewCell {
+    public func animate() {
+        self.artwork.animate(completion: nil)
+    }
+}

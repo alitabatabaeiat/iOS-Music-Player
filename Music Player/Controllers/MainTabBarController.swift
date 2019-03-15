@@ -48,13 +48,20 @@ class MainTabBarController: UITabBarController {
     
     private func setDelegates() {
         self.player.delegate = self
+        self.nowPlayingView.delegate = self
+    }
+    
+    private func expandSong(song: Song) {
+        let songCardViewController = SongCardViewController()
+        songCardViewController.configure(song: song)
+        self.present(songCardViewController, animated: true)
     }
 }
 
 extension MainTabBarController: PlayerDelegate {
     func player(_ player: Player, didPlay song: Song?) {
         if let playingSong = song {
-            self.nowPlayingView.configure(with: playingSong)
+            self.nowPlayingView.configure(song: playingSong)
         }
     }
     
@@ -64,12 +71,21 @@ extension MainTabBarController: PlayerDelegate {
     
     func player(_ player: Player, didAdvanceToNext song: Song?) {
         if let playingSong = song {
-            self.nowPlayingView.configure(with: playingSong)
+            self.nowPlayingView.configure(song: playingSong)
         }
     }
     
     func player(_ player: Player, timeElapsed time: CMTime) {
         let seconds = CMTimeGetSeconds(time)
         self.nowPlayingView.playbackSlider.value = Float(seconds)
+    }
+}
+
+extension MainTabBarController: MPNowPlayingViewDelegate {
+    func onPress(in nowPlayingView: MPNowPlayingView) {
+        guard let currentSong = nowPlayingView.currentSong else {
+            return
+        }
+        self.expandSong(song: currentSong)
     }
 }

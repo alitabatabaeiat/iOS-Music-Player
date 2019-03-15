@@ -14,10 +14,11 @@ protocol MPHeaderViewDelegate {
 }
 
 protocol MPNowPlayingViewDelegate {
-    func play(in nowPlayingView: MPNowPlayingView)
-    func pause(in nowPlayingView: MPNowPlayingView)
-    func next(in nowPlayingView: MPNowPlayingView)
-    func previous(in nowPlayingView: MPNowPlayingView)
+//    func play(in nowPlayingView: MPNowPlayingView)
+//    func pause(in nowPlayingView: MPNowPlayingView)
+//    func next(in nowPlayingView: MPNowPlayingView)
+//    func previous(in nowPlayingView: MPNowPlayingView)
+    func onPress(in nowPlayingView: MPNowPlayingView)
 }
 
 protocol PlayerDelegate {
