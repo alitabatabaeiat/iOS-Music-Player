@@ -151,3 +151,14 @@ extension MPNowPlayingView {
         self.delegate?.onPress(in: self)
     }
 }
+
+extension MPNowPlayingView: SongCardSourceProtocol {
+    var originatingFrameInWindow: CGRect {
+        let windowRect = self.convert(self.frame, to: nil)
+        return windowRect
+        
+    }
+    var originatingartworkImageView: MPImageView {
+        return self.artwork
+    }
+}

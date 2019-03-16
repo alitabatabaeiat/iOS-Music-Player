@@ -55,6 +55,7 @@ class MainTabBarController: UITabBarController {
         let songCardViewController = SongCardViewController()
         songCardViewController.backingImage = self.view.makeSnapshot()
         songCardViewController.configure(song: song)
+        songCardViewController.sourceView = nowPlayingView
         self.present(songCardViewController, animated: true)
     }
 }
