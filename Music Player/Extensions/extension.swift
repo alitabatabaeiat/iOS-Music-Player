@@ -10,6 +10,31 @@ import UIKit
 
 extension UIView {
     
+    func roundCorners(_ corners: CACornerMask, radius: CGFloat) {
+        if #available(iOS 11, *) {
+            self.layer.cornerRadius = radius
+            self.layer.maskedCorners = corners
+        } else {
+            var cornerMask = UIRectCorner()
+            if(corners.contains(.layerMinXMinYCorner)){
+                cornerMask.insert(.topLeft)
+            }
+            if(corners.contains(.layerMaxXMinYCorner)){
+                cornerMask.insert(.topRight)
+            }
+            if(corners.contains(.layerMinXMaxYCorner)){
+                cornerMask.insert(.bottomLeft)
+            }
+            if(corners.contains(.layerMaxXMaxYCorner)){
+                cornerMask.insert(.bottomRight)
+            }
+            let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: cornerMask, cornerRadii: CGSize(width: radius, height: radius))
+            let mask = CAShapeLayer()
+            mask.path = path.cgPath
+            self.layer.mask = mask
+        }
+    }
+    
     func animate(completion: ((Bool) -> Void)?) {
         UIView.animate(withDuration: 0.12, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)

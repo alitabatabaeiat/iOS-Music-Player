@@ -20,6 +20,14 @@ class SongCardViewController: UIViewController, SongSubscriber {
     private var backingImageBottomInset: NSLayoutConstraint!
     
     private let dimmerLayer = MPView()
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return  scrollView
+    }()
+    private let artworkContainer = MPView()
+    private let artworkImageView = MPImageView()
     
     private let primaryDuration = 4.0 //set to 0.5 when ready
     private let backingImageEdgeInset: CGFloat = 15.0
@@ -29,11 +37,23 @@ class SongCardViewController: UIViewController, SongSubscriber {
         super.viewDidLoad()
 
         self.backingImageView.image = self.backingImage
+        self.dimmerLayer.backgroundColor = .black
         
-        [self.backingImageView, self.dimmerLayer].forEach { self.view.addSubview($0) }
+        self.artworkContainer.roundCorners([.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: self.cardCornerRadius)
+        self.artworkContainer.backgroundColor = .white
+        self.artworkImageView.backgroundColor = .yellow
+        
+        [self.backingImageView, self.dimmerLayer, self.scrollView].forEach { self.view.addSubview($0) }
+        [self.artworkContainer].forEach { self.scrollView.addSubview($0) }
+        [self.artworkImageView].forEach { self.artworkContainer.addSubview($0) }
         self.setAnchors()
         self.animateBackingImageIn()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
 }
 
 extension SongCardViewController {
@@ -43,13 +63,19 @@ extension SongCardViewController {
         self.backingImageLeadingInset = self.backingImageView.leadingAnchor.constraint(equalTo: self.view.safeAreaLeadingAnchor())
         self.backingImageTrailingInset = self.backingImageView.trailingAnchor.constraint(equalTo: self.view.safeAreaTrailingAnchor())
         self.dimmerLayer.anchor(top: self.view.topAnchor, right: self.view.safeAreaRightAnchor(), bottom: self.view.bottomAnchor, left: self.view.safeAreaLeftAnchor())
-        [self.backingImageTopInset, self.backingImageBottomInset, self.backingImageTrailingInset, self.backingImageLeadingInset].forEach {
-            $0?.isActive = true
-        }
+        NSLayoutConstraint.activate([self.backingImageTopInset, self.backingImageBottomInset, self.backingImageTrailingInset, self.backingImageLeadingInset])
+        
+        self.scrollView.anchor(top: self.backingImageView.topAnchor, right: self.view.safeAreaRightAnchor(), bottom: self.view.bottomAnchor, left: self.view.safeAreaLeftAnchor(), padding: UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0))
+        
+        self.artworkContainer.anchor(top: self.scrollView.topAnchor, right: self.scrollView.rightAnchor, bottom: self.scrollView.bottomAnchor, left: self.scrollView.leftAnchor, padding: UIEdgeInsets(top: 57, left: 0, bottom: 237, right: 0))
+        NSLayoutConstraint.activate([self.artworkContainer.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor)])
+        
+        self.artworkImageView.anchor(top: self.artworkContainer.topAnchor, right: nil, bottom: self.artworkContainer.bottomAnchor, left: self.artworkContainer.leftAnchor, padding: UIEdgeInsets(top: 38, left: 30, bottom: 30, right: 0), size: CGSize(width: 0, height: 354))
+        self.artworkImageView.aspect(1, 1, widthIsConstrained: false)
     }
     
     
-    public func configure(song: Song) {
+    public func configure(song: Song?) {
         self.currentSong = song
     }
 }
@@ -59,7 +85,7 @@ extension SongCardViewController {
     private func configureBackingImageInPosition(presenting: Bool) {
         let edgeInset: CGFloat = presenting ? self.backingImageEdgeInset : 0
         let dimmerAlpha: CGFloat = presenting ? 0.3 : 0
-        let cornerRadius: CGFloat = presenting ? cardCornerRadius : 0
+        let cornerRadius: CGFloat = presenting ? self.cardCornerRadius : 0
         
         
         self.backingImageLeadingInset.constant = edgeInset

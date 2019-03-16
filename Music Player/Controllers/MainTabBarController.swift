@@ -51,7 +51,7 @@ class MainTabBarController: UITabBarController {
         self.nowPlayingView.delegate = self
     }
     
-    private func expandSong(song: Song) {
+    private func expandSong(song: Song?) {
         let songCardViewController = SongCardViewController()
         songCardViewController.backingImage = self.view.makeSnapshot()
         songCardViewController.configure(song: song)
@@ -84,9 +84,9 @@ extension MainTabBarController: PlayerDelegate {
 
 extension MainTabBarController: MPNowPlayingViewDelegate {
     func onPress(in nowPlayingView: MPNowPlayingView) {
-        guard let currentSong = nowPlayingView.currentSong else {
-            return
-        }
-        self.expandSong(song: currentSong)
+//        guard let currentSong = nowPlayingView.currentSong else {
+//            return
+//        }
+        self.expandSong(song: nowPlayingView.currentSong)
     }
 }
