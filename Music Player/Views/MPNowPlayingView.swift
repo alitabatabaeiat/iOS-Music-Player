@@ -26,7 +26,7 @@ class MPNowPlayingView: UIView, SongSubscriber {
             }
         }
     }
-    let artwork = MPImageView(cornerRadius: 3)
+    let artwork = MPImageView(image: UIImage(named: "music"), cornerRadius: 3)
     let titleLabel = MPLabel(text: "Not Playing", fontSize: 12)
     let artistLabel = MPLabel(text: "", font: UIFont.latoLight, fontSize: 12)
     let previousButton: MPButton = {

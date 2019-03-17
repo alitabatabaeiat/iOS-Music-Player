@@ -24,7 +24,9 @@ class SongCardViewController: UIViewController, SongSubscriber {
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        }
         
         return  scrollView
     }()
@@ -35,7 +37,7 @@ class SongCardViewController: UIViewController, SongSubscriber {
     private var artworkContainerConstraints = [String : NSLayoutConstraint]()
     private var artworkImageConstraints = [String : NSLayoutConstraint]()
     
-    private let primaryDuration = 0.5 //set to 0.5 when ready
+    private let primaryDuration = 4.0 //set to 0.5 when ready
     private let backingImageEdgeInset: CGFloat = 15.0
     private let cardCornerRadius: CGFloat = 10
     
@@ -85,7 +87,7 @@ extension SongCardViewController {
         self.artworkContainerConstraints = self.artworkContainer.anchor(top: self.scrollView.topAnchor, right: self.scrollView.rightAnchor, bottom: self.scrollView.bottomAnchor, left: self.scrollView.leftAnchor, padding: UIEdgeInsets(top: 57, left: 0, bottom: 237, right: 0))
         NSLayoutConstraint.activate([self.artworkContainer.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor)])
         
-        self.artworkImageConstraints = self.artworkImageView.anchor(top: self.artworkContainer.topAnchor, right: nil, bottom: self.artworkContainer.bottomAnchor, left: self.artworkContainer.leftAnchor, padding: UIEdgeInsets(top: 38, left: 30, bottom: 30, right: 0), size: CGSize(width: 0, height: 354))
+        self.artworkImageConstraints = self.artworkImageView.anchor(top: self.artworkContainer.topAnchor, right: nil, bottom: self.artworkContainer.bottomAnchor, left: self.artworkContainer.leftAnchor, padding: UIEdgeInsets(top: 38, left: 30, bottom: -30, right: 0), size: CGSize(width: 0, height: 354))
         self.artworkImageView.aspect(1, 1, widthIsConstrained: false)
     }
     
@@ -103,14 +105,14 @@ extension SongCardViewController {
         let cornerRadius: CGFloat = presenting ? self.cardCornerRadius : 0
         
         
-        self.backingImageConstraints["left"]?.constant = edgeInset
-        self.backingImageConstraints["right"]?.constant = -edgeInset
+        self.backingImageConstraints["left"]!.constant = edgeInset
+        self.backingImageConstraints["right"]!.constant = -edgeInset
         var aspectRatio = CGFloat(1)
         if let backingImage = self.backingImage {
             aspectRatio = backingImage.size.height / backingImage.size.width
         }
-        self.backingImageConstraints["top"]?.constant = edgeInset * aspectRatio
-        self.backingImageConstraints["bottom"]?.constant = -edgeInset * aspectRatio
+        self.backingImageConstraints["top"]!.constant = edgeInset * aspectRatio
+        self.backingImageConstraints["bottom"]!.constant = -edgeInset * aspectRatio
         
         self.dimmerLayer.alpha = dimmerAlpha
         
@@ -156,7 +158,7 @@ extension SongCardViewController {
         let startInset = imageLayerInsetForOutPosition
 //        dismissChevron.alpha = 0
         self.artworkContainer.layer.cornerRadius = 0
-        self.artworkContainerConstraints["top"]?.constant = startInset
+        self.artworkContainerConstraints["top"]!.constant = startInset
         self.view.layoutIfNeeded()
     }
     
@@ -166,11 +168,15 @@ extension SongCardViewController {
         }
         
         UIView.animate(withDuration: primaryDuration, delay: 0, options: [.curveEaseIn], animations: {
-            self.artworkContainerConstraints["top"]?.constant = 0
+            self.artworkContainerConstraints["top"]!.constant = 0
 //            self.dismissChevron.alpha = 1
             self.artworkContainer.layer.cornerRadius = self.cardCornerRadius
             self.view.layoutIfNeeded()
-        })
+        }) { (_) in
+            
+            print("self.artworkContainer.bounds = \(self.artworkContainer.bounds)")
+            print("self.artworkImageView.bounds = \(self.artworkImageView.bounds)")
+        }
     }
     
     func animateImageLayerOut(completion: @escaping ((Bool) -> Void)) {
@@ -185,7 +191,7 @@ extension SongCardViewController {
         })
         
         UIView.animate(withDuration: primaryDuration, delay: 0, options: [.curveEaseOut], animations: {
-            self.artworkContainerConstraints["top"]?.constant = endInset
+            self.artworkContainerConstraints["top"]!.constant = endInset
 //            self.dismissChevron.alpha = 0
             self.artworkContainer.layer.cornerRadius = 0
             self.view.layoutIfNeeded()
@@ -196,20 +202,20 @@ extension SongCardViewController {
 extension SongCardViewController {
     func configureCoverImageInStartPosition() {
         let originatingImageFrame = sourceView.originatingartworkImageView.frame
-        self.artworkImageConstraints["height"]?.constant = originatingImageFrame.height
-        self.artworkImageConstraints["left"]?.constant = originatingImageFrame.minX
-        self.artworkImageConstraints["top"]?.constant = originatingImageFrame.minY
-        self.artworkImageConstraints["bottom"]?.constant = originatingImageFrame.minY
+        self.artworkImageConstraints["height"]!.constant = originatingImageFrame.height
+        self.artworkImageConstraints["left"]!.constant = originatingImageFrame.minX
+        self.artworkImageConstraints["top"]!.constant = originatingImageFrame.minY
+        self.artworkImageConstraints["bottom"]!.constant = originatingImageFrame.minY
     }
     
     func animateCoverImageIn() {
         let coverImageEdgeContraint: CGFloat = 30
         let endHeight = self.artworkContainer.bounds.width - coverImageEdgeContraint * 2
         UIView.animate(withDuration: primaryDuration, delay: 0, options: [.curveEaseIn], animations:  {
-            self.artworkImageConstraints["height"]?.constant = endHeight
-            self.artworkImageConstraints["left"]?.constant = coverImageEdgeContraint
-            self.artworkImageConstraints["top"]?.constant = coverImageEdgeContraint
-            self.artworkImageConstraints["bottom"]?.constant = coverImageEdgeContraint
+            self.artworkImageConstraints["height"]!.constant = endHeight
+            self.artworkImageConstraints["left"]!.constant = coverImageEdgeContraint
+            self.artworkImageConstraints["top"]!.constant = coverImageEdgeContraint
+            self.artworkImageConstraints["bottom"]!.constant = -coverImageEdgeContraint
             self.view.layoutIfNeeded()
         })
     }
