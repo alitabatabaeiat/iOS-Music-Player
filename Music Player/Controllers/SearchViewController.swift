@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.barTintColor = .blue2
+        searchBar.barTintColor = .ghostWhite
         searchBar.searchBarStyle = UISearchBar.Style.minimal
         searchBar.addBorders(edges: [.bottom], color: .gray, thickness: 0.2)
         searchBar.placeholder = "artist or song"
@@ -128,7 +128,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
-        searchBar.cancelButton?.setTitleColor(.blue1, for: .normal)
+        searchBar.cancelButton?.setTitleColor(.royalBlue, for: .normal)
         searchBar.image(for: .search, state: .focused)
     }
     

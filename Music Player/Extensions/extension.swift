@@ -207,9 +207,9 @@ extension UIView {
 
 extension UIColor {
     
-    static let blue0 = UIColor(rgb: 0x64E4FF)
-    static let blue1 = UIColor(rgb: 0x3A7BD5)
-    static let blue2 = UIColor(rgb: 0xf4f6ff)
+    static let turquoiseBlue = UIColor(rgb: 0x64E4FF)
+    static let royalBlue = UIColor(rgb: 0x3A7BD5)
+    static let ghostWhite = UIColor(rgb: 0xf4f6ff)
     static let grey0 = UIColor(rgb: 0x9B9B9B)
     static let grey1 = UIColor(rgb: 0x424242)
     

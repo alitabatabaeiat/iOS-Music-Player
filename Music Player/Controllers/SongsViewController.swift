@@ -21,24 +21,24 @@ class SongsViewController: UIViewController {
     let buttonContainer = MPView()
     let playButton: MPButton = {
         let button = MPButton()
-        button.setImage(UIImage(from: .ionicon, code: "ios-play", textColor: .blue1, size: CGSize(width: 30, height: 30)), for: .normal)
+        button.setImage(UIImage(from: .ionicon, code: "ios-play", textColor: .royalBlue, size: CGSize(width: 30, height: 30)), for: .normal)
         button.setTitle("play", for: .normal)
         button.layer.cornerRadius = 4
         button.clipsToBounds = true
-        button.backgroundColor = .blue2
-        button.setTitleColor(.blue1, for: .normal)
+        button.backgroundColor = .ghostWhite
+        button.setTitleColor(.royalBlue, for: .normal)
         button.titleLabel?.font = UIFont.lato?.withSize(18)
         
         return button
     }()
     let shuffleButton: MPButton = {
         let button = MPButton()
-        button.setImage(UIImage(from: .ionicon, code: "ios-shuffle", textColor: .blue1, size: CGSize(width: 30, height: 30)), for: .normal)
+        button.setImage(UIImage(from: .ionicon, code: "ios-shuffle", textColor: .royalBlue, size: CGSize(width: 30, height: 30)), for: .normal)
         button.setTitle("shuffle", for: .normal)
         button.layer.cornerRadius = 4
         button.clipsToBounds = true
-        button.backgroundColor = .blue2
-        button.setTitleColor(.blue1, for: .normal)
+        button.backgroundColor = .ghostWhite
+        button.setTitleColor(.royalBlue, for: .normal)
         button.titleLabel?.font = UIFont.lato?.withSize(18)
         
         return button

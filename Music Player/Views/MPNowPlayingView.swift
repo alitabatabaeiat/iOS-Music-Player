@@ -51,7 +51,7 @@ class MPNowPlayingView: UIView, SongSubscriber {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.isContinuous = false
-        slider.minimumTrackTintColor = .blue1
+        slider.minimumTrackTintColor = .royalBlue
         slider.setThumbImage(UIImage(), for: .normal)
         
         return slider
