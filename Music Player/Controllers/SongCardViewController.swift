@@ -67,6 +67,7 @@ class SongCardViewController: UIViewController, SongSubscriber {
         [self.artworkContainer].forEach { self.scrollView.addSubview($0) }
         [self.artworkImageView, self.dismissButton].forEach { self.artworkContainer.addSubview($0) }
         self.setAnchors()
+        self.setTargets()
         self.animateBackingImageIn()
     }
     
@@ -93,6 +94,9 @@ extension SongCardViewController {
         NSLayoutConstraint.activate([self.dismissButton.centerXAnchor.constraint(equalTo: self.artworkContainer.centerXAnchor)])
     }
     
+    private func setTargets() {
+        self.dismissButton.addTarget(self, action: #selector(self.dismissButtonOnPress), for: .touchUpInside)
+    }
     
     public func configure(song: Song?) {
         self.currentSong = song
@@ -225,5 +229,15 @@ extension SongCardViewController {
                         self.configureCoverImageInStartPosition()
                         self.view.layoutIfNeeded()
         })
+    }
+}
+
+extension SongCardViewController {
+    @objc private func dismissButtonOnPress() {
+        animateBackingImageOut()
+        animateCoverImageOut()
+        animateImageLayerOut() { _ in
+            self.dismiss(animated: false)
+        }
     }
 }
